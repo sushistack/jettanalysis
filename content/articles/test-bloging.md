@@ -1,0 +1,54 @@
+---
+title: My first Blog Post
+description: Learning how to use @nuxt/content to create a blog
+img: ''
+alt: my first blog post
+createdAt: '2021-08-02 00:00:00'
+updatedAt: '2021-08-03 00:00:00'
+author:
+  name: Benjamin
+  bio: All about Benjamin
+  img: https://secure.gravatar.com/avatar/ff8eab31fb6066670f6d0fe9d9f0166f?s=96&d=mm&r=g
+---
+
+## This is a heading
+
+This is some more info
+
+### This is a sub heading
+
+This is some more info
+
+<!--more-->
+
+### This is another sub heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
+
+## This is another heading
+
+This is some more info
