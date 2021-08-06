@@ -2,7 +2,7 @@
 svg#logo(
   xmlns='http://www.w3.org/2000/svg' 
   :width='logoSize' 
-  fill='#00afff' 
+  :fill='logoFill' 
   viewBox='0 0 944.15 727.5'
   :style='{"margin-top": logoMarginTop}'
 )
@@ -24,7 +24,7 @@ svg#logo(
 
 <script>
 export default {
-  props: ['size', 'marginTop'],
+  props: ['size', 'marginTop', 'fill'],
   computed: {
     logoSize () {
       if (!this.size) return 100
@@ -33,6 +33,10 @@ export default {
     logoMarginTop () {
       if (!this.marginTop) return '0px'
       return `${this.marginTop}px`
+    },
+    logoFill () {
+      if (!this.fill) return '#00afff'
+      return this.fill
     }
   }
 }

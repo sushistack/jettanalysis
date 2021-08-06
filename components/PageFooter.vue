@@ -7,7 +7,10 @@ footer.css-895q96
           .css-1k9xznr
             .css-j0bl2w
               router-link.css-osz9vn(title='Backlinko' to='/')
-                logo(size='60')
+                logo(
+                  size='60'
+                  fill='#fff'
+                )
               .css-1l6xqrc
                 p 최적의 검색 엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
             .css-1enann6

@@ -7,10 +7,9 @@
         .css-1isgq23
           .css-1k9xznr
             .css-1jwyo51
-              h1.css-14cif07 Want higher rankings and more traffic?
+              h1.css-14cif07 검색 순위 상승과 더 많은 트래픽을 원하시나요?
               .css-fuu65d
-                p
-                  | You’ve come to the right place. Backlinko is the place for next-level SEO training and link building strategies.
+                p 제대로 찾아오셨습니다. JETT Analysis는 다양한 SEO 전략과 팁들 그리고 링크빌딩 전략을 제공합니다.
             .css-ovzwb1
               figure.css-19silmo
                 picture
@@ -20,30 +19,19 @@
       .css-140242p
         .css-1isgq23
           .css-1411txx
-            h3.css-qhuqqz Want higher rankings?
+            h3.css-qhuqqz 높은 검색 순위를 원하세요?
             .css-y4zzde
               p
-                | Then join 110,424 others (including top marketers from Apple, Disney, IBM, and Amazon) that get my weekly SEO tips via email.
+                | 다양한 회사의 마케터 등의 수 많은 사용자들이 저희에게 상담을 요청하고 있습니다.
             .css-1mswzqz
               .css-79elbk
                 form(action='https://www.aweber.com/scripts/addlead.pl' method='post')
                   .aweber-form-body
-                    ul.css-1vd0gw5
-                      li.aweber-form-field.form-group.css-1pkbgp8
-                        #aweber-field-email.aweber-input-container.aweber-input-container-email
-                          input#form-item-email.css-180hg6q(name='email' type='email' placeholder='Email Address')
-                  .aweber-form-footer.left
-                    button.css-183kcki.e1fw58rm0(type='button' role='button') Try It
-                    div(style='display: none;')
-                      input(type='hidden' name='listname' value='backlinkoreport')
-                      input(type='hidden' name='redirect' value='https://backlinko.com/almost-done/free-updates')
-                      input(type='hidden' name='meta_redirect_onlist' value='https://backlinko.com/already-subscribed')
-                      input(type='hidden' name='meta_tags' value='sitewide-main-list-optin')
-                      input(type='hidden' name='meta_required' value='email')
+                    button.caller-btn.e1fw58rm0(type='button' role='button') 상담하기
     section
       .css-1bqdi62
         .css-1y4vu0u
-          h2.css-xvb5ry About Brian Dean
+          h2.css-xvb5ry JETT Analysis 소개
           .css-1k9xznr
             .css-36dv62
               .css-rs4bqn
@@ -60,17 +48,543 @@
                     source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.webp 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.webp 700w' sizes='(max-width: 300px) 100vw, 300px' type='image/webp')
                     img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.jpg 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.jpg 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.jpg 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.jpg 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg 700w' sizes='(max-width: 300px) 100vw, 300px' alt='Brian-0052' loading='lazy')
                 div
-                  p Backlinko was founded by Brian Dean, an internationally recognized SEO expert.
-                  p
-                    | After failing with his first five online businesses, Brian finally struck gold with a site in the personal finance space in 2012. He created Backlinko to teach the lessons he learned along the way.
-                  p
-                    | Since launching Backlinko, Brian quickly made a name for himself by publishing insanely practical strategies that marketers can use to grow their online business. Backlinko is now one of the most popular marketing blogs online.
-                  p.sc-twitter-follow
-                    iframe#twitter-widget-0.twitter-follow-button.twitter-follow-button-rendered(scrolling='no' frameborder='0' allowtransparency='true' allowfullscreen='true' style='position: static; visibility: visible; width: 216px; height: 20px;' title='Twitter Follow Button' src='https://platform.twitter.com/widgets/follow_button.f88235f49a156f8b4cab34c7bc1a0acc.en.html#dnt=false&id=twitter-widget-0&lang=en&screen_name=backlinko&show_count=true&show_screen_name=true&size=m&time=1628166014789' data-screen-name='backlinko')
-                    script(async='' src='//platform.twitter.com/widgets.js' charset='utf-8')
-          figure.css-vcm286
-            img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/circles.svg' alt='circles' loading='lazy')
-
-
+                  p JETT Analysis는 국제적으로 인정받는 SEO 전문가에 의해 설립되었습니다.
+                  p JETT Analysis는 첫 3개의 온라인 사업에서 실패한 후, 마침내 한 사이트를 설립했습니다. 그는 그 과정에서 배운 교훈을 가르치기 위해 JETT Analysis를 만들었습니다.
+                  p JETT Analysis가 런칭된 이후 마케터들이 온라인 비즈니스를 성장시키기 위해 사용할 수 있는 엄청나게 실용적인 전략을 발표함으로써 빠르게 명성을 떨쳤습니다. JETT Analysis는 현재 온라인 상에서 가장 인기 있는 마케팅 블로그 중 하나입니다.
   page-footer
 </template>
+
+<style lang="scss" scoped>
+
+figure {
+  margin: 0px 0px 1rem;
+}
+
+.css-z0gvzq {
+  overflow: hidden;
+  padding: 60px 0 65px;
+}
+
+.css-1isgq23 {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.css-1k9xznr {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.css-1jwyo51 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.css-14cif07 {
+  line-height: 1.3;
+  font-weight: 800;
+  font-size: 32px;
+}
+
+.css-fuu65d {
+  font-size: 17px;
+}
+
+.css-fuu65d *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.css-140242p {
+  padding-bottom: 0;
+  padding-top: 57.6px;
+}
+
+.css-1411txx {
+  position: relative;
+  background-color: #00afff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px 25px;
+}
+
+.css-1411txx::before,.css-1411txx::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.css-1411txx::before {
+  border-width: 100px 100px 0 0;
+  border-color: #000 transparent transparent transparent;
+}
+
+.css-1411txx::after {
+  border-width: 0 0 100px 100px;
+  border-color: transparent transparent #fff transparent;
+}
+
+.css-qhuqqz {
+  color: #fff;
+  font-size: 32px;
+}
+
+.css-y4zzde {
+  color: #fff;
+  max-width: 630px;
+}
+
+.css-y4zzde *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.css-1mswzqz {
+  width: 100%;
+  margin: 25px 0 0;
+  max-width: 580px;
+}
+
+.css-79elbk {
+  position: relative;
+}
+
+.css-1y4vu0u {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 1;
+}
+
+.css-xvb5ry {
+  text-align: center;
+  color: #061845;
+  margin-bottom: 0;
+  font-size: 32px;
+  padding-bottom: 43.2px;
+}
+
+.css-tc2za9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.css-36dv62 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.css-rs4bqn {
+  position: relative;
+  max-width: 350px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.css-11ywslu {
+  margin-bottom: 1.5rem;
+  max-height: 350px;
+}
+
+.css-11ywslu img {
+  height: 100%;
+  width: 100%;
+}
+
+.css-ateso6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.css-qq57cc {
+  margin: 0 25px 15px 0;
+  width: 100%;
+  height: 150px;
+  text-align: center;
+}
+
+.css-qq57cc img {
+  width: 150px;
+  border-radius: 100%;
+  margin: 0;
+}
+
+.css-xh93ug .sc-twitter-follow {
+    margin: 2rem 0;
+}
+
+.css-xh93ug *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.css-19silmo {
+  margin-bottom: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.css-1a2v9hb {
+  max-width: 100%;
+  height: auto;
+}
+
+.css-vcm286 {
+  position: absolute;
+  right: -180px;
+  bottom: -420px;
+  margin-bottom: 0;
+}
+
+.css-vcm286 img {
+  width: 100%;
+  height: 100%;
+}
+
+.css-ovzwb1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.caller-btn {
+  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 1.05rem 1.2rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-style: normal;
+  white-space: normal;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  margin: 0;
+  cursor: pointer;
+  text-transform: none;
+  font-weight: 600;
+  min-height: 3.7875rem;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 1.05rem 1.2rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-style: normal;
+  white-space: normal;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  cursor: pointer;
+  text-transform: none;
+  font-weight: 600;
+  min-height: 3.7875rem;
+  outline: none;
+  border-radius: 6px;
+  top: 0;
+  right: 0;
+  min-width: 170px;
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  width: 100%;
+}
+
+.caller-btn:disabled[disabled] {
+  cursor: not-allowed;
+}
+
+.caller-btn:disabled[disabled] {
+  cursor: not-allowed;
+}
+
+.css-1bqdi62 {
+  overflow: hidden;
+  position: relative;
+  padding-top: 57.6px;
+  padding-bottom: 57.6px;
+}
+
+@media (min-width: 576px) {
+  .css-1isgq23 {
+    padding-right:10px;
+    padding-left: 10px;
+  }
+  .css-1y4vu0u {
+    padding-right:10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 540px) {
+  .css-1isgq23 {
+    max-width:540px;
+  }
+  .css-1y4vu0u {
+    max-width:540px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .caller-btn {
+    width:100%;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .css-z0gvzq {
+    padding:80px 0 100px;
+  }
+  .css-1isgq23 {
+    max-width:720px;
+  }
+  .css-14cif07 {
+    margin-bottom:50px;
+    font-size: 48px;
+  }
+  .css-fuu65d {
+    font-size:19px;
+  }
+  .css-140242p {
+    padding-top:86.4px;
+  }
+  .css-1411txx {
+    padding:60px 50px 70px;
+  }
+  .css-qhuqqz {
+    font-size:38px;
+  }
+  .css-1mswzqz {
+    margin:45px 0 0;
+  }
+  .css-1y4vu0u {
+    max-width:720px;
+  }
+  .css-xvb5ry {
+    font-size:38px;
+  }
+  .css-xvb5ry {
+    padding-bottom:57.6px;
+  }
+  .css-qq57cc {
+    margin:0 auto 15px auto;
+    width: 210px;
+    height: 210px;
+    img {
+      width:210px;
+    }
+  }
+  .css-1bqdi62 {
+    padding-top:86.4px;
+    padding-bottom:86.4px;
+  }
+  .css-ovzwb1 {
+    -webkit-flex:0 0 50.00000%;
+    -ms-flex: 0 0 50.00000%;
+    flex: 0 0 50.00000%;
+    max-width: 50.00000%;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .css-1jwyo51 {
+    text-align:center;
+  }
+  .css-1411txx::before,.css-1411txx::after {
+    display:none;
+  }
+  .css-1y4vu0u {
+    position:relative;
+  }
+  .css-19silmo {
+    display:none;
+  }
+  .css-vcm286 {
+    display:none;
+  }
+  .css-36dv62 {
+    display:none;
+  }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+  .css-1bqdi62 {
+    margin:0 auto;
+    max-width: 620px;
+  }
+}
+
+@media (min-width: 992px) {
+  .css-z0gvzq {
+    background-image:linear-gradient(180deg,#fff 10%,#eef0f7);
+    background-repeat: repeat-x;
+    padding: 60px 0 215px;
+  }
+  .css-1isgq23 {
+    max-width:960px;
+  }
+  .css-1jwyo51 {
+    -webkit-flex:0 0 50.00000%;
+    -ms-flex: 0 0 50.00000%;
+    flex: 0 0 50.00000%;
+    max-width: 50.00000%;
+  }
+  .css-1jwyo51 {
+    margin:20px 0 30px;
+  }
+  .css-14cif07 {
+    max-width:450px;
+    margin-bottom: 30px;
+  }
+  .css-fuu65d {
+    max-width:450px;
+  }
+  .css-1y4vu0u {
+    max-width:960px;
+  }
+  .css-tc2za9 {
+    -webkit-flex:0 0 83.33333%;
+    -ms-flex: 0 0 83.33333%;
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+  }
+  .css-36dv62 {
+    -webkit-flex:0 0 41.66667%;
+    -ms-flex: 0 0 41.66667%;
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+  }
+  .css-ateso6 {
+    -webkit-flex:0 0 58.33333%;
+    -ms-flex: 0 0 58.33333%;
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+  }
+  .css-ateso6 {
+    -webkit-box-pack:end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .css-qq57cc {
+    display:none;
+  }
+  .css-xh93ug {
+    max-width:565px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .css-1isgq23 {
+    max-width:1140px;
+  }
+  .css-1y4vu0u {
+    max-width:1140px;
+  }
+  .css-rs4bqn {
+    margin-left:70px !important;
+  }
+  .css-19silmo {
+    margin-right:50px;
+  }
+}
+</style>
