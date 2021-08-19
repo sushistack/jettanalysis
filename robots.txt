@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jettanalysis.com/sitemap.xml
