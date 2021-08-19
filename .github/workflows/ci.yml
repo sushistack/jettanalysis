@@ -3,11 +3,6 @@ name: ci
 on:
   push:
     branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
       - master
 
 jobs:
@@ -40,6 +35,8 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 
-
-      - name: Run tests 🧪
-        run: npm run test
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

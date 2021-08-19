@@ -12,15 +12,45 @@
     .css-2thhi1
       .css-79elbk
         .aweber-form-body(v-if='buttonOnly')
-          button.caller-btn.without-input.e1fw58rm0(type='button' role='button') {{ buttonText }}
+          button.caller-btn.without-input.e1fw58rm0(
+            type='button'
+            role='button'
+          ) {{ buttonText }}
         .caller(v-else)
-          .aweber-form-body
-            ul.css-1vd0gw5
-              li.aweber-form-field.form-group.css-1pkbgp8
-                #aweber-field-email.aweber-input-container.aweber-input-container-email
-                  input#form-item-email.css-1lj1a3e(:name='inputOption.name' :type='inputOption.type' :placeholder='inputOption.placeholder')
-          .aweber-form-footer.left
-            button.caller-btn.with-input.e1fw58rm0(type='button' role='button') {{ buttonText }}
+          form(@submit.prevent='onSubmit')
+            .aweber-form-body
+              ul.css-1vd0gw5
+                li.aweber-form-field.form-group.css-1pkbgp8
+                  #aweber-field-email.aweber-input-container.aweber-input-container-email
+                    input#form-item-email(
+                      :class='{ "css-1lj1a3e": !activeInput, "css-q5hbwx": activeInput }'
+                      :name='inputOption.name' 
+                      :type='inputOption.type' 
+                      :placeholder='inputOption.placeholder'
+                      required
+                      pattern='[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?'
+                      @focus='activeTooltip = true'
+                      @blur='activeTooltip = false'
+                      @input='inputUrl'
+                      @invalid='onInvalid'
+                      :value='url'
+                    )
+                .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
+                  v-show='activeTooltip'
+                  role='tooltip'
+                  x-placement='top'
+                )
+                  .arrow.css-ht3ahn
+                  .tooltip-inner.css-rj3kn9 {{ tooltipText }}
+            .aweber-form-footer.left
+              button.caller-btn.with-input.e1fw58rm0(
+                :disabled='inputOption.isProcessing'
+                type='submit'
+                role='button'
+              )
+                template(v-if='inputOption.isProcessing')
+                  .loader Loading...
+                template(v-else) {{ buttonText }}
 </template>
 
 <script>
@@ -42,9 +72,38 @@ export default {
       type: Object,
       required: false
     },
+    tooltipText: {
+      type: String,
+      required: false
+    },
     buttonText: {
       type: String,
       required: true
+    }
+  },
+  data: () => ({
+    activeTooltip: false,
+    activeInput: false,
+    url: ''
+  }),
+  methods: {
+    inputUrl (e) {
+      if (!this.activeInput) {
+        this.activeInput = !this.activeInput
+      }
+      this.url = e.target.value
+    },
+    onInvalid (e) {
+      console.log(e.target)
+      e.target.setCustomValidity('유효한 URL 형식이 아닙니다.' || '')
+    },
+    onSubmit (e) {
+      e.preventDefault()
+      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      if (!regex.test(this.url)) return
+      
+      this.activeInput = true
+      this.$emit('onButtonClick', this.url)
     }
   }
 }
@@ -204,6 +263,33 @@ export default {
   opacity: 1;
 }
 
+.css-q5hbwx {
+  display: block;
+  width: 100%;
+  height: 3.7875rem;
+  padding: 1.05rem 1.2rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  background-clip: padding-box;
+  border: 1px solid rgb(220, 53, 69);
+  border-radius: 6px;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 1px inset;
+  transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+  font-size: 1.125rem;
+  font-family: Inter;
+  position: relative;
+}
+
+.css-q5hbwx:focus {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-color: #00afff;
+  outline: 0px;
+  box-shadow: none;
+}
+
 .caller-btn {
   font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
   text-align: center;
@@ -291,14 +377,6 @@ export default {
   
 }
 
-.caller-btn:disabled[disabled] {
-  cursor: not-allowed;
-}
-
-.caller-btn:disabled[disabled] {
-  cursor: not-allowed;
-}
-
 .caller-btn:hover {
   background-color: #0077ff;
   border-color: #0077ff;
@@ -307,6 +385,101 @@ export default {
 .caller-btn:active {
   background-color: #0077ff;
   border-color: #0077ff;
+}
+
+.caller-btn:disabled[disabled] {
+  cursor: not-allowed;
+  background-color: #00afff;
+  border-color: #00afff;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+.loader {
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 4px solid rgba(255, 255, 255, 0.2);
+  border-right: 4px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+  border-left: 4px solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+.css-17qfe8v {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: calc((100% + 0.4rem) * -1);
+  margin: 0px auto;
+  z-index: 1;
+}
+
+.css-ht3ahn {
+  position: absolute;
+  display: block;
+  bottom: -0.4rem;
+  left: 0px;
+  right: 0px;
+  margin: 0px auto;
+  width: 0px;
+  height: 0px;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.4rem solid rgb(0, 0, 0);
+}
+
+.css-rj3kn9 {
+  max-width: 200px;
+  margin: 0px auto;
+  padding: 0.25rem 0.5rem;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  border-radius: 6px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: 0.875rem;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 576px) {
