@@ -273,7 +273,7 @@ export default {
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   background-clip: padding-box;
-  border: 1px solid rgb(220, 53, 69);
+  border: 1px solid #00afff;
   border-radius: 6px;
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 1px inset;
   transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;

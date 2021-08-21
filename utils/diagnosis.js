@@ -43,13 +43,14 @@ Array.prototype.icode = function () {
 class Diagnosis {
   constructor () {
     if (instance) {
-      this.init()
+      instance.init()
       return instance
     }
     this.meta = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
     this.quality = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
     this.structure = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
     this.link = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
+    this.url = 'https://jettanalysis.com'
     instance = this
   }
 
@@ -58,16 +59,20 @@ class Diagnosis {
     this.quality = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
     this.structure = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
     this.link = { head: { failed: 0, warning: 0, passed: 0 }, body: [] }
+    this.url = 'https://jettanalysis.com'
   }
 
   get () {
     return {
+      score: this.getScore(),
       meta: this.meta,
       quality: this.quality,
       structure: this.structure,
       link: this.link
     }
   }
+
+  // 메타 명세서 시작
 
   setDomain (domain) {
     const issues = []
@@ -95,7 +100,9 @@ class Diagnosis {
   }
 
   setUrl (url) {
+    this.url = url.self
     const issues = []
+
     issues.ipush(
       !url.hasParameters,
       `URL에 파라미터가 포함되어 ${url.hasParameters ? '있습니다.' : '있지 않습니다.'}`
@@ -444,7 +451,141 @@ class Diagnosis {
     this.add('meta', null, body)
   }
 
-  // 페이지 구조
+  // 메타 명세서 끝
+
+  // 페이지 품질 시작
+
+  setContent (content) {
+    const issues = []
+
+    let additional = content.word.isValidSize ? '적절한 단어 수 입니다.' : `${content.word.size < 250 ? '단어 수가 너무 적습니다.' : '단어 수가 너무 많습니다.'}`
+    issues.ipush(
+      content.word.isValidSize,
+      `이 페이지에는 ${content.word.size}단어로 구성되어 있습니다. ${additional}`
+    )
+
+    additional = content.paragraph.isValidSize ? '적절한 문장 수 입니다.' : `${content.paragraph.size < 7 ? '문장 수가 너무 적습니다.' : '문장 수가 너무 많습니다.'}`
+    issues.ipush(
+      content.paragraph.isValidSize,
+      `이 페이지에는 ${content.paragraph.size}문장으로 구성되어 있습니다. ${additional}`
+    )
+
+    additional = content.paragraph.isValidAvg ? '적절한 문장 당 평균 단어 수 입니다.' : `${content.paragraph.avgWordPerParagraph < 5 ? '문장 당 평균 단어 수가 너무 적습니다.' : '문장 당 평균 단어 수가 너무 많습니다.'}`
+    issues.ipush(
+      content.paragraph.isValidAvg,
+      `이 페이지에는 문장 당 평균 단어 수는 ${content.paragraph.avgWordPerParagraph} 입니다. ${additional}`
+    )
+
+    issues.ipush(
+      content.isTitleWordsIncludedInContent,
+      `페이지 제목 (Title) 단어가 글 내용에 포함되어 ${content.isTitleWordsIncludedInContent ? '있습니다.' : '있지 않습니다.'}`
+    )
+
+    issues.ipush(
+      content.isHead1WordsIncludedInContent,
+      `페이지 H1 내용 단어가 글 내용에 포함되어 ${content.isHead1WordsIncludedInContent ? '있습니다.' : '있지 않습니다.'}`
+    )
+
+    const body = {
+      validCode: issues.icode(),
+      title: content.name,
+      value: null,
+      descType: 'TEXT',
+      details: issues,
+      importance: 5
+    }
+
+    this.add('quality', issues, body)
+  }
+
+  setFrames (frames) {
+    const issues = []
+
+    const isNoFrameFamily = !frames.isFrameset && !frames.isFrames && !frames.isNoFrames
+
+    issues.ipush(
+      isNoFrameFamily,
+      `페이지에 ${frames.name}을 사용하고 ${isNoFrameFamily ? '있지 않습니다.' : '있습니다.'}`
+    )
+
+    if (isNoFrameFamily) {
+      if (frames.isFrameset) {
+        issues.ipush(true, `페이지에 frameset 태그가 사용되고 있습니다.`)
+      }
+      if (frames.isFrames) {
+        issues.ipush(true, `페이지에 frame 태그가 사용되고 있습니다.`)
+      }
+      if (frames.isNoFrames) {
+        issues.ipush(true, `페이지에 noframe 태그가 사용되고 있습니다.`)
+      }
+    }
+
+    const body = {
+      validCode: issues.icode(),
+      title: frames.name,
+      value: null,
+      descType: 'TEXT',
+      details: issues,
+      importance: 5
+    }
+
+    this.add('quality', issues, body)
+  }
+
+  setImages (images) {
+    const issues = []
+
+    issues.ipush(
+      images.isValid,
+      `이 페이지에 ${images.size}개의 이미지가 있고, alt 속성이 적용된 이미지는 ${images.altSize}개입니다. ${images.isValid ? '모든 alt 속성이 잘 정의되어 있습니다.' : 'alt 속성을 정의 해야합니다.'}`
+    )
+
+    const body = {
+      validCode: issues.icode(),
+      title: images.name,
+      value: null,
+      descType: 'TEXT',
+      details: issues,
+      importance: 3
+    }
+
+    this.add('quality', issues, body)
+  }
+
+  setMobile (mobile) {
+    const issues = []
+
+    issues.ipush(
+      mobile.viewport.exist,
+      `메타 뷰포트 (viewport)가 정의되어 ${mobile.viewport.exist ? '있습니다.' : '있지 않습니다.'}`
+    )
+    if (mobile.viewport.exist) {
+      issues.ipush(
+        mobile.viewport.isValid,
+        `메타 뷰포트 (viewport) 값에 "width=device-width"가 정의되어 ${mobile.viewport.isValid ? '있습니다.' : '있지 않습니다.'}`
+      )
+    }
+    
+    issues.ipush(
+      mobile.appleTouchIcon.exist,
+      `적어도 한개의 애플 터치 아이콘 (Apple touch icon)이 정의되어 ${mobile.appleTouchIcon.exist ? '있습니다.' : '있지 않습니다.'}`
+    )
+
+    const body = {
+      validCode: issues.icode(),
+      title: mobile.name,
+      value: mobile.viewport.exist ? mobile.viewport.content : null,
+      descType: 'TEXT',
+      details: issues,
+      importance: 2
+    }
+
+    this.add('quality', issues, body)
+  }
+
+  // 페이지 품질 끝
+
+  // 페이지 구조 시작
 
   setHead1 (head1) {
     const issues = []
@@ -514,11 +655,11 @@ class Diagnosis {
     this.add('structure', issues, body)
   }
 
-  setPreviewHeadings (headings) {
+  setHeadingsTable (headings) {
 
     const body = {
       validCode: 'CUSTOM',
-      title: '페이지 내 링크 (Links In Page)',
+      title: '표제 구조 (Heading Structure)',
       descType: 'TABLE',
       columns: [
         { id: 'level', name: '표제 레벨', type: 'CHIP' },
@@ -533,7 +674,9 @@ class Diagnosis {
     this.add('structure', null, body)
   }
 
-  // 링크 구조
+  // 페이지 구조 끝
+
+  // 링크 구조 시작
 
   setLinks (link, type) {
     const issues = []
@@ -616,11 +759,51 @@ class Diagnosis {
     this.add('link', null, body)
   }
 
+  // 링크 구조 끝
+
   add (type, issues, body) {
     if (type && issues) {
       this[type].head[issues.icode().toLowerCase()] += 1
     }
     this[type].body.push(body)
+  }
+
+  getScore () {
+    let summary = {
+      url: this.url,
+      failed: this.meta.head.failed + this.quality.head.failed + this.structure.head.failed + this.link.head.failed,
+      warning: this.meta.head.warning + this.quality.head.warning + this.structure.head.warning + this.link.head.warning,
+      passed: this.meta.head.passed + this.quality.head.passed + this.structure.head.passed + this.link.head.passed
+    }
+    let score = {
+      total: { self: 0, max: 0 },
+      meta: { self: 0, max: 0 },
+      quality: { self: 0, max: 0 },
+      structure: { self: 0, max: 0 },
+      link: { self: 0, max: 0 }
+    }
+
+    for (let key in this) {
+      if (key === 'url') continue
+      let sum = 0
+      let s = 0
+      for (let i = 0; i < this[key].body.length; i += 1) {
+        const importance = this[key].body[i] && this[key].body[i].importance ? this[key].body[i].importance : 0
+        const all = this[key].body[i] && this[key].body[i].details ? this[key].body[i].details.length : 0
+        const detailsScore = this[key].body[i] && this[key].body[i].details ? this[key].body[i].details.filter(d => d.isValid).length : 0
+        sum += importance * all
+        s += importance * detailsScore
+      }
+      score[key].max = sum
+      score[key].self = s
+      score.total.max += sum
+      score.total.self += s
+    }
+
+    return {
+      head: summary,
+      body: score
+    }
   }
 }
 

@@ -13,9 +13,9 @@ export async function createDiagnosis(url) {
   const config = {
     headers: { 'x-requested-with': 'XMLHttpRequest' }
   }
-  const rawHtml = await crawl(corsFreeUrl(url), config)
-  const robots = await crawl(corsFreeUrl(`${getOriginFrom(url)}/robots.txt`), config)
-  siteDoctor.diagnose(url, rawHtml, robots)
+  const res = await crawl(corsFreeUrl(url), config)
+  const robots = await crawl(corsFreeUrl(`${getOriginFrom(url)}/robots.txt`), config).body
+  siteDoctor.diagnose(url, res.headers, res.body, robots)
 
   return siteDoctor.getDiagnosis()
 }

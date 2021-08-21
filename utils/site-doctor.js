@@ -37,6 +37,8 @@ const getDoctypeText = (doctype) => {
   return `<!DOCTYPE ${node.name}${node.publicId ? ' PUBLIC"' + node.publicId + '"' : ''}${!node.publicId && node.systemId ? ' SYSTEM' : ''}${node.systemId ? ' "' + node.systemId + '"' : ''}>`
 }
 
+const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length
+
 const ROBOT_UAS = ['Googlebot', 'NaverBot', 'Yeti']
 
 class SiteDoctor {
@@ -163,6 +165,24 @@ class SiteDoctor {
     }
 
     // page quality
+    this.content = {
+      name: '내용 (Content)',
+      word: {
+        self: null,
+        size: 0,
+        isValidSize: false
+      },
+      paragraph: {
+        self: null,
+        size: 0,
+        isValidSize: false,
+        avgWordPerParagraph: 0.0,
+        isValidAvg: false
+      },
+      isTitleWordsIncludedInContent: false,
+      isHead1WordsIncludedInContent: false
+    }
+
     this.frames = {
       name: '프레임 (Frames)',
       self: null,
@@ -214,7 +234,8 @@ class SiteDoctor {
       name: '모바일 최적화 (Mobile Optimization)',
       viewport: {
         content: null,
-        exist: false
+        exist: false,
+        isValid: false
       },
       appleTouchIcon: {
         exist: false
@@ -228,8 +249,8 @@ class SiteDoctor {
     this.robotTxt = {
       self: robotsTxt,
       exist: false,
-      isAllowGoogle: true,
-      isAllowNaver: true,
+      isAllowGoogle: false,
+      isAllowNaver: false,
       importance: 2,
       content: null
     }
@@ -247,7 +268,7 @@ class SiteDoctor {
     return new DOMParser().parseFromString(rawHtml, "text/html")
   }
 
-  diagnose (url, rawHtml, robotsTxt) {
+  diagnose (url, headers, rawHtml, robotsTxt) {
     this.init(url, rawHtml, robotsTxt)
     if (!this.html) return -1
     if (this.html.documentElement.tagName !== "HTML") return -2
@@ -262,14 +283,19 @@ class SiteDoctor {
     this.validateFavicon()
     this.validateHreflang()
 
+    // validate page structure
+    this.validateHeadings()
+
     // validate page quality
+    this.validateContent()
     this.validateFrames()
     this.validateImages()
-    this.validateHeadings()
-    this.validateLinks()
     this.validateMobile()
-    this.validateRobotTxt()
 
+    // validate link structure
+    this.validateLinks()
+
+    this.validateRobotTxt()
   }
 
   getDiagnosis () {
@@ -288,10 +314,16 @@ class SiteDoctor {
     dianosis.setDoctype(this.doctype)
     dianosis.setFavicon(this.favicons, this.url)
 
+    // 페이지 품질
+    dianosis.setContent(this.content)
+    dianosis.setFrames(this.frames)
+    dianosis.setImages(this.images)
+    dianosis.setMobile(this.mobile)
+
     // 페이지 구조
     dianosis.setHead1(this.headings.head1)
     dianosis.setHeadingStructure(this.headings)
-    dianosis.setPreviewHeadings(this.headings.self)
+    dianosis.setHeadingsTable(this.headings.self)
 
     // 링크 구조
     dianosis.setLinks(this.links.internal, 'IN')
@@ -401,6 +433,33 @@ class SiteDoctor {
     this.hreflang.existAtLeastOne = this.hreflang.self.length > 0
   }
 
+  validateContent () {
+    this.content.word.self = this.html.body.innerText.trim()
+    this.content.word.size = this.content.word.self.split(' ').length
+    this.content.word.isValidSize = this.content.word.size >= 250 && this.content.word.size <= 8000
+    this.content.paragraph.self = Array.from(this.html.body.querySelectorAll('p')).map(p => p.innerText)
+    this.content.paragraph.size = this.content.paragraph.self.length
+    this.content.paragraph.isValidSize = this.content.paragraph.size >= 7 && this.content.paragraph.size <= 100
+    this.content.paragraph.avgWordPerParagraph = average(this.content.paragraph.self.map(p => p.split(' ').length)).toFixed(2)
+    this.content.paragraph.isValidAvg = this.content.paragraph.avgWordPerParagraph >= 5 && this.content.paragraph.avgWordPerParagraph <= 20
+    
+    const wordsOfTitle = this.title.self.split(' ')
+    const wordsOfhead1 = this.headings.head1.exist && this.headings.head1.self[0].anchor.split(' ')
+    const contentWords = this.content.word.self.split(' ')
+    for (let i = 0; i < wordsOfTitle.length; i += 1) {
+      if (contentWords.includes(wordsOfTitle[i])) {
+        this.content.isTitleWordsIncludedInContent = true
+        break
+      }
+    }
+    for (let i = 0; i < wordsOfhead1.length; i += 1) {
+      if (contentWords.includes(wordsOfTitle[i])) {
+        this.content.isHead1WordsIncludedInContent = true
+        break
+      }
+    }
+  }
+
   validateFrames () {
     const framesets = this.html.body.querySelectorAll('frameset')
     const frames = this.html.body.querySelectorAll('frame')
@@ -491,6 +550,9 @@ class SiteDoctor {
     if (viewport) {
       this.mobile.viewport.content = viewport.content
       this.mobile.viewport.exist = viewport.content && viewport.content !== ""
+      if (this.mobile.viewport.exist) {
+        this.mobile.viewport.isValid = viewport.content.toLowerCase().indexOf('width=device-width') > -1
+      }
     }
 
     const appleTouchIcons = [

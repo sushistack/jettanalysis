@@ -1,5 +1,7 @@
 <template lang="pug">
 .diagnosis-container
+  .diagnosis-score-container(v-if='diagnosis.score')
+    score(:score='diagnosis.score')
   .diagnosis-meta-container(v-if='diagnosis.meta')
     diagnosis-head(
       title='메타 명세서'
@@ -7,6 +9,13 @@
     )
     template(v-for='meta in diagnosis.meta.body')
       diagnosis-body(:body='meta')
+  .diagnosis-quality-container(v-if='diagnosis.quality')
+    diagnosis-head(
+      title='페이지 품질'
+      :score='diagnosis.quality.head'
+    )
+    template(v-for='quality in diagnosis.quality.body')
+      diagnosis-body(:body='quality')
   .diagnosis-structure-container(v-if='diagnosis.structure')
     diagnosis-head(
       title='페이지 구조'
@@ -24,12 +33,13 @@
 </template>
 
 <script>
+import Score from './diagnosis/Score'
 import DiagnosisHead from './diagnosis/Head'
 import DiagnosisBody from './diagnosis/Body'
 
 export default {
   name: 'Diagnosis',
-  components: { DiagnosisHead, DiagnosisBody },
+  components: { Score, DiagnosisHead, DiagnosisBody },
   props: {
     diagnosis: {
       type: Object,
@@ -47,5 +57,9 @@ export default {
 <style lang="scss" scoped>
 .diagnosis-container {
   padding: 0 1.5rem;
+  .diagnosis-score-container, .diagnosis-meta-container, .diagnosis-quality-container,
+  .diagnosis-structure-container, .diagnosis-link-container {
+    margin: 3rem 0;
+  }
 }
 </style>
