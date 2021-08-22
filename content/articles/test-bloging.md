@@ -1,6 +1,8 @@
 ---
 title: My first Blog Post
 description: Learning how to use @nuxt/content to create a blog
+color: '#ffffff'
+backgroundColor: rgb(64, 122, 223)
 img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
 createdAt: '2021-08-02 00:00:00'
 updatedAt: '2021-08-03 00:00:00'

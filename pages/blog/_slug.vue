@@ -3,7 +3,7 @@
   navigation-bar
   v-main
     article
-      header.css-66hu0x
+      header.css-66hu0x(:style='{color: topFontColor, backgroundColor: topBackgroundColor}')
         .css-1pbu2z8
           .css-chky3p
             h1.css-1r8cg95 {{ article.title }}
@@ -14,20 +14,19 @@
             img(:src='article.img' :alt='article.title')
       .css-2lmhoi
         .css-1ricvn
-          .toc
-            ul
-              li(v-for='link of article.toc' :key='link.id')
-                nuxt-link(:to='`#${link.id}`') {{ link.text }}
+          table-of-content(:toc='article.toc')
           #content.css-107jwiq
             nuxt-content(:document='article')
+  page-footer
 </template>
 
 <script>
 import Author from '@/components/blog/Author'
+import TableOfContent from '@/components/blog/TableOfContent'
 
 export default {
   name: 'Slug',
-  components: { Author },
+  components: { Author, TableOfContent },
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
     
@@ -38,6 +37,16 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('ko', options)
     }
+ },
+ computed: {
+   topFontColor () {
+      if (!this.article || !this.article.fontColor) return '#ffffff'
+      return this.article.fontColor
+   },
+   topBackgroundColor () {
+     if (!this.article || !this.article.backgroundColor) return '#00afff'
+     return this.article.backgroundColor
+   }
  }
 }
 </script>
@@ -85,6 +94,21 @@ export default {
   position: relative;
   margin: -10px auto 0px;
   max-width: 600px;
+  img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.css-e00ba0::before {
+  content: "";
+  position: absolute;
+  left: -100vw;
+  right: -100vw;
+  bottom: 0px;
+  height: 50%;
+  background-color: white;
 }
 
 .css-2lmhoi {

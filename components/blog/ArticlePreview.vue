@@ -19,9 +19,9 @@ article.post
           img.a3-notlazy(style='max-width: 871.5px !important' title='We Analyzed 3.6 Billion Articles. Here’s What We Learned About Evergreen Content' alt="We Analyzed 3.6 Billion Articles. Here's What We Learned About Evergreen Content" data-aspect-ratio='0.34098737083812' src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner.png' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner.png 1743w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-300x102.png 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1280x436.png 1280w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-768x262.png 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1536x523.png 1536w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-480x164.png 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-640x218.png 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-960x327.png 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1440x491.png 1440w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1600x545.png 1600w' sizes='(max-width: 871px) 100vw, 871px')
       nuxt-content(:document='article.excerpt')
     footer.css-3872h1
-      p.css-toegfy
-        span 100
-        |  댓글
+      //- p.css-toegfy
+      //-   span 100
+      //-   |  댓글
       router-link.css-13xd08w(:to='link') 이어서 읽기
 </template>
 
