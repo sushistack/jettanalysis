@@ -470,16 +470,6 @@ a {
 </style>
 
 <style lang="scss">
-.css-15j7bd7 {
-  width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 30px;
-  padding-bottom: 35px;
-}
-
 .css-15j7bd7 .post + .post > div {
   border-top: 1px solid #e6e6e6;
 }

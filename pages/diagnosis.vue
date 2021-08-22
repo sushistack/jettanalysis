@@ -13,8 +13,16 @@
         @onButtonClick='diagnose'
       )
     v-main
-      .css-15j7bd7
+      .css-15j7bd7(v-if='diagnosis')
         diagnosis(:diagnosis='diagnosis')
+      section(v-else)
+        feature(
+          to='/diagnosis'
+          type='SITE DIAGNOSIS'
+          title='진단: 당신의 사이트를 무료로 진단해보세요!'
+          desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
+          imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
+        )
   page-footer
 </template>
 
@@ -31,11 +39,11 @@ export default {
       placeholder: 'https://jettanalysis.com',
       isProcessing: false,
     },
-    diagnosis: {},
+    diagnosis: null
   }),
   methods: {
     async diagnose (url) {
-      if (this.diagnosis.url === url) {
+      if (this.diagnosis && this.diagnosis.url === url) {
         return
       }
 

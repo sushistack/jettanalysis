@@ -6,7 +6,7 @@
       top-banner(
         title='다양한 SEO 전략을 얻으세요!'
         desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
-        buttonOnly='true'
+        :buttonOnly='true'
         buttonText='상담하기'
       )
     v-main
@@ -46,5 +46,14 @@ export default {
   font-size: 1.125rem;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
+}
+.css-15j7bd7 {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 30px;
+  padding-bottom: 35px;
 }
 </style>
