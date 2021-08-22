@@ -493,7 +493,6 @@ class SiteDoctor {
       isAnchor: h.innerText.trim() !== ''
     }))
     this.headings.exist = this.headings.self.length > 0
-    console.log(this.headings)
     this.headings.head1.self = h1Headings
     this.headings.head1.exist = h1Headings.length > 0
     this.headings.head1.isOnlyOne = this.headings.head1.exist && h1Headings.length === 1
@@ -584,7 +583,6 @@ class SiteDoctor {
     for (let i = 0; i < headings.length - 1; i += 1) {
       now = Number(headings[i].level)
       next = Number(headings[i + 1].level)
-      console.log(`now: ${now}, next: ${next}`)
       if (next > now && next - now > 1) {
         return false
       }
