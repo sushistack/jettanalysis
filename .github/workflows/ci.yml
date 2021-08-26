@@ -32,11 +32,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
+      - name: Install dependencies
+        run: yarn
 
       - name: Generate
-        run: npm run generate
+        run: yarn run generate
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
