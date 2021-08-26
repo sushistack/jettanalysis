@@ -78,7 +78,7 @@ export default {
       margin: 0 15px;
       color: #000;
     }
-    .menu-link.nuxt-link-active {
+    .menu-link.nuxt-link-exact-active {
       font-weight: 600;
     }
   }

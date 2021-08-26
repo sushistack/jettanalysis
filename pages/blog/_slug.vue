@@ -1,6 +1,7 @@
 <template lang="pug">
 .article-container
   navigation-bar
+  sticky-share-box(:post='post')
   v-main
     article
       header.css-66hu0x(:style='{color: topFontColor, backgroundColor: topBackgroundColor}')
@@ -11,22 +12,25 @@
               time.updated(datetime='article.updatedAt')
               p 최종 수정일: {{ formatDate(article.updatedAt) }}
           figure.css-e00ba0
-            img(:src='article.img' :alt='article.title')
+            v-img.article-img(:src='article.img' :alt='article.title')
       .css-2lmhoi
         .css-1ricvn
           table-of-content(:toc='article.toc')
           #content.css-107jwiq
             nuxt-content(:document='article')
+    comment(:post='post')
   page-footer
 </template>
 
 <script>
 import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
+import Comment from '@/components/blog/Comment'
+import StickyShareBox from '@/components/blog/StickyShareBox'
 
 export default {
   name: 'Slug',
-  components: { Author, TableOfContent },
+  components: { Author, TableOfContent, Comment, StickyShareBox },
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
     
@@ -46,6 +50,14 @@ export default {
    topBackgroundColor () {
      if (!this.article || !this.article.backgroundColor) return '#00afff'
      return this.article.backgroundColor
+   },
+   post () {
+     return {
+       id: this.article.slug,
+       title: this.article.title,
+       description: this.article.description,
+       img: this.article.img
+     }
    }
  }
 }
@@ -94,7 +106,7 @@ export default {
   position: relative;
   margin: -10px auto 0px;
   max-width: 600px;
-  img {
+  .article-img {
     position: relative;
     width: 100%;
     height: auto;
@@ -181,10 +193,6 @@ export default {
 @media (min-width: 1200px) {
 
 }
-
-
-
-
 </style>
 
 
@@ -201,7 +209,7 @@ export default {
   margin-bottom: 20px;
 }
 .icon.icon-link {
-  /* background-image: url('~assets/svg/icon-hashtag.svg'); */
+  background-image: url('~assets/svgs/icon-hashtag.svg');
   display: inline-block;
   width: 20px;
   height: 20px;

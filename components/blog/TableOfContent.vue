@@ -3,7 +3,7 @@ nav.table-of-content
   .toc-title
     h2 목차
     .more
-      a.more-btn(@click='more = !more') {{ more ? '더 보기' : '닫기' }}
+      a.more-btn(@click='more = !more') {{ more ? '보기' : '닫기' }}
   v-expand-transition
     ul(v-show='!more')
       li(
@@ -11,7 +11,6 @@ nav.table-of-content
         v-for='link of tableOfContent' :key='link.id'
       )
         nuxt-link(:to='`#${link.id}`') {{ link.text }}
-  
 </template>
 
 <script>
@@ -37,6 +36,12 @@ export default {
     list-style: none;
     li {
       position: relative;
+      a {
+        color: black;
+      }
+      a:hover {
+        color: #0077ff;
+      }
     }
     li:before {
       content: " ";
@@ -57,6 +62,12 @@ export default {
       line-height: 36px;
       text-decoration: none;
       color: #00afff;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     .more-btn:hover {
       color: #0077ff;
@@ -64,7 +75,6 @@ export default {
     }
   }
   
-
   a {
     text-decoration: none;
     color: #00afff;

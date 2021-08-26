@@ -31,7 +31,8 @@ export default {
   plugins: [
     { src: '~/plugins/axios.js' },
     { src: '~/plugins/number-abbreviator.js' },
-    { src: '~/plugins/vee-validate.js', ssr: false }
+    { src: '~/plugins/vee-validate.js', ssr: false },
+    { src: '~/plugins/kakao-sdk.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,7 +47,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots', 
-    '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content'
+    '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
+    '@nuxtjs/firebase', 'nuxt-clipboard'
   ],
 
   dotenv: { filename: `.env.${process.env.NODE_ENV}` },
@@ -69,6 +71,34 @@ export default {
     defaultImage: '/logo.png',
     siteName: 'JETT Analysis',
     twitterUser: ''
+  },
+
+  content: {
+    liveEdit: false
+  },
+
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyDQSZWb2ip7_dx-IXHzLYptF0oLGkqJWDg',
+      authDomain: 'jett-analysis-comments.firebaseapp.com',
+      projectId: 'jett-analysis-comments',
+      storageBucket: 'jett-analysis-comments.appspot.com',
+      messagingSenderId: '525401133908',
+      appId: '1:525401133908:web:eb8b1237ec3d3d49d42ec1'
+    },
+    services: {
+      firestore: true
+    }
+  },
+
+  firestore: {
+    memoryOnly: false,
+    enablePersistence: true,
+    emulatorPort: 3000,
+    emulatorHost: 'localhost',
+    settings: {
+      // Firestore Settings - currently only works in SPA mode
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -12,13 +12,16 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/axios": "^5.12.5",
+    "@nuxtjs/firebase": "^7.6.1",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
+    "nuxt-clipboard": "^0.0.6",
     "nuxt-robots-module": "^1.5.1",
     "nuxt-seo-meta": "^2.3.1",
     "vee-validate": "^3.4.9",
+    "vue-kakao-sdk": "^0.2.0",
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
