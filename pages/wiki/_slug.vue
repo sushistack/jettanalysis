@@ -32,8 +32,7 @@ export default {
   name: 'Slug',
   components: { Author, TableOfContent, Comment, StickyShareBox },
   async asyncData({ $content, params }) {
-    console.log(params)
-    const article = await $content('articles', 'blog', params.slug).fetch()
+    const article = await $content('articles', 'wiki', params.slug).fetch()
     
     return { article }
   },

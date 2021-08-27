@@ -33,7 +33,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies 👨🏻‍💻
-        run: npm install
+        run: npm ci --prefer-offline --no-audit
 
       - name: Generate
         run: npm run generate

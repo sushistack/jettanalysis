@@ -6,17 +6,10 @@ article.post
         router-link(:to='link')
           h2.css-1izrdyl {{ article.title }}
         .css-1d7x0cs
-          figure.css-qyxjlf
-            picture
-              img.css-1a2v9hb(:src='article.author.img' alt='Brian Dean' loading='lazy')
           time.updated(:datetime='article.updatedAt')
           p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
     .css-12m1dn8
-      figure.backlinko-image__img-explicit-no-border.backlinko-image(style='max-width: 871.5px')
-        .backlinko-img-placeholder(style='display: none; padding-bottom: 34.07917383821%')
-        picture
-          source(type='image/webp' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner.webp 1743w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-300x102.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1280x436.webp 1280w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-768x262.webp 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1536x523.webp 1536w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-480x164.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-640x218.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-960x327.webp 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1440x491.webp 1440w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1600x545.webp 1600w' sizes='(max-width: 871px) 100vw, 871px')
-          img.a3-notlazy(style='max-width: 871.5px !important' title='We Analyzed 3.6 Billion Articles. Here’s What We Learned About Evergreen Content' alt="We Analyzed 3.6 Billion Articles. Here's What We Learned About Evergreen Content" data-aspect-ratio='0.34098737083812' src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner.png' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner.png 1743w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-300x102.png 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1280x436.png 1280w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-768x262.png 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1536x523.png 1536w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-480x164.png 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-640x218.png 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-960x327.png 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1440x491.png 1440w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2021/06/evergreen-content-blog-banner-1600x545.png 1600w' sizes='(max-width: 871px) 100vw, 871px')
+      v-img.article-img(:src='article.img')
       nuxt-content(:document='article.excerpt')
     footer.css-3872h1
       //- p.css-toegfy
@@ -29,6 +22,10 @@ article.post
 export default {
   name: 'ArticlePreview',
   props: {
+    type: {
+      type: String,
+      required: true
+    },
     article: {
       type: Object,
       required: true
@@ -43,7 +40,7 @@ export default {
   computed: {
     link () {
       if (!this.article) return ''
-      return `/blog/${this.article.slug}`
+      return `/${this.type}/${this.article.slug}`
     },
     excerpt () {
       if (!this.article) return ''
@@ -58,6 +55,11 @@ export default {
 a {
   text-decoration: none;
   transition: all 0.2s ease-in-out 0s;
+}
+
+.article-img {
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .css-u5p2ag {

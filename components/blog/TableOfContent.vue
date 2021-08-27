@@ -3,7 +3,7 @@ nav.table-of-content
   .toc-title
     h2 목차
     .more
-      a.more-btn(@click='more = !more') {{ more ? '보기' : '닫기' }}
+      a.more-btn(@click='more = !more') {{ more ? '열기' : '접기' }}
   v-expand-transition
     ul(v-show='!more')
       li(
@@ -20,6 +20,7 @@ export default {
   data: () => ({ more: true }),
   computed: {
     tableOfContent () {
+      if (!this.toc) return []
       return this.toc.filter(t => t.depth > 1 && t.depth < 4)
     }
   }

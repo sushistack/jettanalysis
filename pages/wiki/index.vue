@@ -13,7 +13,7 @@
       .css-15j7bd7
         template(v-for='article in articles')
           article-preview(
-            type='blog'
+            type='wiki'
             :article='article'
           )
   page-footer
@@ -24,10 +24,10 @@ import TopBanner from '@/components/TopBanner'
 import ArticlePreview from '@/components/blog/ArticlePreview'
 
 export default {
-  name: 'Blog',
+  name: 'Wiki',
   components: { TopBanner, ArticlePreview },
   async asyncData({ $content, params }) {
-    const articles = await $content('articles', 'blog')
+    const articles = await $content('articles', 'wiki')
       .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt'])
       .sortBy('createdAt', 'desc')
       .fetch()
