@@ -32,7 +32,6 @@ export default {
   name: 'Slug',
   components: { Author, TableOfContent, Comment, StickyShareBox },
   async asyncData({ $content, params }) {
-    console.log(params)
     const article = await $content('articles', 'blog', params.slug).fetch()
     
     return { article }
@@ -65,6 +64,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#content {
+  img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+  }
+  ul {
+    margin: 1rem 0;
+  }
+  h2 {
+    margin: 4rem 0 1rem 0;
+  }
+}
+
+
 .css-66hu0x {
   overflow: hidden;
   position: relative;

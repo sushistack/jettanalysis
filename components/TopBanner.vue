@@ -94,7 +94,6 @@ export default {
       this.url = e.target.value
     },
     onInvalid (e) {
-      console.log(e.target)
       e.target.setCustomValidity('유효한 URL 형식이 아닙니다.' || '')
     },
     onSubmit (e) {
