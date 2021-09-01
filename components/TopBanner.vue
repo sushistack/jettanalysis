@@ -51,10 +51,24 @@
                 template(v-if='inputOption.isProcessing')
                   .loader Loading...
                 template(v-else) {{ buttonText }}
+        .share-box-wrapper(v-show='type === "diagnosis"')
+
+          .share-box
+            share-box(
+              :post='post'
+              :shareTwitter='shareTwitter'
+              :shareFacebook='shareFacebook'
+              :shareUrl='shareUrl'
+            )
 </template>
 
 <script>
+import ShareBox from "@/components/ShareBox";
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`;
+
 export default {
+  name: "TopBanner",
+  components: { ShareBox },
   props: {
     title: {
       type: String,
@@ -79,39 +93,60 @@ export default {
     buttonText: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      required: false,
+      default: () => "NO"
     }
   },
   data: () => ({
     activeTooltip: false,
     activeInput: false,
-    url: ''
+    url: "",
+    post: {
+      id: "diagnosis",
+      title: "",
+      description: "",
+      img: ""
+    }
   }),
   methods: {
-    inputUrl (e) {
+    inputUrl(e) {
       if (!this.activeInput) {
-        this.activeInput = !this.activeInput
+        this.activeInput = !this.activeInput;
       }
-      this.url = e.target.value
+      this.url = e.target.value;
     },
-    onInvalid (e) {
-      e.target.setCustomValidity('유효한 URL 형식이 아닙니다.' || '')
+    onInvalid(e) {
+      e.target.setCustomValidity("유효한 URL 형식이 아닙니다." || "");
     },
-    onSubmit (e) {
-      e.preventDefault()
-      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-      if (!regex.test(this.url)) return
-      
-      this.activeInput = true
-      this.$emit('onButtonClick', this.url)
+    onSubmit(e) {
+      e.preventDefault();
+      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+      if (!regex.test(this.url)) return;
+
+      this.activeInput = true;
+      this.$emit("onButtonClick", this.url);
+    }
+  },
+  computed: {
+    shareUrl() {
+      return `${FRONTEND_BASE_URL}/diagnosis`;
+    },
+    shareTwitter() {
+      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`;
+    },
+    shareFacebook() {
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`;
     }
   }
-}
+};
 </script>
-
 
 <style lang="scss" scoped>
 .css-za4qqw {
-  background-image: linear-gradient(180deg,#fff 10%,#eef0f7);
+  background-image: linear-gradient(180deg, #fff 10%, #eef0f7);
   padding: 60px 0 70px;
 }
 
@@ -215,9 +250,11 @@ export default {
   background-clip: padding-box;
   border: 1px solid #e6e6e6;
   border-radius: 6px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  -webkit-transition: background-color 0.2s ease-in-out,border-color 0.2s ease-in-out,box-shadow 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out,border-color 0.2s ease-in-out,box-shadow 0.2s ease-in-out;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   font-size: 11.25px;
   font-size: 1.125rem;
   border-color: #ccd3e8;
@@ -257,7 +294,8 @@ export default {
   opacity: 1;
 }
 
-.css-1lj1a3e:disabled,.css-1lj1a3e[readonly] {
+.css-1lj1a3e:disabled,
+.css-1lj1a3e[readonly] {
   background-color: #e6e6e6;
   opacity: 1;
 }
@@ -275,7 +313,8 @@ export default {
   border: 1px solid #00afff;
   border-radius: 6px;
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 1px inset;
-  transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+  transition: background-color 0.2s ease-in-out 0s,
+    border-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
   font-size: 1.125rem;
   font-family: Inter;
   position: relative;
@@ -290,7 +329,8 @@ export default {
 }
 
 .caller-btn {
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -329,7 +369,8 @@ export default {
   text-transform: none;
   font-weight: 600;
   min-height: 3.7875rem;
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -373,7 +414,6 @@ export default {
   color: #fff;
   background-color: #00afff;
   border-color: #00afff;
-  
 }
 
 .caller-btn:hover {
@@ -433,7 +473,6 @@ export default {
   }
 }
 
-
 .css-17qfe8v {
   position: absolute;
   left: 0px;
@@ -465,7 +504,8 @@ export default {
   text-align: center;
   background-color: rgb(0, 0, 0);
   border-radius: 6px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.8;
@@ -481,45 +521,50 @@ export default {
   overflow-wrap: break-word;
 }
 
+.share-box {
+  justify-content: center;
+  display: flex;
+  margin-top: 40px;
+}
+
 @media (min-width: 576px) {
   .css-17ia555 {
-    padding-right:10px;
+    padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 540px) {
   .css-17ia555 {
-    max-width:540px;
+    max-width: 540px;
   }
 }
 
 @media (max-width: 767.98px) {
   .css-za4qqw {
-    border-bottom:1 solid #ccd3e8;
+    border-bottom: 1 solid #ccd3e8;
   }
   .caller-btn {
-    width:100%;
+    width: 100%;
     margin-top: 10px;
   }
-  
 }
 
 @media (min-width: 768px) {
   .css-17ia555 {
-    max-width:720px;
+    max-width: 720px;
   }
   .css-za4qqw {
-    padding:90px 0 135px;
+    padding: 90px 0 135px;
   }
   .css-1bk7ox4 {
-    font-size:48px;
+    font-size: 48px;
   }
   .css-ium0zo {
-    margin-right:30px;
+    margin-right: 30px;
   }
   .css-2thhi1 {
-    margin:45px 0 0;
+    margin: 45px 0 0;
   }
   .caller-btn.with-input {
     position: absolute;
@@ -531,14 +576,13 @@ export default {
 
 @media (min-width: 992px) {
   .css-17ia555 {
-    max-width:960px;
+    max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
   .css-17ia555 {
-    max-width:1140px;
+    max-width: 1140px;
   }
 }
-
 </style>
