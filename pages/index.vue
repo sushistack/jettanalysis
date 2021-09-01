@@ -12,7 +12,7 @@
                 .recommend-conainer
                   .recommend
                     blockquote.recommend-block
-                      p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
+                      p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다!”
                       cite 데이터 분석 기반 마케팅 에이전시, JETT Analysis
                 .call-container
                   .call-inner-container
@@ -51,22 +51,22 @@
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar'
-import PageFooter from '@/components/PageFooter'
-import Separater from '@/components/Separater'
-import Feature from '@/components/Feature'
-import Logo from '@/components/Logo'
+import NavigationBar from "@/components/NavigationBar";
+import PageFooter from "@/components/PageFooter";
+import Separater from "@/components/Separater";
+import Feature from "@/components/Feature";
+import Logo from "@/components/Logo";
 
 export default {
-  name: 'Index',
-  components: { NavigationBar, PageFooter, Separater, Feature, Logo },
-}
+  name: "Index",
+  components: { NavigationBar, PageFooter, Separater, Feature, Logo }
+};
 </script>
 
 <style lang="scss" scoped>
 .top-container {
   overflow: hidden;
-  background-image: linear-gradient(180deg,#fff 10%,#eef0f7);
+  background-image: linear-gradient(180deg, #fff 10%, #eef0f7);
   background-repeat: repeat-x;
 }
 .inner-container {
@@ -107,7 +107,9 @@ export default {
   font-size: 32px;
   max-width: 235px;
   margin: 20px 0 150px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .recommend-conainer {
@@ -214,7 +216,7 @@ export default {
     padding-left: 10px;
   }
   .css-ld04yu {
-    padding-right:10px;
+    padding-right: 10px;
     padding-left: 10px;
   }
 }
@@ -224,25 +226,25 @@ export default {
     max-width: 540px;
   }
   .page-title {
-    max-width:340px;
+    max-width: 340px;
   }
   .figure-image {
-    right:15px;
+    right: 15px;
     img {
-      max-width:190px;
+      max-width: 190px;
     }
   }
   .css-ld04yu {
-    max-width:540px;
+    max-width: 540px;
   }
 }
 
 @media (max-width: 767.98px) {
   .recommend-conainer {
-    margin-top:50px;
+    margin-top: 50px;
   }
   .css-1py7eya {
-    margin-top:50px;
+    margin-top: 50px;
   }
 }
 
@@ -251,34 +253,34 @@ export default {
     max-width: 720px;
   }
   .page-title {
-    font-size:48px;
+    font-size: 48px;
     max-width: 440px;
     margin: 55px 0 40px;
   }
   .recommend-conainer {
-    max-width:335px;
-    display:block;
+    max-width: 335px;
+    display: block;
   }
   .figure-image {
-    right:-25px;
+    right: -25px;
     bottom: -7px;
     img {
-      max-width:365px;
+      max-width: 365px;
       margin-bottom: 0;
     }
   }
   .css-ld04yu {
-    max-width:720px;
-    display:none;
+    max-width: 720px;
+    display: none;
   }
   .css-1py7eya {
-    max-width:335px;
+    max-width: 335px;
   }
 }
 
 @media (max-width: 991.98px) {
   .figure-image {
-    position:absolute;
+    position: absolute;
   }
 }
 
@@ -287,28 +289,28 @@ export default {
     max-width: 960px;
   }
   .css-8p4et2 {
-    -webkit-flex:0 0 58.33333%;
+    -webkit-flex: 0 0 58.33333%;
     -ms-flex: 0 0 58.33333%;
     flex: 0 0 58.33333%;
     max-width: 58.33333%;
   }
   .page-title {
-    max-width:550px;
+    max-width: 550px;
     margin: 75px 0 40px;
   }
   .recommend-conainer {
-    max-width:495px;
+    max-width: 495px;
   }
   .main-image-container {
-    -webkit-flex:0 0 41.66667%;
+    -webkit-flex: 0 0 41.66667%;
     -ms-flex: 0 0 41.66667%;
     flex: 0 0 41.66667%;
     max-width: 41.66667%;
   }
   .figure-image {
-    margin:0 20px 0 0;
+    margin: 0 20px 0 0;
     img {
-      max-width:380px;
+      max-width: 380px;
       margin-top: -75px;
       -webkit-transform: translateY(6rem);
       -ms-transform: translateY(6rem);
@@ -316,13 +318,13 @@ export default {
     }
   }
   .css-ld04yu {
-    max-width:960px;
+    max-width: 960px;
   }
   .css-1py7eya {
-    max-width:495px;
+    max-width: 495px;
   }
   .css-1ptfann {
-    padding-left:70px;
+    padding-left: 70px;
   }
 }
 
@@ -331,46 +333,46 @@ export default {
     max-width: 1140px;
   }
   .css-8p4et2 {
-    padding-left:30px;
+    padding-left: 30px;
   }
   .page-title {
-    font-size:46px;
+    font-size: 46px;
   }
   .recommend-conainer {
-    max-width:505px;
+    max-width: 505px;
   }
   .figure-image {
-    margin:0 55px 0 0;
+    margin: 0 55px 0 0;
   }
   .css-ld04yu {
-    max-width:1140px;
+    max-width: 1140px;
   }
   .css-1py7eya {
-    max-width:505px;
+    max-width: 505px;
   }
 }
 
 .call-container {
   position: relative;
-  padding:18px 0;
+  padding: 18px 0;
 }
 
 @media (min-width: 768px) {
   .call-container {
-    margin-top:110px;
+    margin-top: 110px;
   }
 }
 
 @media (min-width: 992px) {
   .call-container {
-    margin-top:40px;
+    margin-top: 40px;
     max-width: 495px;
   }
 }
 
 @media (min-width: 1200px) {
   .call-container {
-    max-width:505px;
+    max-width: 505px;
   }
 }
 
@@ -388,7 +390,7 @@ export default {
 
 @media (min-width: 992px) {
   .call-container:before {
-    display:none;
+    display: none;
   }
 }
 
@@ -404,19 +406,17 @@ export default {
   background-color: #eef0f7;
 }
 
-@media (min-width: 768px) and (max-width:991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .call-container:after {
-    opacity:0.9;
+    opacity: 0.9;
   }
 }
 
 @media (min-width: 992px) {
   .call-container:after {
-    display:none;
+    display: none;
   }
 }
-
-
 
 .call-inner-container {
   position: relative;
@@ -447,9 +447,11 @@ export default {
   background-clip: padding-box;
   border: 1px solid #e6e6e6;
   border-radius: 6px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  -webkit-transition: background-color 0.2s ease-in-out,border-color 0.2s ease-in-out,box-shadow 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out,border-color 0.2s ease-in-out,box-shadow 0.2s ease-in-out;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   font-size: 11.25px;
   font-size: 1.125rem;
   border-color: #ccd3e8;
@@ -489,13 +491,15 @@ export default {
   opacity: 1;
 }
 
-.caller-input:disabled,.caller-input[readonly] {
+.caller-input:disabled,
+.caller-input[readonly] {
   background-color: #e6e6e6;
   opacity: 1;
 }
 
 .caller-btn {
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -534,7 +538,8 @@ export default {
   text-transform: none;
   font-weight: 600;
   min-height: 3.7875rem;
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -601,7 +606,7 @@ export default {
 
 @media (max-width: 767.98px) {
   .caller-btn {
-    width:100%;
+    width: 100%;
     margin-top: 10px;
   }
 }
