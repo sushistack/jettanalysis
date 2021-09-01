@@ -9,12 +9,20 @@
       ul.menu-list(v-if='!isSmallerThanMd')
         li(v-for='m in menu')
           router-link.menu-link(:to='m.to') {{ m.name }}
-      v-app-bar-nav-icon(v-else @click.stop='drawer = !drawer')
-  v-navigation-drawer(v-if='isSmallerThanMd' v-model='drawer' absolute temporary right)
-    v-list
-      v-list-item(v-for='m in menu' :key='m.name' link :to='m.to')
-          v-list-item-content
-            v-list-item-title {{ m.name }}
+      v-btn(v-else icon @click.stop='overlay = !overlay')
+        v-icon mdi-menu
+  v-overlay(:value='overlay' color='#00afff' opacity='1')
+    .overlay-toolbar
+      logo(:size='headerHeight' fill='#fff' marginTop='10')
+      v-spacer
+      v-btn.menu-btn(icon width='48' height='48' @click='overlay = false')
+        v-icon() mdi-close
+    .css-1ltxe64
+      .css-blynua
+        .css-10y79h4
+          ul.css-9f21ci
+            li(v-for='m in menu')
+              router-link.menu-link(:to='m.to') {{ m.name }}
 </template>
 
 <script>
@@ -26,7 +34,8 @@ export default {
   components: { Logo },
   data: () => ({ 
     menu: MENU,
-    drawer: false
+    isMenuOpened: false,
+    overlay: false
   }),
   computed: {
     headerHeight () {
@@ -49,7 +58,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#header-container {
+#header-container, .overlay-toolbar {
   width: 100%;
   padding-right: 20px;
   padding-left: 20px;
@@ -80,43 +89,100 @@ export default {
     }
     .menu-link.nuxt-link-exact-active {
       font-weight: 600;
+      color: #0077ff;
     }
   }
 }
+.menu-btn {
+  margin-top: 5px;
+}
+
+.overlay-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+.css-1ltxe64 {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.css-blynua {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 43.5px 0;
+}
+
+.css-9f21ci {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: column;
+}
+
+.css-10y79h4 > ul > li > a {
+    color: #fff;
+    text-align: center;
+    display: block;
+    font-weight: 800;
+    font-size: 1.75rem;
+    text-decoration: none;
+}
 
 @media (min-width: 576px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     padding-right: 6px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 540px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     max-width: 720px;
   } 
 }
 
 @media (min-width: 992px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     max-width: 960px;
   } 
 }
 
 @media (min-width: 1200px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     max-width: 1140px;
   } 
 }
 
 @media screen and (min-width: 576px) {
-  #header-container {
+  #header-container, .overlay-toolbar {
     padding-right: 10px;
     padding-left: 10px;
   }

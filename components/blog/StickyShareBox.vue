@@ -28,6 +28,17 @@
       li
         a.share-btn(@click.stop.prevent='copyToClipboard')
           v-icon mdi-link-variant
+  v-snackbar(
+    v-model='snackbar'
+    timeout='1500'
+    min-width='210'
+    width='210' 
+    rounded='pill'
+    top
+    right
+  ) 복사되었습니다!
+    template(v-slot:action='{ attrs }')
+      v-btn(color='pink' text v-bind='attrs' @click='snackbar = false') 닫기
 </template>
 
 <script>
@@ -40,6 +51,7 @@ export default {
       required: true
     }
   },
+  data: () => ({ snackbar: false }),
   methods: {
     shareTwitter () {
       window.open(this.twiterSharingUrl, 'twitter-share', 'width=800,height=500')
@@ -67,7 +79,7 @@ export default {
     copyToClipboard () {
       this.$copyText(this.shareUrl)
         .then(
-          e => { alert('복사되었습니다.') },
+          e => { this.snackbar = true },
           e => { alert('복사에 실패했습니다.') }
         )
     }

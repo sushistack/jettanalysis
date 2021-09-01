@@ -63,6 +63,17 @@
               v-textarea(v-model='content' label='내용' :error-messages='errors' outlined)
           v-col
             v-btn.white--text(:loading='loading' color='#00afff' type='submit' large) 등록
+  v-snackbar(
+    v-model='snackbar'
+    timeout='1500'
+    min-width='210'
+    width='210' 
+    rounded='pill'
+    top
+    right
+  ) 복사되었습니다!
+    template(v-slot:action='{ attrs }')
+      v-btn(color='pink' text v-bind='attrs' @click='snackbar = false') 닫기
 </template>
 
 <script>
@@ -86,8 +97,9 @@ export default {
     attrs: {
       class: 'mb-6',
       boilerplate: false,
-      elevation: 0,
-    }
+      elevation: 0
+    },
+    snackbar: false
   }),
   mounted () {
     const collect = this.$fire.firestore
@@ -158,7 +170,7 @@ export default {
     copyToClipboard () {
       this.$copyText(this.shareUrl)
         .then(
-          e => { alert('복사되었습니다.') },
+          e => { this.snackbar = true },
           e => { alert('복사에 실패했습니다.') }
         )
     }
