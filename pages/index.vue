@@ -12,7 +12,7 @@
                 .recommend-conainer
                   .recommend
                     blockquote.recommend-block
-                      p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
+                      p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다!”
                       cite 데이터 분석 기반 마케팅 에이전시, JETT Analysis
                 .call-container
                   .call-inner-container
