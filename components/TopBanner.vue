@@ -109,7 +109,7 @@ export default {
       id: "diagnosis",
       title: "JETT 사이트 진단하기",
       description: "내 사이트가 SEO 최적화 조건에 맞는지 진단해보세요!",
-      img: "https://jettanalysis.com/favicon.ico"
+      img: "https://jettanalysis.com/images/jett-analysis-w-2000.png"
     }
   }),
   methods: {
