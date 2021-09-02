@@ -52,14 +52,15 @@
                   .loader Loading...
                 template(v-else) {{ buttonText }}
         .share-box-wrapper(v-show='type === "diagnosis"')
-
           .share-box
+            .share-title 공유하기
             share-box(
               :post='post'
               :shareTwitter='shareTwitter'
               :shareFacebook='shareFacebook'
               :shareUrl='shareUrl'
             )
+            
 </template>
 
 <script>
@@ -521,10 +522,37 @@ export default {
   overflow-wrap: break-word;
 }
 
+.share-box-wrapper {
+  margin-top: 2rem;
+}
+
 .share-box {
   justify-content: center;
   display: flex;
-  margin-top: 40px;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  width: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.share-title {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  font-size: 14px;
+  padding: 0 .3rem;
+  border-left: 1px;
+  border-right: 1px;
+  border-top: 0;
+  border-bottom: 0;
+  background: #fff;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: #ebebeb;
+  font-weight: bold;
 }
 
 @media (min-width: 576px) {

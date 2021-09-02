@@ -14,7 +14,7 @@
         @onButtonClick='diagnose'
       )
     v-main
-      .css-15j7bd7(v-if='diagnosis')
+      .diagnosis-wrapper(v-if='diagnosis')
         diagnosis(:diagnosis='diagnosis')
       section(v-else)
         feature(

@@ -13,7 +13,7 @@
         v-icon mdi-menu
   v-overlay(:value='overlay' color='#00afff' opacity='1')
     .overlay-toolbar
-      logo(:size='headerHeight' fill='#fff' marginTop='10')
+      logo(:size='headerHeight' fill='#fff' marginTop='4')
       v-spacer
       v-btn.menu-btn(icon width='48' height='48' @click='overlay = false')
         v-icon() mdi-close

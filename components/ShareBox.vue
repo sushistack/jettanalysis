@@ -96,7 +96,7 @@ export default {
 <style lang="scss" scoped>
 .share {
   margin-bottom: 0;
-
+  margin-top: auto;
   display: flex;
   padding-left: 0;
   list-style: none;
