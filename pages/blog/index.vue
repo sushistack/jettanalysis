@@ -8,6 +8,7 @@
         desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
         :buttonOnly='true'
         buttonText='상담하기'
+        @onButtonClick='counsel'
       )
     v-main
       .css-15j7bd7
@@ -38,6 +39,11 @@ export default {
 
     return {
       articles
+    }
+  },
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
     }
   }
 }

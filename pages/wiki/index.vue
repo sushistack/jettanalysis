@@ -4,10 +4,11 @@
   .wrap
     section
       top-banner(
-        title='다양한 SEO 전략을 얻으세요!'
-        desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
+        title='다양한 SEO 요소들을 확인해보세요!'
+        desc='다양한 SEO 요소를 알아야 SEO 최적화를 할 수 있습니다!'
         :buttonOnly='true'
         buttonText='상담하기'
+        @onButtonClick='counsel'
       )
     v-main
       .css-15j7bd7
@@ -38,6 +39,11 @@ export default {
 
     return {
       articles
+    }
+  },
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
     }
   }
 }

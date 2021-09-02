@@ -15,6 +15,7 @@
           button.caller-btn.without-input.e1fw58rm0(
             type='button'
             role='button'
+            @click='$emit("onButtonClick")'
           ) {{ buttonText }}
         .caller(v-else)
           form(@submit.prevent='onSubmit')

@@ -27,7 +27,11 @@
               .css-79elbk
                 form(action='https://www.aweber.com/scripts/addlead.pl' method='post')
                   .aweber-form-body
-                    button.caller-btn.e1fw58rm0(type='button' role='button') 상담하기
+                    button.caller-btn.e1fw58rm0(
+                      type='button'
+                      role='button'
+                      @click='counsel'
+                    ) 상담하기
     section
       .css-1bqdi62
         .css-1y4vu0u
@@ -53,6 +57,18 @@
                   p JETT Analysis가 런칭된 이후 마케터들이 온라인 비즈니스를 성장시키기 위해 사용할 수 있는 엄청나게 실용적인 전략을 발표함으로써 빠르게 명성을 떨쳤습니다. JETT Analysis는 현재 온라인 상에서 가장 인기 있는 마케팅 블로그 중 하나입니다.
   page-footer
 </template>
+
+<script>
+export default {
+  name: 'About',
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  }
+}
+</script>
+
 
 <style lang="scss" scoped>
 

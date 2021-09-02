@@ -17,7 +17,11 @@
                 .call-container
                   .call-inner-container
                     .aweber-form-body
-                      button.caller-btn.e1fw58rm0(type='button' role='button') 상담하기
+                      button.caller-btn.e1fw58rm0(
+                        type='button'
+                        role='button'
+                        @click='counsel'
+                      ) 상담하기
               .main-image-container
                 figure.figure-image
                   picture
@@ -59,7 +63,12 @@ import Logo from "@/components/Logo";
 
 export default {
   name: "Index",
-  components: { NavigationBar, PageFooter, Separater, Feature, Logo }
+  components: { NavigationBar, PageFooter, Separater, Feature, Logo },
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  }
 };
 </script>
 
