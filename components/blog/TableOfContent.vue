@@ -60,6 +60,9 @@ export default {
   .toc-title {
     display: flex;
     justify-content: space-between;
+    h2 { 
+      margin-top: 0;
+    }
   }
   .more {
     .more-btn {
