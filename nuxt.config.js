@@ -47,7 +47,7 @@ export default {
   modules: [
     '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots', 
     '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
-    '@nuxtjs/firebase', 'nuxt-clipboard'
+    '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt'
   ],
 
   dotenv: { filename: `.env.${process.env.NODE_ENV}` },

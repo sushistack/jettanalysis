@@ -13,41 +13,41 @@ author:
 tags: ['tag1', 'tag2', 'tag3', 'tag4']
 ---
 
-## This is a Wiki
+## 위키입니다.
 
 This is some more info
 
-### This is a sub Wiki
+### 이것은 서브
 
 This is some more info
 
 <!--more-->
 
-### This is another sub Wiki
+### 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
-## This is another Wiki
+## 위키입니다.
 
 This is some more info
 
