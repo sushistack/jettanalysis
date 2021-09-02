@@ -21,6 +21,14 @@ const getPathnameFrom = (url) => {
   return a.pathname
 }
 
+const getPathnameFrom2 = (url) => {
+  if (url.indexOf('http') > -1) {
+    return getPathnameFrom(url)
+  }
+  if (url === '') return '[비어있음]'
+  return url
+}
+
 const getInternalLinkHash = (url) => {
   const a = document.createElement('a')
   a.href = url
@@ -514,7 +522,7 @@ class SiteDoctor {
     this.links.internal.self = aLinks
       .filter(l => getDomainFrom(l.href) === this.domain || getDomainFrom(l.href) === thisDomain)
       .map(l => ({
-        href: decodeURIComponent(isHash(l.href) ? getInternalLinkHash(l.href) : getPathnameFrom(l.href)),
+        href: decodeURIComponent(isHash(l.href) ? getInternalLinkHash(l.href) : getPathnameFrom2(l.getAttribute('href'))),
         isNewWindow: l.target === '_blank',
         isNofollow: l.rel.split(' ').includes('nofollow'),
         isHash: isHash(l.href),
