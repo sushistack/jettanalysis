@@ -120,7 +120,7 @@ export default {
     },
     onSubmit(e) {
       e.preventDefault()
-      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
       if (!regex.test(this.url)) return
 
       this.activeInput = true
@@ -299,7 +299,7 @@ export default {
 
 .css-q5hbwx {
   display: block;
-  width: calc(100% - 162px);
+  width: 100%;
   height: 3.7875rem;
   padding: 1.05rem 1.2rem;
   font-weight: 400;
@@ -595,6 +595,9 @@ export default {
   }
   .caller-btn.without-input {
     width: 100%;
+  }
+  .css-q5hbwx {
+    width: calc(100% - 162px);
   }
 }
 
