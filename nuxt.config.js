@@ -47,7 +47,8 @@ export default {
   modules: [
     '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots', 
     '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
-    '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt'
+    '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt',
+    '@nuxtjs/google-analytics'
   ],
 
   dotenv: { filename: `.env.${process.env.NODE_ENV}` },
@@ -97,6 +98,16 @@ export default {
     emulatorHost: 'localhost',
     settings: {
       // Firestore Settings - currently only works in SPA mode
+    }
+  },
+
+  googleAnalytics: {
+    id: 'UA-206750180-1'
+  },
+
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
     }
   },
 
