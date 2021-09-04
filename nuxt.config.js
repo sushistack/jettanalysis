@@ -9,6 +9,26 @@ const FALLBACK = {
   KEYWORDS: ['검색엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색엔진']
 }
 
+const createSitemapRoutes = async () => {
+  let routes = []
+  let posts = null
+  let wikis = null
+  const { $content } = require('@nuxt/content')
+  if (posts === null || posts.length === 0) {
+    posts = await $content('articles', 'blog').fetch()
+  }
+  if (wikis === null || wikis.length === 0) {
+    wikis = await $content('articles', 'wiki').fetch()
+  }
+  for (const post of posts) {
+    routes.push(`blog/${post.slug}`)
+  }
+  for (const wiki of wikis) {
+    routes.push(`wiki/${wiki.slug}`)
+  }
+  return routes
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -58,7 +78,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots', 
+    '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots',
     '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
     '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt',
     '@nuxtjs/google-analytics'
@@ -75,7 +95,9 @@ export default {
   ],
 
   sitemap: {
-    hostname: FRONTEND_BASE_URL
+    hostname: FRONTEND_BASE_URL,
+    gzip: true,
+    routes: createSitemapRoutes
   },
 
   seoMeta: {
