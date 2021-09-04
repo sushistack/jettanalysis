@@ -32,8 +32,10 @@ const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 export default {
   name: 'Slug',
   components: { Author, TableOfContent, Comment, StickyShareBox },
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', 'blog', params.slug).fetch()
+  async asyncData({ $content, params, error }) {
+    let article = null
+    try { article = await $content('articles', 'blog', params.slug).fetch() }
+    catch (err) { error(err) }
     
     return { article }
   },
