@@ -55,13 +55,16 @@ export default {
     const title = '사이트 검색엔진 최적화 진단'
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/diagnosis`,
-        description: '사이트의 검색엔진 최적화 진단을 해보세요!'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        {
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/diagnosis`,
+          description: '사이트의 검색엔진 최적화 진단을 해보세요!'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   data: () => ({
     inputOption: {

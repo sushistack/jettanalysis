@@ -36,20 +36,23 @@ export default {
     let article = null
     try { article = await $content('articles', 'blog', params.slug).fetch() }
     catch (err) { error(err) }
-    
+
     return { article }
   },
   head ({$seoMeta}) {
     return {
       title: this.article.title,
-      meta: $seoMeta({ 
-        title: `${this.article.title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/blog/${this.article.id}`,
-        description: this.article.description,
-        image: this.article.img
-      },
-      false
-    )}
+      meta: $seoMeta(
+        {
+          title: `${this.article.title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/blog/${this.article.id}`,
+          description: this.article.description,
+          image: this.article.img
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   methods: {
     formatDate(date) {

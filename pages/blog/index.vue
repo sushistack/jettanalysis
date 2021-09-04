@@ -46,13 +46,16 @@ export default {
     const title = '검색엔진 최적화 블로그'
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/blog`,
-        description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/blog`,
+          description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   methods: {
     counsel () {

@@ -51,13 +51,16 @@ export default {
     const title = '서비스 이용 약관'
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/terms-of-service`,
-        description: 'JETT Analysis의 서비스 이용 약관입니다.'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/terms-of-service`,
+          description: 'JETT Analysis의 서비스 이용 약관입니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+      }
   },
 }
 </script>

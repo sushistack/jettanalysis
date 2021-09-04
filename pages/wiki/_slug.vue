@@ -48,14 +48,17 @@ export default {
   head ({$seoMeta}) {
     return {
       title: this.article.title,
-      meta: $seoMeta({ 
-        title: `${this.article.title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
-        description: this.article.description,
-        image: this.article.img
-      },
-      false
-    )}
+      meta: $seoMeta(
+        {
+          title: `${this.article.title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
+          description: this.article.description,
+          image: this.article.img
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   computed: {
     topFontColor () {

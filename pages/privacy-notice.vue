@@ -99,13 +99,16 @@ export default {
     const title = '개인정보 이용 알림 '
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/privacy-notice`,
-        description: 'JETT Analysis의 개인정보 이용 알림입니다.'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/privacy-notice`,
+          description: 'JETT Analysis의 개인정보 이용 알림입니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   }
 }
 </script>

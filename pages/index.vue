@@ -69,13 +69,16 @@ export default {
     const title = '검색엔진 최적화 전략 가이드'
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}`,
-        description: '이제 검색엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}`,
+          description: '이제 검색엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   methods: {
     counsel () {

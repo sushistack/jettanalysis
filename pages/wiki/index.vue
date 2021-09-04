@@ -46,13 +46,16 @@ export default {
     const title = '검색엔진 최적화 위키'
     return {
       title: title,
-      meta: $seoMeta({ 
-        title: `${title} | ${process.env.SITE_NAME}`,
-        url: `${FRONTEND_BASE_URL}/wiki`,
-        description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
-      },
-      false
-    )}
+      meta: $seoMeta(
+        {
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/wiki`,
+          description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   methods: {
     counsel () {
