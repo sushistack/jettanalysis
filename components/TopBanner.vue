@@ -29,11 +29,9 @@
                       :type='inputOption.type' 
                       :placeholder='inputOption.placeholder'
                       required
-                      pattern='[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?'
                       @focus='activeTooltip = true'
                       @blur='activeTooltip = false'
                       @input='inputUrl'
-                      @invalid='onInvalid'
                       :value='url'
                     )
                 .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
@@ -120,27 +118,24 @@ export default {
       }
       this.url = e.target.value;
     },
-    onInvalid(e) {
-      e.target.setCustomValidity("유효한 URL 형식이 아닙니다." || "");
-    },
     onSubmit(e) {
-      e.preventDefault();
-      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-      if (!regex.test(this.url)) return;
+      e.preventDefault()
+      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+      if (!regex.test(this.url)) return
 
-      this.activeInput = true;
-      this.$emit("onButtonClick", this.url);
+      this.activeInput = true
+      this.$emit("onButtonClick", this.url)
     }
   },
   computed: {
     shareUrl() {
-      return `${FRONTEND_BASE_URL}/diagnosis`;
+      return `${FRONTEND_BASE_URL}/diagnosis`
     },
     shareTwitter() {
-      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`;
+      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`
     },
     shareFacebook() {
-      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`;
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
     }
   }
 };
@@ -304,7 +299,7 @@ export default {
 
 .css-q5hbwx {
   display: block;
-  width: 100%;
+  width: calc(100% - 162px);
   height: 3.7875rem;
   padding: 1.05rem 1.2rem;
   font-weight: 400;
