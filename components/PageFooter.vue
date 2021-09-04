@@ -30,7 +30,7 @@ footer.css-895q96
                   li.menu-item
                     router-link(to='/about') 소개
                   li.menu-item
-                    router-link(to='/contact') 연락하기
+                    a(@click.stop='counsel') 연락하기
         .css-9hzi2i
           h4.css-1hl05th Connect
           ul.css-68xvsd
@@ -63,7 +63,12 @@ footer.css-895q96
 import Logo from './Logo'
 export default {
   name: 'PageFooter',
-  components: { Logo }
+  components: { Logo },
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  }
 }
 </script>
 
