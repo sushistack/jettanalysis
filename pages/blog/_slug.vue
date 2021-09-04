@@ -27,6 +27,7 @@ import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: 'Slug',
@@ -36,13 +37,25 @@ export default {
     
     return { article }
   },
+  head ({$seoMeta}) {
+    return {
+      title: this.article.title,
+      meta: $seoMeta({ 
+        title: `${this.article.title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/blog/${this.article.id}`,
+        description: this.article.description,
+        image: this.article.img
+      },
+      false
+    )}
+  },
   methods: {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('ko', options)
     }
- },
- computed: {
+  },
+  computed: {
    topFontColor () {
       if (!this.article || !this.article.fontColor) return '#ffffff'
       return this.article.fontColor
@@ -52,14 +65,14 @@ export default {
      return this.article.backgroundColor
    },
    post () {
-     return {
-       id: this.article.slug,
-       title: this.article.title,
-       description: this.article.description,
-       img: this.article.img
-     }
-   }
- }
+      return {
+        id: this.article.slug,
+        title: this.article.title,
+        description: this.article.description,
+        img: this.article.img
+      }
+    }
+  }
 }
 </script>
 

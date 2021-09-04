@@ -11,7 +11,7 @@
         @onButtonClick='counsel'
       )
     v-main
-      .css-15j7bd7
+      .css-15j7bd7(v-if='articles')
         template(v-for='article in articles')
           article-preview(
             type='blog'
@@ -23,6 +23,7 @@
 <script>
 import TopBanner from '@/components/TopBanner'
 import ArticlePreview from '@/components/blog/ArticlePreview'
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: 'Blog',
@@ -40,6 +41,18 @@ export default {
     return {
       articles
     }
+  },
+  head ({$seoMeta}) {
+    const title = '검색엔진 최적화 블로그'
+    return {
+      title: title,
+      meta: $seoMeta({ 
+        title: `${title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/blog`,
+        description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
+      },
+      false
+    )}
   },
   methods: {
     counsel () {

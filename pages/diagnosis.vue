@@ -24,7 +24,7 @@
           to='/diagnosis'
           type='SITE DIAGNOSIS'
           title='진단: 당신의 사이트를 무료로 진단해보세요!'
-          desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
+          desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
           imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
         )
   v-snackbar.crawl-error(
@@ -47,9 +47,22 @@
 <script>
 import { createDiagnosis } from "@/utils/diagnosis-creator"
 import Diagnosis from "@/components/Diagnosis"
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   components: { Diagnosis },
+  head ({$seoMeta}) {
+    const title = '사이트 검색엔진 최적화 진단'
+    return {
+      title: title,
+      meta: $seoMeta({ 
+        title: `${title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/diagnosis`,
+        description: '사이트의 검색엔진 최적화 진단을 해보세요!'
+      },
+      false
+    )}
+  },
   data: () => ({
     inputOption: {
       name: "dignosis",

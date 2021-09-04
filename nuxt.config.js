@@ -4,9 +4,9 @@ const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 const FALLBACK = {
   TITLE: '검색엔진 최적화 전략 가이드',
-  DESCRIPTION: '이제 검색 엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.',
+  DESCRIPTION: '이제 검색엔진 최적화는 저희에게 맡기세요! JETT Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.',
   IMAGE: `${FRONTEND_BASE_URL}/images/jett-analysis.jpg`,
-  KEYWORDS: ['검색 엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색 엔진']
+  KEYWORDS: ['검색엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색엔진']
 }
 
 export default {
@@ -22,21 +22,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
       { hid: 'robots', name: 'robots', content: 'index, follow' },
-      { hid: 'description', name: 'description', content: FALLBACK.DESCRIPTION },
       { hid: 'author', name: 'author', content: 'Jett Analysis' },
-      { hid: 'keywords', name: 'keywords', content: FALLBACK.KEYWORDS.join(',') },
-      { hid: 'facebook-url', property: 'og:url', content: FRONTEND_BASE_URL },
-      { hid: 'facebook-local', property: 'og:locale', content: 'ko' },
-      { hid: 'facebook-title', property: 'og:title', content: `${FALLBACK.TITLE} | JETT Analysis` },
-      { hid: 'facebook-description', property: 'og:description', content: `${FALLBACK.TITLE} | JETT Analysis` },
-      { hid: 'facebook-site_name', property: 'og:site_name', content: 'JETT Analysis' },
-      { hid: 'facebook-image', property: 'og:image', content: FALLBACK.IMAGE },
-      { hid: 'twitter-card', property: 'twitter:card', content: 'summary' },
-      { hid: 'twitter-title', property: 'twitter:title', content: `${FALLBACK.TITLE} | JETT Analysis` },
-      { hid: 'twitter-description', property: 'twitter:description', content: FALLBACK.DESCRIPTION },
-      { hid: 'twitter-site', property: 'twitter:site', content: '@jettanalysis' },
-      { hid: 'twitter-image', property: 'twitter:image', content: FALLBACK.IMAGE },
-      { hid: 'twitter-creator', property: 'twitter:creator', content: '@jettanalysis' },
+      { hid: 'keyword', name: 'keyword', content: FALLBACK.KEYWORDS.join(',') },
       { hid: 'mobile-web-app-capable', name: 'mobile-web-app-capable', content: 'yes' },
       { hid: 'apple-mobile-web-app-capable', name: 'apple-mobile-web-app-capable', content: 'yes' },
       { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${FALLBACK.TITLE} | JETT Analysis` },

@@ -5,7 +5,7 @@
       .card-meta
         .card-meta-detail
           .card-meta-title {{ score.head.url }}
-          .card-meta-description 페이지 검색 엔진 최적화 점수
+          .card-meta-description 페이지 검색엔진 최적화 점수
     .summary-graph
       .summary-graph-wrapper
         .summary-graph-total

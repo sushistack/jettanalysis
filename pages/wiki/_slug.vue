@@ -27,6 +27,7 @@ import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: 'Slug',
@@ -41,25 +42,37 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('ko', options)
     }
- },
- computed: {
-   topFontColor () {
+  },
+  head ({$seoMeta}) {
+    return {
+      title: this.article.title,
+      meta: $seoMeta({ 
+        title: `${this.article.title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
+        description: this.article.description,
+        image: this.article.img
+      },
+      false
+    )}
+  },
+  computed: {
+    topFontColor () {
       if (!this.article || !this.article.fontColor) return '#ffffff'
       return this.article.fontColor
-   },
-   topBackgroundColor () {
-     if (!this.article || !this.article.backgroundColor) return '#00afff'
-     return this.article.backgroundColor
-   },
-   post () {
-     return {
-       id: this.article.slug,
-       title: this.article.title,
-       description: this.article.description,
-       img: this.article.img
-     }
-   }
- }
+    },
+    topBackgroundColor () {
+      if (!this.article || !this.article.backgroundColor) return '#00afff'
+      return this.article.backgroundColor
+    },
+    post () {
+      return {
+        id: this.article.slug,
+        title: this.article.title,
+        description: this.article.description,
+        img: this.article.img
+      }
+    }
+  }
 }
 </script>
 

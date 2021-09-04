@@ -12,7 +12,7 @@ footer.css-895q96
                   fill='#fff'
                 )
               .css-1l6xqrc
-                p 최적의 검색 엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
+                p 최적의 검색엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
             .css-1enann6
               h4.css-10iwlr9 Learn
               nav.css-1xx9hpn

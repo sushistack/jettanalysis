@@ -90,6 +90,27 @@
   page-footer
 </template>
 
+<script>
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+
+export default {
+  name: 'PrivacyNotice',
+  head ({$seoMeta}) {
+    const title = '개인정보 이용 알림 '
+    return {
+      title: title,
+      meta: $seoMeta({ 
+        title: `${title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/privacy-notice`,
+        description: 'JETT Analysis의 개인정보 이용 알림입니다.'
+      },
+      false
+    )}
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
 dl, ol, ul {
   margin-top: 0px;

@@ -59,8 +59,22 @@
 </template>
 
 <script>
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+
 export default {
   name: 'About',
+  head ({$seoMeta}) {
+    const title = 'JETT Analysis 소개'
+    return {
+      title: title,
+      meta: $seoMeta({ 
+        title: `${title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}/about`,
+        description: 'JETT Analysis의 소개 페이지입니다.'
+      },
+      false
+    )}
+  },
   methods: {
     counsel () {
       window.open(process.env.COUNSEL_LINK, '_blank').focus()

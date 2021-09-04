@@ -8,11 +8,11 @@
           .css-79elbk
             .css-1k9xznr
               .css-8p4et2
-                h1.page-title 검색 엔진 최적화를 위한 사이트 진단과 다양한 팁 그리고 최적의 솔루션 상담을 해보세요!
+                h1.page-title 검색엔진 최적화를 위한 사이트 진단과 다양한 팁 그리고 최적의 솔루션 상담을 해보세요!
                 .recommend-conainer
                   .recommend
                     blockquote.recommend-block
-                      p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
+                      p “무료로 제공되는 검색엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
                       cite 데이터 분석 기반 마케팅 에이전시, JETT Analysis
                 .call-container
                   .call-inner-container
@@ -30,14 +30,14 @@
       .css-ld04yu
         .css-1py7eya
           blockquote.css-1ptfann
-            p “무료로 제공되는 검색 엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
+            p “무료로 제공되는 검색엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
             cite 데이터 분석 기반 마케팅 에이전시, JETT Analysis
     section
       feature(
         to='/diagnosis'
         type='SITE DIAGNOSIS'
         title='진단: 당신의 사이트를 무료로 진단해보세요!'
-        desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
+        desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
         imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
       )
     section
@@ -46,7 +46,7 @@
       feature(
         to='/blog'
         type='BLOG: SEO TIPS'
-        title='2021년 검색 엔진 최적화 완벽 가이드'
+        title='2021년 검색엔진 최적화 완벽 가이드'
         desc='효과적이고 확실한 SEO 전략 및 팁을 확인해보세요.'
         imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner.png'
       )
@@ -55,15 +55,28 @@
 </template>
 
 <script>
-import NavigationBar from "@/components/NavigationBar";
-import PageFooter from "@/components/PageFooter";
-import Separater from "@/components/Separater";
-import Feature from "@/components/Feature";
-import Logo from "@/components/Logo";
+import NavigationBar from "@/components/NavigationBar"
+import PageFooter from "@/components/PageFooter"
+import Separater from "@/components/Separater"
+import Feature from "@/components/Feature"
+import Logo from "@/components/Logo"
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: "Index",
   components: { NavigationBar, PageFooter, Separater, Feature, Logo },
+  head ({$seoMeta}) {
+    const title = '검색엔진 최적화 전략 가이드'
+    return {
+      title: title,
+      meta: $seoMeta({ 
+        title: `${title} | ${process.env.SITE_NAME}`,
+        url: `${FRONTEND_BASE_URL}`,
+        description: '이제 검색엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.'
+      },
+      false
+    )}
+  },
   methods: {
     counsel () {
       window.open(process.env.COUNSEL_LINK, '_blank').focus()
