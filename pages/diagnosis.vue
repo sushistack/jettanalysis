@@ -80,6 +80,10 @@ export default {
         return
       }
 
+      if (url.toLowerCase().indexOf('jettanalysis.com') > -1) {
+        return
+      }
+
       this.inputOption.isProcessing = true
       this.diagnosis = await createDiagnosis(url)
 
