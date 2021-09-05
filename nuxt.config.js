@@ -109,7 +109,14 @@ export default {
   },
 
   content: {
-    liveEdit: false
+    liveEdit: false,
+    markdown: {
+      // https://github.com/remarkjs/remark-external-links#options
+      remarkExternalLinks: {
+        target: '_blank',
+        rel: 'nofollow'
+      }
+    }
   },
 
   firebase: {

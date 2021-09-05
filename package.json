@@ -22,6 +22,7 @@
     "nuxt-clipboard": "^0.0.6",
     "nuxt-robots-module": "^1.5.1",
     "nuxt-seo-meta": "^2.3.1",
+    "remark-external-links": "^9.0.1",
     "vee-validate": "^3.4.9",
     "vue-kakao-sdk": "^0.2.0",
     "vue-scrollto": "^2.20.0",
