@@ -22,10 +22,10 @@ const getPathnameFrom = (url) => {
 }
 
 const getPathnameFrom2 = (url) => {
+  if (!url || url === '') return '[비어있음]'
   if (url.indexOf('http') > -1) {
     return getPathnameFrom(url)
   }
-  if (url === '') return '[비어있음]'
   return url
 }
 
@@ -36,6 +36,7 @@ const getInternalLinkHash = (url) => {
 }
 
 const isHash = (url) => {
+  if (!url) return false
   const hash = getInternalLinkHash(url)
   return hash && hash !== ''
 }
@@ -520,14 +521,14 @@ class SiteDoctor {
     const thisDomain = window.location.hostname
 
     this.links.internal.self = aLinks
-      .filter(l => getDomainFrom(l.href) === this.domain || getDomainFrom(l.href) === thisDomain)
+      .filter(l => l && getDomainFrom(l.href) === this.domain || getDomainFrom(l.href) === thisDomain)
       .map(l => ({
         href: decodeURIComponent(isHash(l.href) ? getInternalLinkHash(l.href) : getPathnameFrom2(l.getAttribute('href'))),
         isNewWindow: l.target === '_blank',
-        isNofollow: l.rel.split(' ').includes('nofollow'),
+        isNofollow: l.rel && l.rel.split(' ').includes('nofollow'),
         isHash: isHash(l.href),
-        anchor: l.innerText.trim(),
-        isAnchor: l.innerText.trim() !== '',
+        anchor: l.innerText ? l.innerText.trim() : '[비어있음]',
+        isAnchor: l.innerText && l.innerText.trim() !== '',
         isExternal: false
       }))
 
@@ -536,14 +537,14 @@ class SiteDoctor {
     this.links.internal.longAnchorSize = this.links.internal.self.filter(a => a.anchor.length > 100).length
 
     this.links.external.self = aLinks
-      .filter(l => getDomainFrom(l.href) !== this.domain && getDomainFrom(l.href) !== thisDomain)
+      .filter(l => l && getDomainFrom(l.href) !== this.domain && getDomainFrom(l.href) !== thisDomain)
       .map(l => ({
         href: decodeURIComponent(l.href),
         isNewWindow: l.target === '_blank',
         isNofollow: l.rel.split(' ').includes('nofollow'),
         isHash: isHash(l.href),
-        anchor: l.innerText.trim(),
-        isAnchor: l.innerText.trim() !== '',
+        anchor: l.innerText ? l.innerText.trim() : '[비어있음]',
+        isAnchor: l.innerText && l.innerText.trim() !== '',
         isExternal: true
       }))
 
