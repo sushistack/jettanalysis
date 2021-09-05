@@ -30,7 +30,7 @@ export default {
   components: { TopBanner, ArticlePreview },
   async asyncData({ $content, params }) {
     const articles = await $content('articles', 'blog')
-      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt'])
+      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags'])
       .sortBy('createdAt', 'desc')
       .fetch()
 

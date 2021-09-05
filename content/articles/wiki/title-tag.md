@@ -10,7 +10,7 @@ author:
   name: 엔지니어
   bio: All about Benjamin
   img: https://secure.gravatar.com/avatar/ff8eab31fb6066670f6d0fe9d9f0166f?s=96&d=mm&r=g
-tags: ['seo', 'title', '제목', '검색엔진최적화']
+tags: ['제목', '제목 태그', '메타 제목', 'title', 'title tag', 'seo title']
 ---
 
 제목Title)은 웹 사이트의 각 페이지 제목을 정의하는 HTML 문서의 헤드 섹션에 있는 요소를 말합니다. 웹 브라우저에서 검색하고 Google 또는 Naver와 같은 검색엔진에서 검색 결과에 웹 페이지를 표시하는 데에도 사용됩니다.
