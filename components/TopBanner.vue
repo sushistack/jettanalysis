@@ -121,7 +121,10 @@ export default {
     onSubmit(e) {
       e.preventDefault()
       const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
-      if (!regex.test(this.url)) return
+      if (!regex.test(this.url)) {
+        this.$emit('onError', '유효하지 않은 URL입니다!')
+        return
+      }
 
       this.activeInput = true
       this.$emit("onButtonClick", this.url)

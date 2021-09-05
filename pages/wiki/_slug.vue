@@ -27,6 +27,7 @@ import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
+import { smartUrl } from '@/util'
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
@@ -53,7 +54,7 @@ export default {
           title: `${this.article.title} | ${process.env.SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
           description: this.article.description,
-          image: this.article.img
+          image: smartUrl(this.article.img)
         },
         false
       ),

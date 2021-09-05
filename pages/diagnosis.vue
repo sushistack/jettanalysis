@@ -12,6 +12,7 @@
         tooltipText='사이트 진단을 위해 유효한 URL을 입력해주세요'
         buttonText='진단'
         @onButtonClick='diagnose'
+        @onError='onError'
       )
     v-main
       .diagnosis-wrapper(
@@ -37,7 +38,7 @@
     color='error'
   ) 
     v-icon(:style='{"margin-top": "-5px"}') mdi-alert-circle-outline
-    |  페이지 크롤링에 실패하였습니다!
+    |  {{ snackbarText }}
     template(v-slot:action='{ attrs }')
       v-btn(color='#fff' text v-bind='attrs' @click='snackbar = false')
         | 닫기
@@ -75,7 +76,8 @@ export default {
     },
     diagnosis: null,
     requestFailed: false,
-    snackbar: false
+    snackbar: false,
+    snackbarText: '페이지 크롤링에 실패하였습니다!'
   }),
   methods: {
     async diagnose(url) {
@@ -83,19 +85,24 @@ export default {
         return
       }
 
-      // if (url.toLowerCase().indexOf('jettanalysis.com') > -1) {
-      //   return
-      // }
+      if (url.toLowerCase().indexOf('jettanalysis.com') > -1) {
+        return
+      }
 
       this.inputOption.isProcessing = true
       this.diagnosis = await createDiagnosis(url)
 
       if (!this.diagnosis) {
+        this.snackbarText = '페이지 크롤링에 실패하였습니다!'
         this.snackbar = true
       }
 
       this.inputOption.isProcessing = false
       this.$nextTick(() => { this.$scrollTo(this.$refs.diagnosisWrapper, 800) })
+    },
+    onError (text) {
+      this.snackbarText = text
+      this.snackbar = true
     }
   }
 };
