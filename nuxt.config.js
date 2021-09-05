@@ -48,11 +48,11 @@ export default {
       { hid: 'apple-mobile-web-app-capable', name: 'apple-mobile-web-app-capable', content: 'yes' },
       { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${FALLBACK.TITLE} | JETT Analysis` },
       { hid: 'apple-mobile-web-app-status-bar-style', name: 'apple-mobile-web-app-status-bar-style', content: 'white' },
-      { hid: 'application-name', name: 'application-name', content: 'JETT Analysis' },
-      { hid: 'apple-touch-icon', name: 'apple-touch-icon', content: FALLBACK.IMAGE }
+      { hid: 'application-name', name: 'application-name', content: 'JETT Analysis' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: FALLBACK.IMAGE }
     ]
   },
 
