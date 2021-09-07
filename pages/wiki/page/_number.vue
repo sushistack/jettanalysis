@@ -1,3 +1,4 @@
+
 <template lang="pug">
 .jett-container
   navigation-bar
@@ -17,11 +18,13 @@
             type='wiki'
             :article='article'
           )
-        nav.css-1i46dgl(v-show='isMore')
+        nav.css-1i46dgl
           h2.css-18dt6si Posts navigation
           .css-1ctem6t
+            .css-1lkog1(v-show='isMore')
+              nuxt-link.css-419jou(:to='prevLink') 이전
             .css-1lkog1
-              nuxt-link.css-419jou(to='/wiki/page/2') 이전
+              nuxt-link.css-419jou(:to='nextLink') 다음
   page-footer
 </template>
 
@@ -32,21 +35,25 @@ const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 const PER_PAGE = 5
 
 export default {
-  name: 'Wiki',
+  name: 'WikiPage',
   components: { TopBanner, ArticlePreview },
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, error }) {
+    const pageNo = parseInt(params.number)
+
     const total = await $content('articles', 'wiki').only(['slug']).fetch()
     const articles = await $content('articles', 'wiki')
       .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags'])
       .sortBy('createdAt', 'desc')
       .limit(PER_PAGE)
+      .skip(PER_PAGE * (pageNo - 1))
       .fetch()
 
     articles.map((article) => { article.excerpt = { body: article.excerpt } })
+    const prev = pageNo + 1
+    const next = pageNo - 1
+    const isMore = total.length > pageNo * PER_PAGE
 
-    const isMore = total.length > articles.length
-
-    return { articles, isMore }
+    return { articles, prev, next, isMore }
   },
   head ({$seoMeta}) {
     const title = '검색엔진 최적화 위키'
@@ -55,7 +62,7 @@ export default {
       meta: $seoMeta(
         {
           title: `${title} | ${process.env.SITE_NAME}`,
-          url: `${FRONTEND_BASE_URL}/wiki`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
         },
         false
@@ -67,10 +74,18 @@ export default {
     counsel () {
       window.open(process.env.COUNSEL_LINK, '_blank').focus()
     }
+  },
+  computed: {
+    prevLink () {
+      return `/wiki/page/${this.prev}`
+    },
+    nextLink () {
+      if (this.next <= 1) return `/wiki`
+      return `/wiki/page/${this.next}`
+    }
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .wrap {

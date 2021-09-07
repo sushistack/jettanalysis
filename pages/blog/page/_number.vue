@@ -4,8 +4,8 @@
   .wrap
     section
       top-banner(
-        title='다양한 SEO 요소들을 확인해보세요!'
-        desc='다양한 SEO 요소를 알아야 SEO 최적화를 할 수 있습니다!'
+        title='다양한 SEO 전략을 얻으세요!'
+        desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
         :buttonOnly='true'
         buttonText='상담하기'
         @onButtonClick='counsel'
@@ -14,14 +14,16 @@
       .css-15j7bd7(v-if='articles')
         template(v-for='article in articles')
           article-preview(
-            type='wiki'
+            type='blog'
             :article='article'
           )
-        nav.css-1i46dgl(v-show='isMore')
+        nav.css-1i46dgl
           h2.css-18dt6si Posts navigation
           .css-1ctem6t
+            .css-1lkog1(v-show='isMore')
+              nuxt-link.css-419jou(:to='prevLink') 이전
             .css-1lkog1
-              nuxt-link.css-419jou(to='/wiki/page/2') 이전
+              nuxt-link.css-419jou(:to='nextLink') 다음
   page-footer
 </template>
 
@@ -32,31 +34,35 @@ const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 const PER_PAGE = 5
 
 export default {
-  name: 'Wiki',
+  name: 'BlogPage',
   components: { TopBanner, ArticlePreview },
-  async asyncData({ $content, params }) {
-    const total = await $content('articles', 'wiki').only(['slug']).fetch()
-    const articles = await $content('articles', 'wiki')
+  async asyncData({ $content, params, error }) {
+    const pageNo = parseInt(params.number)
+
+    const total = await $content('articles', 'blog').only(['slug']).fetch()
+    const articles = await $content('articles', 'blog')
       .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags'])
       .sortBy('createdAt', 'desc')
       .limit(PER_PAGE)
+      .skip(PER_PAGE * (pageNo - 1))
       .fetch()
 
     articles.map((article) => { article.excerpt = { body: article.excerpt } })
+    const prev = pageNo + 1
+    const next = pageNo - 1
+    const isMore = total.length > pageNo * PER_PAGE
 
-    const isMore = total.length > articles.length
-
-    return { articles, isMore }
+    return { articles, prev, next, isMore }
   },
   head ({$seoMeta}) {
-    const title = '검색엔진 최적화 위키'
+    const title = '검색엔진 최적화 블로그'
     return {
       title: title,
       meta: $seoMeta(
-        {
+        { 
           title: `${title} | ${process.env.SITE_NAME}`,
-          url: `${FRONTEND_BASE_URL}/wiki`,
-          description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
+          description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
         },
         false
       ),
@@ -66,6 +72,15 @@ export default {
   methods: {
     counsel () {
       window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  },
+  computed: {
+    prevLink () {
+      return `/blog/page/${this.prev}`
+    },
+    nextLink () {
+      if (this.next <= 1) return `/blog`
+      return `/blog/page/${this.next}`
     }
   }
 }
