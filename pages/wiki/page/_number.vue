@@ -53,6 +53,8 @@ export default {
     const next = pageNo - 1
     const isMore = total.length > pageNo * PER_PAGE
 
+    if (!articles.length) return error({ statusCode: 404, message: '포스트가 없습니다.' })
+
     return { articles, prev, next, isMore }
   },
   head ({$seoMeta}) {
