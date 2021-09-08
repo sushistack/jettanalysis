@@ -2,6 +2,7 @@
 svg#logo(
   xmlns='http://www.w3.org/2000/svg' 
   :width='logoSize' 
+  :height='logoSize'
   :fill='logoFill' 
   viewBox='0 0 944.15 727.5'
   :style='{"margin-top": logoMarginTop}'

@@ -18,6 +18,11 @@
           table-of-content(:toc='article.toc')
           #content.css-107jwiq
             nuxt-content(:document='article')
+      .tags
+        ul
+          li(v-for='tag in article.tags')
+            span.icon.icon-link.small
+            | {{ tag }}
     comment(:post='post')
   page-footer
 </template>
@@ -27,22 +32,42 @@ import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
+import { smartUrl } from '@/util'
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: 'Slug',
   components: { Author, TableOfContent, Comment, StickyShareBox },
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', 'blog', params.slug).fetch()
-    
+  async asyncData({ $content, params, error }) {
+    let article = null
+    try { article = await $content('articles', 'blog', params.slug).fetch() }
+    catch (err) { error(err) }
+
     return { article }
+  },
+  head ({$seoMeta}) {
+    return {
+      title: this.article.title,
+      meta: [{ hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') }]
+        .concat($seoMeta(
+        {
+          title: `${this.article.title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/blog/${this.article.id}`,
+          description: this.article.description,
+          image: smartUrl(this.article.img)
+        },
+        false
+      )),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
   },
   methods: {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('ko', options)
     }
- },
- computed: {
+  },
+  computed: {
    topFontColor () {
       if (!this.article || !this.article.fontColor) return '#ffffff'
       return this.article.fontColor
@@ -52,14 +77,14 @@ export default {
      return this.article.backgroundColor
    },
    post () {
-     return {
-       id: this.article.slug,
-       title: this.article.title,
-       description: this.article.description,
-       img: this.article.img
-     }
-   }
- }
+      return {
+        id: this.article.slug,
+        title: this.article.title,
+        description: this.article.description,
+        img: this.article.img
+      }
+    }
+  }
 }
 </script>
 
@@ -150,11 +175,21 @@ export default {
   margin-left: auto;
 }
 
-.toc {
+.tags {
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
   ul {
-    
+    padding: 0;
+    list-style: none;
     li {
-
+      display: inline;
+      cursor: pointer;
+      background: #eee;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      margin-right: 5px;
+      padding: 0 5px;
     }
   }
 }
@@ -167,13 +202,13 @@ export default {
 }
 
 @media (min-width: 540px) {
-  .css-1pbu2z8, .css-1ricvn {
+  .css-1pbu2z8, .css-1ricvn, .tags {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .css-1pbu2z8, .css-1ricvn {
+  .css-1pbu2z8, .css-1ricvn, .tags {
     max-width: 720px;
   }
   .css-chky3p {
@@ -191,7 +226,7 @@ export default {
 }
 
 @media (min-width: 992px) {
-  .css-1pbu2z8, .css-1ricvn {
+  .css-1pbu2z8, .css-1ricvn, .tags {
     max-width: 730px;
   }
   .css-chky3p {
@@ -229,5 +264,10 @@ export default {
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
+}
+.icon.icon-link.small {
+  width: 14px;
+  height: 14px;
+  background-size: 14px 17px;
 }
 </style>

@@ -10,7 +10,10 @@ nav.table-of-content
         :class='{toc2: link.depth === 2, toc3: link.depth === 3}'
         v-for='link of tableOfContent' :key='link.id'
       )
-        nuxt-link(:to='`#${link.id}`') {{ link.text }}
+        nuxt-link(
+          :to='`#${link.id}`'
+          v-scroll-to='{el: `#${link.id}`}'
+        ) {{ link.text }}
 </template>
 
 <script>
@@ -57,6 +60,9 @@ export default {
   .toc-title {
     display: flex;
     justify-content: space-between;
+    h2 { 
+      margin-top: 0;
+    }
   }
   .more {
     .more-btn {

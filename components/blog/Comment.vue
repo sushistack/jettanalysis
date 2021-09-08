@@ -56,9 +56,9 @@
 </template>
 
 <script>
-import { ValidationObserver, ValidationProvider } from "vee-validate";
-import ShareBox from "@/components/ShareBox";
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`;
+import { ValidationObserver, ValidationProvider } from "vee-validate"
+import ShareBox from "@/components/ShareBox"
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: "Comment",

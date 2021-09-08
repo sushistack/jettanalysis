@@ -1,7 +1,7 @@
 <template lang="pug">
 .css-xyedk8
   .css-1isgq23
-    router-link.css-1etpwf(:to='to')
+    .css-1etpwf(@click='go')
       .css-iu3tgu
         p.css-k2w90m {{ type }}
         h3.css-1tlyyhw {{ title }}
@@ -26,7 +26,12 @@
 <script>
 export default {
   name: 'Feature',
-  props: ['to', 'type', 'title', 'desc', 'imageUrl']
+  props: ['to', 'type', 'title', 'desc', 'imageUrl'],
+  methods: {
+    go () {
+      this.to ? this.$router.push(this.to) : this.$emit('onFeatureClick')
+    }
+  }
 }
 </script>
 
@@ -66,6 +71,7 @@ a {
   max-width: 750px;
   margin: 0 auto;
   position: relative;
+  cursor: pointer;
 }
 
 .css-iu3tgu {

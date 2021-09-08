@@ -9,31 +9,65 @@
         :buttonOnly='false'
         type='diagnosis'
         :inputOption='inputOption'
+        :focusInput='toggleFocus'
         tooltipText='사이트 진단을 위해 유효한 URL을 입력해주세요'
         buttonText='진단'
         @onButtonClick='diagnose'
+        @onError='onError'
       )
     v-main
-      .css-15j7bd7(v-if='diagnosis')
+      .diagnosis-wrapper(
+        v-if='diagnosis'
+        ref='diagnosisWrapper'
+      )
         diagnosis(:diagnosis='diagnosis')
       section(v-else)
         feature(
-          to='/diagnosis'
           type='SITE DIAGNOSIS'
           title='진단: 당신의 사이트를 무료로 진단해보세요!'
-          desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
+          desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
           imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
+          @onFeatureClick='focusDiagnosisInput'
         )
-     
+  v-snackbar.crawl-error(
+    v-model='snackbar'
+    timeout='2500'
+    rounded='pill'
+    width='320'
+    min-width='320'
+    top
+    color='error'
+  ) 
+    v-icon(:style='{"margin-top": "-5px"}') mdi-alert-circle-outline
+    |  {{ snackbarText }}
+    template(v-slot:action='{ attrs }')
+      v-btn(color='#fff' text v-bind='attrs' @click='snackbar = false')
+        | 닫기
   page-footer
 </template>
 
 <script>
-import { createDiagnosis } from "@/utils/diagnosis-creator";
-import Diagnosis from "@/components/Diagnosis";
+import { createDiagnosis } from "@/utils/diagnosis-creator"
+import Diagnosis from "@/components/Diagnosis"
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   components: { Diagnosis },
+  head ({$seoMeta}) {
+    const title = '사이트 검색엔진 최적화 진단'
+    return {
+      title: title,
+      meta: $seoMeta(
+        {
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/diagnosis`,
+          description: '사이트의 검색엔진 최적화 진단을 해보세요!'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
+  },
   data: () => ({
     inputOption: {
       name: "dignosis",
@@ -41,18 +75,39 @@ export default {
       placeholder: "https://jettanalysis.com",
       isProcessing: false
     },
-    diagnosis: null
+    diagnosis: null,
+    toggleFocus: false,
+    requestFailed: false,
+    snackbar: false,
+    snackbarText: '페이지 크롤링에 실패하였습니다!'
   }),
   methods: {
     async diagnose(url) {
       if (this.diagnosis && this.diagnosis.url === url) {
-        return;
+        return
       }
 
-      this.inputOption.isProcessing = true;
-      this.diagnosis = await createDiagnosis(url);
-      this.inputOption.isProcessing = false;
-      // this.diagnosis.url = url
+      if (url.toLowerCase().indexOf('jettanalysis.com') > -1) {
+        return
+      }
+
+      this.inputOption.isProcessing = true
+      this.diagnosis = await createDiagnosis(url)
+
+      if (!this.diagnosis) {
+        this.snackbarText = '페이지 크롤링에 실패하였습니다!'
+        this.snackbar = true
+      }
+
+      this.inputOption.isProcessing = false
+      this.$nextTick(() => { this.$scrollTo(this.$refs.diagnosisWrapper, 800) })
+    },
+    onError (text) {
+      this.snackbarText = text
+      this.snackbar = true
+    },
+    focusDiagnosisInput () {
+      this.toggleFocus = !this.toggleFocus
     }
   }
 };
@@ -65,3 +120,10 @@ export default {
   overflow-x: hidden;
 }
 </style>
+
+<style lang="scss">
+.crawl-error > div { 
+  margin-top: 4.5rem;
+}
+</style>
+

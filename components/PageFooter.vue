@@ -6,13 +6,13 @@ footer.css-895q96
         .css-tc2za9
           .css-1k9xznr
             .css-j0bl2w
-              router-link.css-osz9vn(title='Backlinko' to='/')
+              router-link.css-osz9vn(title='Jett analysis' to='/')
                 logo(
-                  size='60'
+                  size='100'
                   fill='#fff'
                 )
               .css-1l6xqrc
-                p 최적의 검색 엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
+                p 최적의 검색엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
             .css-1enann6
               h4.css-10iwlr9 Learn
               nav.css-1xx9hpn
@@ -30,7 +30,7 @@ footer.css-895q96
                   li.menu-item
                     router-link(to='/about') 소개
                   li.menu-item
-                    router-link(to='/contact') 연락하기
+                    a(@click.stop='counsel') 연락하기
         .css-9hzi2i
           h4.css-1hl05th Connect
           ul.css-68xvsd
@@ -63,7 +63,12 @@ footer.css-895q96
 import Logo from './Logo'
 export default {
   name: 'PageFooter',
-  components: { Logo }
+  components: { Logo },
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  }
 }
 </script>
 
@@ -223,11 +228,6 @@ a, a:hover {
   margin-bottom: 30px;
 }
 
-.css-osz9vn img,.css-osz9vn svg {
-  width: 188px;
-  height: auto;
-}
-
 .css-osz9vn svg g {
   fill: #00d07e;
 }
@@ -357,6 +357,19 @@ a, a:hover {
   .css-119of8i {
     margin-bottom:10px;
   }
+  .css-j0bl2w {
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin-bottom: 0;
+    }
+    .css-1l6xqrc {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -386,6 +399,10 @@ a, a:hover {
     -ms-flex: 0 0 25.00000%;
     flex: 0 0 25.00000%;
     max-width: 25.00000%;
+  }
+  .css-osz9vn img,.css-osz9vn svg {
+    width: 150px;
+    height: auto;
   }
 }
 

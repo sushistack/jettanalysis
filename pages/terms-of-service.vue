@@ -37,10 +37,34 @@
               p
                 strong 유의사항
                 br
-                | JETT Analysis는 웹 검색 순위를 보장하지 않습니다. JETT Analysis의 권장 사항, 콘텐츠 및 컨설팅 서비스는 검색 순위를 유기적으로 개선하기 위한 것입니다. JETT Analysis는 웹 사이트에 대한 백링크를 제공하지 않습니다. 검색 엔진 순위를 개선하기 위해 노력할 때는 항상 검색 엔진 제공업체의 관련 지침을 준수하십시오.
+                | JETT Analysis는 웹 검색 순위를 보장하지 않습니다. JETT Analysis의 권장 사항, 콘텐츠 및 컨설팅 서비스는 검색 순위를 유기적으로 개선하기 위한 것입니다. JETT Analysis는 웹 사이트에 대한 백링크를 제공하지 않습니다. 검색엔진 순위를 개선하기 위해 노력할 때는 항상 검색엔진 제공업체의 관련 지침을 준수하십시오.
               p 일반적으로 키워드 채우기, 은폐, 교활한 리디렉션, 오해의 소지가 있는 마크업, 중복 컨텐츠, 출입구 페이지, 링크 구입 또는 소셜 네트워크 사이트 스팸 발송 등은 스팸에 포함하되므로 이러한 방식을 사용하는데 주의하십시오.
   page-footer
 </template>
+
+<script>
+const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+
+export default {
+  name: 'TermsOfService',
+  head ({$seoMeta}) {
+    const title = '서비스 이용 약관'
+    return {
+      title: title,
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.SITE_NAME}`,
+          url: `${FRONTEND_BASE_URL}/terms-of-service`,
+          description: 'JETT Analysis의 서비스 이용 약관입니다.'
+        },
+        false
+      ),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+      }
+  },
+}
+</script>
+
 
 <style lang="scss" scoped>
 dl, ol, ul {

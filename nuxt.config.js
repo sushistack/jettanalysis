@@ -1,7 +1,33 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
-const DEFAULT_SITE_DESCRIPTION = 'It\'s time to get backlinks that make a difference. Backlinko is the place for next-level SEO training and link building strategies.'
+
+const FALLBACK = {
+  TITLE: '검색엔진 최적화 전략 가이드',
+  DESCRIPTION: '이제 검색엔진 최적화는 저희에게 맡기세요! JETT Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.',
+  IMAGE: `${FRONTEND_BASE_URL}/images/jett-analysis.jpg`,
+  KEYWORDS: ['검색엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색엔진']
+}
+
+const createSitemapRoutes = async () => {
+  let routes = []
+  let posts = null
+  let wikis = null
+  const { $content } = require('@nuxt/content')
+  if (posts === null || posts.length === 0) {
+    posts = await $content('articles', 'blog').fetch()
+  }
+  if (wikis === null || wikis.length === 0) {
+    wikis = await $content('articles', 'wiki').fetch()
+  }
+  for (const post of posts) {
+    routes.push(`blog/${post.slug}`)
+  }
+  for (const wiki of wikis) {
+    routes.push(`wiki/${wiki.slug}`)
+  }
+  return routes
+}
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -10,16 +36,23 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s | JETT Analysis',
-    title: '검색엔진 최적화 전략',
+    title: FALLBACK.TITLE,
     htmlAttrs: { lang: 'ko' },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
       { hid: 'robots', name: 'robots', content: 'index, follow' },
-      { hid: 'description', name: 'description', content: DEFAULT_SITE_DESCRIPTION }
+      { hid: 'author', name: 'author', content: 'Jett Analysis' },
+      { hid: 'keyword', name: 'keyword', content: FALLBACK.KEYWORDS.join(',') },
+      { hid: 'mobile-web-app-capable', name: 'mobile-web-app-capable', content: 'yes' },
+      { hid: 'apple-mobile-web-app-capable', name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${FALLBACK.TITLE} | JETT Analysis` },
+      { hid: 'apple-mobile-web-app-status-bar-style', name: 'apple-mobile-web-app-status-bar-style', content: 'white' },
+      { hid: 'application-name', name: 'application-name', content: 'JETT Analysis' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', href: FALLBACK.IMAGE }
     ]
   },
 
@@ -45,9 +78,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots', 
+    '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots',
     '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
-    '@nuxtjs/firebase', 'nuxt-clipboard'
+    '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt',
+    '@nuxtjs/google-analytics'
   ],
 
   dotenv: { filename: `.env.${process.env.NODE_ENV}` },
@@ -61,19 +95,28 @@ export default {
   ],
 
   sitemap: {
-    hostname: FRONTEND_BASE_URL
+    hostname: FRONTEND_BASE_URL,
+    gzip: true,
+    routes: createSitemapRoutes
   },
 
   seoMeta: {
-    defaultDescription: DEFAULT_SITE_DESCRIPTION,
+    defaultDescription: FALLBACK.DESCRIPTION,
     defaultUrl: FRONTEND_BASE_URL,
-    defaultImage: '/logo.png',
+    defaultImage: FALLBACK.IMAGE,
     siteName: 'JETT Analysis',
-    twitterUser: ''
+    twitterUser: '@jettanalyisis'
   },
 
   content: {
-    liveEdit: false
+    liveEdit: false,
+    markdown: {
+      // https://github.com/remarkjs/remark-external-links#options
+      remarkExternalLinks: {
+        target: '_blank',
+        rel: 'nofollow'
+      }
+    }
   },
 
   firebase: {
@@ -97,6 +140,16 @@ export default {
     emulatorHost: 'localhost',
     settings: {
       // Firestore Settings - currently only works in SPA mode
+    }
+  },
+
+  googleAnalytics: {
+    id: 'UA-206750180-1'
+  },
+
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
     }
   },
 

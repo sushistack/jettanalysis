@@ -3,10 +3,11 @@ import axios from 'axios'
 const requestHandle = (res, resolve, reject) => {
   switch (res.status) {
     case 200: return resolve({
+      resultCode: 0,
       headers: res.headers,
       body: res.data
     })
-    default: return resolve({ headers: {}, body: '' })
+    default: return resolve({ resultCode: -1, headers: {}, body: '' })
   }
 }
 
@@ -27,7 +28,7 @@ function crawl(url, config = {}) {
       .then(res => { requestHandle(res, resolve, reject) })
       .catch(err => { 
         console.error({ statusCode: err.response.status, message: getErrorReason(err) })
-        resolve({ headers: {}, body: '' })
+        resolve({ resultCode: -1, headers: {}, body: '' })
        })
   })
 }

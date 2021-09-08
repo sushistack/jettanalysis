@@ -15,6 +15,7 @@
           button.caller-btn.without-input.e1fw58rm0(
             type='button'
             role='button'
+            @click='$emit("onButtonClick")'
           ) {{ buttonText }}
         .caller(v-else)
           form(@submit.prevent='onSubmit')
@@ -28,12 +29,11 @@
                       :type='inputOption.type' 
                       :placeholder='inputOption.placeholder'
                       required
-                      pattern='[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?'
                       @focus='activeTooltip = true'
                       @blur='activeTooltip = false'
                       @input='inputUrl'
-                      @invalid='onInvalid'
                       :value='url'
+                      ref='diagnosisInput'
                     )
                 .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
                   v-show='activeTooltip'
@@ -52,14 +52,15 @@
                   .loader Loading...
                 template(v-else) {{ buttonText }}
         .share-box-wrapper(v-show='type === "diagnosis"')
-
           .share-box
+            .share-title 공유하기
             share-box(
               :post='post'
               :shareTwitter='shareTwitter'
               :shareFacebook='shareFacebook'
               :shareUrl='shareUrl'
             )
+            
 </template>
 
 <script>
@@ -86,6 +87,11 @@ export default {
       type: Object,
       required: false
     },
+    focusInput: {
+      type: Boolean,
+      required: false,
+      default: () => false
+    },
     tooltipText: {
       type: String,
       required: false
@@ -108,7 +114,7 @@ export default {
       id: "diagnosis",
       title: "JETT 사이트 진단하기",
       description: "내 사이트가 SEO 최적화 조건에 맞는지 진단해보세요!",
-      img: "https://jettanalysis.com/images/jett-analysis-w-2000.png"
+      img: "https://jettanalysis.com/images/jett-analysis.jpg"
     }
   }),
   methods: {
@@ -118,27 +124,34 @@ export default {
       }
       this.url = e.target.value;
     },
-    onInvalid(e) {
-      e.target.setCustomValidity("유효한 URL 형식이 아닙니다." || "");
-    },
     onSubmit(e) {
-      e.preventDefault();
-      const regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-      if (!regex.test(this.url)) return;
+      e.preventDefault()
+      const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
+      if (!regex.test(this.url)) {
+        this.$emit('onError', '유효하지 않은 URL입니다!')
+        return
+      }
 
-      this.activeInput = true;
-      this.$emit("onButtonClick", this.url);
+      this.activeInput = true
+      this.$emit("onButtonClick", this.url)
     }
   },
   computed: {
     shareUrl() {
-      return `${FRONTEND_BASE_URL}/diagnosis`;
+      return `${FRONTEND_BASE_URL}/diagnosis`
     },
     shareTwitter() {
-      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`;
+      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`
     },
     shareFacebook() {
-      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`;
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
+    }
+  },
+  watch: {
+    focusInput: function (n, o) {
+      if (n !== o) {
+        this.$refs.diagnosisInput.focus()
+      }
     }
   }
 };
@@ -521,10 +534,37 @@ export default {
   overflow-wrap: break-word;
 }
 
+.share-box-wrapper {
+  margin-top: 2rem;
+}
+
 .share-box {
   justify-content: center;
   display: flex;
-  margin-top: 40px;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  width: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.share-title {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  font-size: 14px;
+  padding: 0 .3rem;
+  border-left: 1px;
+  border-right: 1px;
+  border-top: 0;
+  border-bottom: 0;
+  background: #fff;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: #ebebeb;
+  font-weight: bold;
 }
 
 @media (min-width: 576px) {
@@ -571,6 +611,9 @@ export default {
   }
   .caller-btn.without-input {
     width: 100%;
+  }
+  .css-q5hbwx {
+    width: calc(100% - 162px);
   }
 }
 

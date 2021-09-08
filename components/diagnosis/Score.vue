@@ -5,7 +5,7 @@
       .card-meta
         .card-meta-detail
           .card-meta-title {{ score.head.url }}
-          .card-meta-description 페이지 검색 엔진 최적화 점수
+          .card-meta-description 페이지 검색엔진 최적화 점수
     .summary-graph
       .summary-graph-wrapper
         .summary-graph-total
@@ -17,7 +17,7 @@
             color='#00afff'
           ) {{ percentage }}
         .register-modal
-          v-btn.white--text(color='#00afff' x-large rounded ) 상담하기
+          v-btn.white--text(color='#00afff' x-large rounded @click='counsel') 상담하기
       .summary-graph-split
         v-tabs(v-model='tab' color='#00afff')
           v-tab 전체
@@ -83,6 +83,11 @@ export default {
     }
   },
   data: () => ({ tab: null }),
+  methods: {
+    counsel () {
+      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+    }
+  },
   computed: {
     sumOfScore () {
       return this.score.head.failed + this.score.head.warning + this.score.head.passed
