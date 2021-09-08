@@ -6,9 +6,9 @@ footer.css-895q96
         .css-tc2za9
           .css-1k9xznr
             .css-j0bl2w
-              router-link.css-osz9vn(title='Backlinko' to='/')
+              router-link.css-osz9vn(title='Jett analysis' to='/')
                 logo(
-                  size='60'
+                  size='100'
                   fill='#fff'
                 )
               .css-1l6xqrc
@@ -228,11 +228,6 @@ a, a:hover {
   margin-bottom: 30px;
 }
 
-.css-osz9vn img,.css-osz9vn svg {
-  width: 188px;
-  height: auto;
-}
-
 .css-osz9vn svg g {
   fill: #00d07e;
 }
@@ -362,6 +357,19 @@ a, a:hover {
   .css-119of8i {
     margin-bottom:10px;
   }
+  .css-j0bl2w {
+    display: flex;
+    justify-content: space-between;
+    a {
+      margin-bottom: 0;
+    }
+    .css-1l6xqrc {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+  }
 }
 
 @media (min-width: 768px) {
@@ -391,6 +399,10 @@ a, a:hover {
     -ms-flex: 0 0 25.00000%;
     flex: 0 0 25.00000%;
     max-width: 25.00000%;
+  }
+  .css-osz9vn img,.css-osz9vn svg {
+    width: 150px;
+    height: auto;
   }
 }
 

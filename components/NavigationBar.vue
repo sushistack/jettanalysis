@@ -6,10 +6,10 @@
         logo(:size='headerHeight' marginTop='15')
     v-spacer
     nav.menu
-      ul.menu-list(v-if='!isSmallerThanMd')
+      ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
           router-link.menu-link(:to='m.to') {{ m.name }}
-      v-btn(v-else icon @click.stop='overlay = !overlay')
+      v-btn(v-show='isSmallerThanMd' icon @click.stop='overlay = !overlay')
         v-icon mdi-menu
   v-overlay(:value='overlay' color='#00afff' opacity='1')
     .overlay-toolbar

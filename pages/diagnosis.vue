@@ -9,6 +9,7 @@
         :buttonOnly='false'
         type='diagnosis'
         :inputOption='inputOption'
+        :focusInput='toggleFocus'
         tooltipText='사이트 진단을 위해 유효한 URL을 입력해주세요'
         buttonText='진단'
         @onButtonClick='diagnose'
@@ -22,11 +23,11 @@
         diagnosis(:diagnosis='diagnosis')
       section(v-else)
         feature(
-          to='/diagnosis'
           type='SITE DIAGNOSIS'
           title='진단: 당신의 사이트를 무료로 진단해보세요!'
           desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
           imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
+          @onFeatureClick='focusDiagnosisInput'
         )
   v-snackbar.crawl-error(
     v-model='snackbar'
@@ -75,6 +76,7 @@ export default {
       isProcessing: false
     },
     diagnosis: null,
+    toggleFocus: false,
     requestFailed: false,
     snackbar: false,
     snackbarText: '페이지 크롤링에 실패하였습니다!'
@@ -103,6 +105,9 @@ export default {
     onError (text) {
       this.snackbarText = text
       this.snackbar = true
+    },
+    focusDiagnosisInput () {
+      this.toggleFocus = !this.toggleFocus
     }
   }
 };

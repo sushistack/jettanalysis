@@ -33,6 +33,7 @@
                       @blur='activeTooltip = false'
                       @input='inputUrl'
                       :value='url'
+                      ref='diagnosisInput'
                     )
                 .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
                   v-show='activeTooltip'
@@ -85,6 +86,11 @@ export default {
     inputOption: {
       type: Object,
       required: false
+    },
+    focusInput: {
+      type: Boolean,
+      required: false,
+      default: () => false
     },
     tooltipText: {
       type: String,
@@ -139,6 +145,13 @@ export default {
     },
     shareFacebook() {
       return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
+    }
+  },
+  watch: {
+    focusInput: function (n, o) {
+      if (n !== o) {
+        this.$refs.diagnosisInput.focus()
+      }
     }
   }
 };
