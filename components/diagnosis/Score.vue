@@ -17,7 +17,7 @@
             color='#00afff'
           ) {{ percentage }}
         .register-modal
-          v-btn.white--text(color='#00afff' x-large rounded @click='counsel') 상담하기
+          v-btn.white--text(color='#00afff' x-large rounded router to='/counsel') 상담하기
       .summary-graph-split
         v-tabs(v-model='tab' color='#00afff')
           v-tab 전체
@@ -83,11 +83,6 @@ export default {
     }
   },
   data: () => ({ tab: null }),
-  methods: {
-    counsel () {
-      window.open(process.env.COUNSEL_LINK, '_blank').focus()
-    }
-  },
   computed: {
     sumOfScore () {
       return this.score.head.failed + this.score.head.warning + this.score.head.passed

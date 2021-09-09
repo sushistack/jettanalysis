@@ -77,8 +77,9 @@ export default {
   border: 2px solid #eee;
   border-radius: 5px;
   margin-top: 16px;
+  overflow: auto;
   .preview-box {
-    max-width: 570px;
+    width: 570px;
     .desktop-snippet-url {
       color: #5f6368;
       display: inline;

@@ -85,9 +85,10 @@ export default {
   border: 2px solid #eee;
   border-radius: 5px;
   margin-top: 16px;
+  overflow: auto;
 }
 .preview-box {
-  max-width: 570px;
+  width: 570px;
   border: 1px solid #e8ebee;
   border-radius: 6px;
   -webkit-box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
