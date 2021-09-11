@@ -10,7 +10,7 @@
         figure.css-1n3a0vm
           picture
             source(
-              srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-640x335.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-300x157.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1280x670.webp 1280w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-768x402.webp 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1536x804.webp 1536w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-480x251.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-960x502.webp 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1440x753.webp 1440w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner.webp 1600w'
+              srcset='https://jettanalysis.com/images/site-diagnosis.png 640w, https://jettanalysis.com/images/site-diagnosis.png 300w, https://jettanalysis.com/images/site-diagnosis.png 1280w, √ 768w, https://jettanalysis.com/images/site-diagnosis.png 1536w, https://jettanalysis.com/images/site-diagnosis.png 480w, https://jettanalysis.com/images/site-diagnosis.png 960w, https://jettanalysis.com/images/site-diagnosis.png 1440w, https://jettanalysis.com/images/site-diagnosis.png 1600w'
               sizes='(max-width: 640px) 100vw, 640px'
               type='image/webp'
             )

@@ -3,10 +3,6 @@
   .css-17ia555
     h1.css-1bk7ox4 {{ title }}
     .css-70qvj9
-      figure.css-ium0zo
-        picture
-          source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400-300x300.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400-150x150.webp 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400.webp 414w' sizes='(max-width: 300px) 100vw, 300px' type='image/webp')
-          img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400.jpg' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400-300x300.jpg 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400-150x150.jpg 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/meeB57W6_400x400.jpg 414w' sizes='(max-width: 300px) 100vw, 300px' alt='meeB57W6_400x400' loading='lazy')
       .css-1c7u7ph
         p {{ desc }}
     .css-2thhi1
@@ -216,7 +212,7 @@ export default {
 }
 
 .css-1c7u7ph {
-  text-align: left;
+  text-align: center;
   line-height: 1.6;
   max-width: 330px;
 }
