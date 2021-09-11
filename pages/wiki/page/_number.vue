@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     counsel () {
-      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+      this.$router.push('/counsel')
     }
   },
   computed: {

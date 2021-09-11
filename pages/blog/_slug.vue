@@ -10,7 +10,7 @@
             h1.css-1r8cg95 {{ article.title }}
             .css-5vc5y3
               time.updated(datetime='article.updatedAt')
-              p 최종 수정일: {{ formatDate(article.updatedAt) }}
+              p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
           figure.css-e00ba0
             v-img.article-img(:src='article.img' :alt='article.title')
       .css-2lmhoi
