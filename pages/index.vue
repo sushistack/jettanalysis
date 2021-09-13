@@ -8,12 +8,12 @@
           .css-79elbk
             .css-1k9xznr
               .css-8p4et2
-                h1.page-title 검색엔진 최적화를 위한 사이트 진단과 다양한 팁 그리고 최적의 솔루션 상담을 해보세요!
+                h1.page-title 검색엔진 최적화, 상위노출을 꿈꾸신다면? <br> 제트와 상담하세요
                 .recommend-conainer
                   .recommend
                     blockquote.recommend-block
-                      p “무료로 제공되는 검색엔진 최적화 사이트 진단과 다양한 팁들을 얻을 수 있습니다.”
-                      cite 데이터 분석 기반 마케팅 에이전시, JETT Analysis
+                      p 무료로 제공되는 검색엔진 최적화 사이트 진단, 다양한 정보와 팁들을 확인하세요
+                      cite 데이터 분석 기반 마케팅 에이전시, <br> JETT Analysis
                 .call-container
                   .call-inner-container
                     .aweber-form-body
@@ -25,8 +25,7 @@
               .main-image-container
                 figure.figure-image
                   picture
-                    source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-480x874.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-300x546.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-768x1398.webp 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-640x1165.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT.webp 800w' sizes='(max-width: 480px) 100vw, 480px' type='image/webp')
-                    img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT.png' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-480x874.png 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-300x546.png 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-768x1398.png 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT-640x1165.png 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian_RT.png 800w' sizes='(max-width: 480px) 100vw, 480px' alt='Brian_RT' loading='eager' width='800' height='1456')
+                    img.main-image(src='https://jettanalysis.com/images/main01.png')
       .css-ld04yu
         .css-1py7eya
           blockquote.css-1ptfann
@@ -37,8 +36,8 @@
         to='/diagnosis'
         type='SITE DIAGNOSIS'
         title='진단: 당신의 사이트를 무료로 진단해보세요!'
-        desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
-        imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
+        desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
+        imageUrl='https://jettanalysis.com/images/site-diagnosis.png'
       )
     section
       separater
@@ -193,8 +192,7 @@ export default {
   overflow: hidden;
   img {
     width: 100%;
-    max-width: 162px;
-    margin-bottom: -64px;
+    margin-bottom: 0px;
     height: auto;
   }
 }
@@ -289,6 +287,7 @@ export default {
   .figure-image {
     right: -25px;
     bottom: -7px;
+    transform: translateY(-10rem);
     img {
       max-width: 365px;
       margin-bottom: 0;
@@ -333,13 +332,11 @@ export default {
     max-width: 41.66667%;
   }
   .figure-image {
-    margin: 0 20px 0 0;
+    transform: translateY(-10rem);
     img {
-      max-width: 380px;
-      margin-top: -75px;
-      -webkit-transform: translateY(6rem);
-      -ms-transform: translateY(6rem);
-      transform: translateY(6rem);
+      max-width: 520px;
+      margin-top: 0px;
+    
     }
   }
   .css-ld04yu {
@@ -367,7 +364,8 @@ export default {
     max-width: 505px;
   }
   .figure-image {
-    margin: 0 55px 0 0;
+    margin: 0 0 0 0;
+    transform: translateY(-10rem);
   }
   .css-ld04yu {
     max-width: 1140px;
@@ -537,7 +535,6 @@ export default {
   font-size: 1.125rem;
   line-height: 1.4;
   cursor: pointer;
-  border-radius: 6px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: -webkit-inline-box;
@@ -561,7 +558,7 @@ export default {
   margin: 0;
   cursor: pointer;
   text-transform: none;
-  font-weight: 600;
+  font-weight: 700;
   min-height: 3.7875rem;
   font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica Neue, Arial, Noto Sans, sans-serif;
@@ -574,7 +571,7 @@ export default {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 1.05rem 1.2rem;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -601,7 +598,7 @@ export default {
   font-weight: 600;
   min-height: 3.7875rem;
   outline: none;
-  border-radius: 6px;
+  border-radius: 100px;
   top: 0;
   right: 0;
   min-width: 170px;
@@ -609,6 +606,7 @@ export default {
   background-color: #00afff;
   border-color: #00afff;
   width: 100%;
+
 }
 
 .caller-btn:disabled[disabled] {

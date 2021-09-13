@@ -96,8 +96,8 @@ export default {
         password: this.password,
         content: this.content,
         created_at: new Date().getTime()
-      }
-      this.loading = true
+      };
+      this.loading = true;
       this.$fire.firestore
         .collection(this.post.id)
         .add(comment)

@@ -7,9 +7,7 @@ img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing
 createdAt: '2021-08-02 00:00:00'
 updatedAt: '2021-08-03 00:00:00'
 author:
-  name: 엔지니어
-  bio: 엔지니어 소개
-  img: https://secure.gravatar.com/avatar/ff8eab31fb6066670f6d0fe9d9f0166f?s=96&d=mm&r=g
+  name: 엔지니어 K
 tags: ['제목', '제목 태그', '포스팅 제목', '제목 SEO', '블로그 제목', '글 제목']
 published: true
 ---
