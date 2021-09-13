@@ -69,8 +69,8 @@ export default {
   },
   computed: {
    topFontColor () {
-      if (!this.article || !this.article.fontColor) return '#ffffff'
-      return this.article.fontColor
+      if (!this.article || !this.article.color) return '#ffffff'
+      return this.article.color
    },
    topBackgroundColor () {
      if (!this.article || !this.article.backgroundColor) return '#00afff'
@@ -123,7 +123,6 @@ export default {
   padding: 45px 0px;
 }
 .css-1r8cg95 {
-  color: rgb(255, 255, 255);
   font-size: 28px;
   margin-bottom: 25px;
 }
@@ -147,6 +146,8 @@ export default {
   margin: -10px auto 0px;
   max-width: 600px;
   .article-img {
+    border: 1px solid transparent;
+    border-radius: 10px;
     position: relative;
     width: 100%;
     height: auto;

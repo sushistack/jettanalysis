@@ -37,7 +37,7 @@ export default {
   async asyncData({ $content, params }) {
     const total = await $content('articles', 'blog').only(['slug']).fetch()
     const articles = await $content('articles', 'blog')
-      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags'])
+      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags', 'backgroundColor'])
       .sortBy('createdAt', 'desc')
       .limit(PER_PAGE)
       .fetch()

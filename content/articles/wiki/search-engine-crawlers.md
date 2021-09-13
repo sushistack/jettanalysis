@@ -1,15 +1,13 @@
 ---
 title: 검색엔진 크롤러 (Search Engine Crawler)
 description: 검색엔진 최적화를 위한 검색엔진 크롤러에 대해서 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#b8e9ff'
+img: '/images/wiki_thumb_spider.png'
 createdAt: '2021-09-06 00:00:00'
 updatedAt: '2021-09-06 00:00:00'
 author:
   name: 엔지니어
-  bio: All about Benjamin
-  img: https://secure.gravatar.com/avatar/ff8eab31fb6066670f6d0fe9d9f0166f?s=96&d=mm&r=g
 tags: ['크롤러', '검색엔진', '검색엔진 크롤러', 'crawler', 'search engine', 'search engine crawler']
 ---
 

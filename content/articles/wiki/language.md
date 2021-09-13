@@ -1,8 +1,8 @@
 ---
 title: 웹 페이지에 언어 정의하기 (Declaring Language in Web Page)
 description: 검색엔진 최적화를 위해 웹 페이지에 언어를 정의해야하는 이유에대해서 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
+color: '#000'
+backgroundColor: '#b8e9ff'
 img: '/images/wiki_lang.png'
 createdAt: '2021-09-09 00:00:00'
 updatedAt: '2021-09-09 00:00:00'

@@ -8,13 +8,10 @@ article.post
         .css-1d7x0cs
           time.updated(:datetime='article.updatedAt')
           p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
-    .css-12m1dn8
+    .css-12m1dn8(:style='{background: article.backgroundColor}')
       v-img.article-img(:src='article.img')
-      nuxt-content(:document='article.excerpt')
+      nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
     footer.css-3872h1
-      //- p.css-toegfy
-      //-   span 100
-      //-   |  댓글
       router-link.css-13xd08w(:to='link') 이어서 읽기
 </template>
 
@@ -59,7 +56,12 @@ a {
 
 .article-img {
   width: 100%;
-  margin-bottom: 2rem;
+  max-width: 450px;
+  margin: auto;
+}
+
+.article-excerpt {
+  padding-top: 2rem;
 }
 
 .css-u5p2ag {

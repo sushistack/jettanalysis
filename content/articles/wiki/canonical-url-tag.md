@@ -1,15 +1,13 @@
 ---
 title: 정식 링크 태그 (Canonical URL Tag)
 description: 검색엔진 최적화를 위한 정식 URL 태그에 대해서 소개해드리겠습니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#b8e9ff'
+img: '/images/wiki_canonical.png'
 createdAt: '2021-09-07 00:00:00'
 updatedAt: '2021-09-07 00:00:00'
 author:
   name: 엔지니어
-  bio: All about Benjamin
-  img: https://secure.gravatar.com/avatar/ff8eab31fb6066670f6d0fe9d9f0166f?s=96&d=mm&r=g
 tags: ['정식 URL', '캐노니컬 URL', '정식 링크', 'canonical URL', 'canonical link']
 ---
 
