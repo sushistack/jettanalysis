@@ -3,7 +3,7 @@ title: 제목 태그 (Title Tag)
 description: 검색엔진 최적화를 위한 가장 기본이 되는 제목에 대해서 소개합니다.
 color: '#ffffff'
 backgroundColor: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+img: '/images/title_tag.png'
 createdAt: '2021-09-02 00:00:00'
 updatedAt: '2021-09-02 00:00:00'
 author:
