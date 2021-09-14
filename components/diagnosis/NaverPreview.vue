@@ -136,7 +136,6 @@ export default {
         letter-spacing: -.25px;
         color: #0c43b7;
         overflow: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
         display: block;
         cursor: pointer;

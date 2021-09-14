@@ -89,6 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/table.scss';
 #content {
   img {
     display: block;

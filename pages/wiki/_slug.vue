@@ -89,6 +89,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/table.scss';
 .css-66hu0x {
   overflow: hidden;
   position: relative;
