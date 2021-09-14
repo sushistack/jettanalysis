@@ -130,7 +130,7 @@ export default {
   font-weight: 800;
   font-size: 32px;
   max-width: 235px;
-  margin: 20px 0 150px;
+  margin: 20px 0 calc(100% - 70px);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -250,11 +250,13 @@ export default {
   }
   .page-title {
     max-width: 340px;
+    margin: 20px 0 150px;
   }
   .figure-image {
-    right: 15px;
+    right: 0;
+    bottom: 135px;
     img {
-      max-width: 190px;
+      max-width: 270px;
     }
   }
   .css-ld04yu {
