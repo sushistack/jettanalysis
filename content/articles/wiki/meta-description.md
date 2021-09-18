@@ -2,7 +2,8 @@
 title: 메타 설명 (Meta Descripton)
 description: 검색엔진 최적화를 위한 가장 기본이 되는 메타 설명에 대해서 소개해드립니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_description.png'
 createdAt: '2021-09-04 00:00:00'
 updatedAt: '2021-09-04 00:00:00'
@@ -40,6 +41,8 @@ tags: ['제목', '제목 태그', '메타 제목', 'title', 'title tag', 'seo ti
 그럼에도 불구하고 메타 설명을 최적화하는 것은 검색 결과에서 페이지의 클릭률(CTR) 에 상당한 영향을 미치기 때문에 SEO 및 온라인 마케팅 에서 중요한 작업입니다. CTR은 특정 검색어에 대한 페이지 노출수와 페이지의 실제 클릭수 간의 비율입니다. 사용자가 클릭하도록 유도하는 적절하고 매력적인 메타 설명을 사용하면 페이지의 순위가 낮더라도 CTR을 크게 높일 수 있습니다.
 
 이는 Google이 웹페이지를 평가하는 방식에 긍정적인 영향을 미칩니다. Google은 페이지가 자주 클릭되고 사용자가 페이지에서 많은 시간을 보내는 경우 훨씬 관련성이 높은 페이지로 간주합니다. 따라서 좋은 메타 설명은 Google에서 웹 페이지의 순위를 간접적으로 향상시킬 수 있으므로 검색엔진 최적화(SEO)와도 관련이 있습니다.
+
+<simple-diagnosis title='메타 설명 SEO 진단하기' description='검색엔진 최적화를 위한 메타 설명을 진단해보세요.'></simple-diagnosis>
 
 ### 메타 설명을 최적화하는 방법
 

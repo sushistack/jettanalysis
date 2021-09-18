@@ -2,7 +2,8 @@
 title: 정식 링크 태그 (Canonical URL Tag)
 description: 검색엔진 최적화를 위한 정식 URL 태그에 대해서 소개해드리겠습니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_canonical.png'
 createdAt: '2021-09-07 00:00:00'
 updatedAt: '2021-09-07 00:00:00'
@@ -34,13 +35,15 @@ SEO 목적을 위해 정식 링크는 컨텐츠의 원본 소스이면서 검색
 
 ```html
 <head>
-  
+
 <link rel="canonical" content="http://www.example.com/product.html">
 
 </head>
 ```
 
 정식 URL 버전을 나타내기 위해 위와 같이 웹 페이지의 `<head>`에 정식 링크가 추가됩니다. 프린트 버전 페이지에 위와 같이 작성하여 검색엔진에 정식링크는 일반 페이지임을 알릴 수 있습니다.
+
+<simple-diagnosis title='정식 링크 SEO 진단하기' description='검색엔진 최적화를 위한 정식 링크를 진단해보세요.'></simple-diagnosis>
 
 정식 태그를 사용해야 하는 경우 두 페이지에 거의 동일한 컨텐츠로 구성되어 있어야합니다. 이는 두 페이지의 텍스트와 이미지가 대체로 동일해야 함을 의미합니다. 페이지가 동일한 주제와 관련되어 있지만 동일한 콘텐츠가 포함되어 있지 않은 경우 검색 엔진이 링크를 무시하거나 향후 검색엔진에서 해당 웹사이트의 모든 링크를 무시할 수도 있습니다. 예를 들어, 한 페이지에 여러 표준 링크가 설정된 경우에 발생할 수 있습니다.
 

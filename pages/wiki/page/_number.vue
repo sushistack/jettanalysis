@@ -22,9 +22,9 @@
           h2.css-18dt6si Posts navigation
           .css-1ctem6t
             .css-1lkog1(v-show='isMore')
-              nuxt-link.css-419jou(:to='prevLink') 이전
+              nuxt-link.css-419jou(:to='prevLink') 다음
             .css-1lkog1
-              nuxt-link.css-419jou(:to='nextLink') 다음
+              nuxt-link.css-419jou(:to='nextLink') 이전
   page-footer
 </template>
 
@@ -42,7 +42,7 @@ export default {
 
     const total = await $content('articles', 'wiki').only(['slug']).fetch()
     const articles = await $content('articles', 'wiki')
-      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags'])
+      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags', 'backgroundColorForPreview'])
       .sortBy('createdAt', 'desc')
       .limit(PER_PAGE)
       .skip(PER_PAGE * (pageNo - 1))

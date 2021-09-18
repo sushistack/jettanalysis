@@ -600,7 +600,7 @@ export default {
   font-weight: 600;
   min-height: 3.7875rem;
   outline: none;
-  border-radius: 100px;
+  border-radius: 6px;
   top: 0;
   right: 0;
   min-width: 170px;
@@ -608,7 +608,6 @@ export default {
   background-color: #00afff;
   border-color: #00afff;
   width: 100%;
-
 }
 
 .caller-btn:disabled[disabled] {

@@ -2,7 +2,8 @@
 title: 검색엔진에 친화적인 URL (SEO friendly URL)
 description: 검색엔진에 친화적인 URL 구성하는 방법에 대해서 소개합니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_canonical.png'
 createdAt: '2021-09-14 00:00:00'
 updatedAt: '2021-09-14 00:00:00'
@@ -58,6 +59,8 @@ https://product.com/something.html?sort=price
 ## URL 검색엔진 최적화(SEO)
 
 기본적으로 구글과 같은 검색 엔진은 거의 모든 URL을 이해할 수 있고, SEO 친화적인 URL은 구글과 같은 검색 엔진에서 웹사이트의 등급에 긍정적인 영향을 미칠 수 있습니다. 또한 명확하고 의미 있는 URL은 사용자에게 더 매력적으로 보일 수 있고, 손쉽게 신뢰를 줄 수 있습니다. 따라서 URL의 검색 엔진 최적화(SEO)는 반드시 해결해야 하는 작업입니다. 다음에서는 URL의 검색엔진 최적화와 관련하여 고려해야 할 가장 중요한 측면을 소개하는 시간을 가져보겠습니다.
+
+<simple-diagnosis title='검색엔진 친화적인 URL 최적화 진단하기' description='검색엔진 최적화를 위한 URL 구조 최적화를 진단해보세요.'></simple-diagnosis>
 
 ### 동적 매개변수 및 세션 ID
 

@@ -2,8 +2,9 @@
 title: 검색엔진 최적화를 위한 도메인 (Domain for SEO)
 description: 검색엔진 최적화에 도움이될 수 있는 도메인에 대해서 소개합니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
-img: '/images/wiki_canonical.png'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
+img: '/images/wiki_domain.png'
 createdAt: '2021-09-13 00:00:00'
 updatedAt: '2021-09-13 00:00:00'
 author:
@@ -45,6 +46,8 @@ tags: ['도메인', '좋은 도메인', '도메인 SEO', '도메인 검색엔진
 그러나 `www.cheap-seoul-bakery-cooking.com`과 같은 도메인과 같은 <nuxt-link to="/blog/keyword-stuffing">키워드 스터핑</nuxt-link>은 피해야 합니다. 이러한 도메인은 구글에 의해 불이익을 받을 뿐만 아니라 의심스러워 보이고 브랜드에 손상을 줄 수 있습니다.
 
 이미 강력한 브랜드가 있는 경우 강력하고 고유한 브랜드가 이미 검색 결과 순위에 긍정적으로 기여하고 있으므로 도메인에서 키워드를 사용할 필요가 없습니다. 그러나 SEO를 통해 시장에서 브랜드를 포지셔닝하고 확립해야 하는 회사의 경우, 도메인 이름에 주요 키워드를 사용하는 것이 도움이 될 수 있습니다.
+
+<simple-diagnosis title='도메인 SEO 진단하기' description='검색엔진 최적화를 위한 도메인을 진단해보세요.'></simple-diagnosis>
 
 ## 도메인이란 무엇입니까?
 

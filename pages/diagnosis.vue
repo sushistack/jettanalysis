@@ -73,7 +73,8 @@ export default {
       name: "dignosis",
       type: "text",
       placeholder: "https://jettanalysis.com",
-      isProcessing: false
+      isProcessing: false,
+      defaultUrl: ''
     },
     diagnosis: null,
     toggleFocus: false,
@@ -81,6 +82,19 @@ export default {
     snackbar: false,
     snackbarText: '페이지 크롤링에 실패하였습니다!'
   }),
+  async mounted () {
+    const url = this.$route.query.url
+    const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
+    if (url) {
+      if (regex.test(url)) {
+        this.inputOption.defaultUrl = url
+        await this.diagnose(url)
+      } else {
+        this.onError('유효하지 않은 URL입니다!')    
+      }
+    }
+    
+  },
   methods: {
     async diagnose(url) {
       if (this.diagnosis && this.diagnosis.url === url) {

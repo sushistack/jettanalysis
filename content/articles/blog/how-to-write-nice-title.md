@@ -3,6 +3,7 @@ title: 블로그를 돋보이게 하는 제목 짓는 3가지 방법은?
 description: 블로그 글을 돋보이게 할 수 있는 제목을 짓는 3가지 방법에 대해서 소개합니다.
 color: '#ffffff'
 backgroundColor: rgb(64, 122, 223)
+backgroundColorForPreview: rgb(64, 122, 223)
 img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
 createdAt: '2021-08-02 00:00:00'
 updatedAt: '2021-08-03 00:00:00'

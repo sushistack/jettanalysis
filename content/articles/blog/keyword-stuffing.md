@@ -3,6 +3,7 @@ title: '[키워드 SEO] 키워드 스터핑이 좋지 않은 이유?'
 description: 검색엔진 최적화의 중요한 요소 중 하나인 키워드 스터핑에 대해서 소개합니다.
 color: '#ffffff'
 backgroundColor: rgb(64, 122, 223)
+backgroundColorForPreview: rgb(64, 122, 223)
 img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
 createdAt: '2021-09-11 00:00:00'
 updatedAt: '2021-09-11 00:00:00'

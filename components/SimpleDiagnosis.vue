@@ -1,123 +1,86 @@
 <template lang="pug">
-.css-za4qqw
-  .css-17ia555
-    h1.css-1bk7ox4 {{ title }}
-    .css-70qvj9
-      .css-1c7u7ph
-        p {{ desc }}
-    .css-2thhi1
-      .css-79elbk
-        .aweber-form-body(v-if='buttonOnly')
-          button.caller-btn.without-input.e1fw58rm0(
-            type='button'
-            role='button'
-            @click='$emit("onButtonClick")'
-          ) {{ buttonText }}
-        .caller(v-else)
-          form(@submit.prevent='onSubmit')
-            .aweber-form-body
-              ul.css-1vd0gw5
-                li.aweber-form-field.form-group.css-1pkbgp8
-                  #aweber-field-email.aweber-input-container.aweber-input-container-email
-                    input#form-item-email(
-                      :class='{ "css-1lj1a3e": !activeInput, "css-q5hbwx": activeInput }'
-                      :name='inputOption.name' 
-                      :type='inputOption.type' 
-                      :placeholder='inputOption.placeholder'
-                      required
-                      @focus='activeTooltip = true'
-                      @blur='activeTooltip = false'
-                      @input='inputUrl'
-                      :value='url'
-                      ref='diagnosisInput'
-                    )
-                .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
-                  v-show='activeTooltip'
-                  role='tooltip'
-                  x-placement='top'
+.simple-diagnosis
+  h3.diagnosis-title {{ title }}
+  p.diagnosis-description {{ description }}
+  .diagnosis-container
+    .caller
+      form(@submit.prevent='onSubmit')
+        .aweber-form-body
+          ul.css-1vd0gw5
+            li.aweber-form-field.form-group.css-1pkbgp8
+              #aweber-field-email.aweber-input-container.aweber-input-container-email
+                input#form-item-email(
+                  :class='{ "css-1lj1a3e": !activeInput, "css-q5hbwx": activeInput }'
+                  :name='inputOption.name' 
+                  :type='inputOption.type' 
+                  :placeholder='inputOption.placeholder'
+                  required
+                  @focus='activeTooltip = true'
+                  @blur='activeTooltip = false'
+                  @input='inputUrl'
+                  :value='url'
+                  ref='diagnosisInput'
                 )
-                  .arrow.css-ht3ahn
-                  .tooltip-inner.css-rj3kn9 {{ tooltipText }}
-            .aweber-form-footer.left
-              button.caller-btn.with-input.e1fw58rm0(
-                :disabled='inputOption.isProcessing'
-                type='submit'
-                role='button'
-              )
-                template(v-if='inputOption.isProcessing')
-                  .loader Loading...
-                template(v-else) {{ buttonText }}
-        .share-box-wrapper(v-show='type === "diagnosis"')
-          .share-box
-            .share-title 공유하기
-            share-box(
-              :post='post'
-              :shareTwitter='shareTwitter'
-              :shareFacebook='shareFacebook'
-              :shareUrl='shareUrl'
+            .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
+              v-show='activeTooltip'
+              role='tooltip'
+              x-placement='top'
             )
+              .arrow.css-ht3ahn
+              .tooltip-inner.css-rj3kn9 {{ tooltipText }}
+        .aweber-form-footer.left
+          button.caller-btn.with-input.e1fw58rm0(
+            :disabled='inputOption.isProcessing'
+            type='submit'
+            role='button'
+          )
+            template(v-if='inputOption.isProcessing')
+              .loader Loading...
+            template(v-else) 진단
+  v-snackbar.crawl-error(
+    v-model='snackbar'
+    timeout='2500'
+    rounded='pill'
+    width='320'
+    min-width='320'
+    top
+    color='error'
+  ) 
+    v-icon(:style='{"margin-top": "-5px"}') mdi-alert-circle-outline
+    | 유효하지 않은 URL입니다!
+    template(v-slot:action='{ attrs }')
+      v-btn(color='#fff' text v-bind='attrs' @click='snackbar = false')
+        | 닫기
 </template>
 
 <script>
-import ShareBox from '@/components/ShareBox'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
-
 export default {
-  name: "TopBanner",
-  components: { ShareBox },
+  name: 'SimpleDiagnosis',
   props: {
     title: {
       type: String,
-      required: true
-    },
-    desc: {
-      type: String,
-      required: true
-    },
-    buttonOnly: {
-      type: Boolean,
-      required: true
-    },
-    inputOption: {
-      type: Object,
-      required: false
-    },
-    focusInput: {
-      type: Boolean,
       required: false,
-      default: () => false
+      default: () => '사이트 진단'
     },
-    tooltipText: {
-      type: String,
-      required: false
-    },
-    buttonText: {
-      type: String,
-      required: true
-    },
-    type: {
+    description: {
       type: String,
       required: false,
-      default: () => "NO"
+      default: () => '여러분 사이트의 검색엔진 최적화 진단해보세요.'
     }
   },
   data: () => ({
     activeTooltip: false,
     activeInput: false,
-    url: "",
-    post: {
-      id: "diagnosis",
-      title: "JETT 사이트 진단하기",
-      description: "내 사이트가 SEO 최적화 조건에 맞는지 진단해보세요!",
-      img: "https://jettanalysis.com/images/jett-analysis.jpg"
-    }
+    inputOption: {
+      name: "dignosis",
+      type: "text",
+      placeholder: "https://jettanalysis.com",
+      isProcessing: false
+    },
+    tooltipText: '사이트 진단을 위해 유효한 URL을 입력해주세요',
+    url: '',
+    snackbar: false
   }),
-  mounted () {
-    console.log(this.inputOption)
-    if (this.inputOption && this.inputOption.defaultUrl) {
-      this.url = this.inputOption.defaultUrl
-    }
-  },
   methods: {
     inputUrl(e) {
       if (!this.activeInput) {
@@ -129,36 +92,38 @@ export default {
       e.preventDefault()
       const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
       if (!regex.test(this.url)) {
-        this.$emit('onError', '유효하지 않은 URL입니다!')
+        this.snackbar = true
         return
       }
 
       this.activeInput = true
-      this.$emit("onButtonClick", this.url)
-    }
-  },
-  computed: {
-    shareUrl() {
-      return `${FRONTEND_BASE_URL}/diagnosis`
-    },
-    shareTwitter() {
-      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`
-    },
-    shareFacebook() {
-      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
-    }
-  },
-  watch: {
-    focusInput: function (n, o) {
-      if (n !== o) {
-        this.$refs.diagnosisInput.focus()
-      }
+      this.$router.push({ path: '/diagnosis', query: {url: this.url} })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
+.diagnosis-container {
+  position: relative;
+}
+
+.simple-diagnosis {
+  border: 1px solid #cccc;
+  border-radius: 5px;
+  padding: 1rem 2.5rem 2rem;
+  margin-bottom: 20px;
+  h3.diagnosis-title {
+    background: #eee;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.3rem 1rem;
+  }
+  p {
+    padding: 0.3rem;
+  }
+}
+
 .css-za4qqw {
   background-image: linear-gradient(180deg, #fff 10%, #eef0f7);
   padding: 60px 0 70px;

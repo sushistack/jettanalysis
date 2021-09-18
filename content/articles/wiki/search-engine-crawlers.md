@@ -2,7 +2,8 @@
 title: 검색엔진 크롤러 (Search Engine Crawler)
 description: 검색엔진 최적화를 위한 검색엔진 크롤러에 대해서 소개합니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_thumb_spider.png'
 createdAt: '2021-09-06 00:00:00'
 updatedAt: '2021-09-06 00:00:00'
@@ -50,6 +51,8 @@ Java 또는 Flash 컨텐츠를 사용해서는 안 됩니다. Google은 이제 J
 현대 웹사이트는 더 이상 프레임 기반이 아니라 CSS로 모든 디자인 측면을 해결해야 합니다. 오늘날에도 여전히 프레임을 사용하는 페이지는 검색 엔진에서 부분적으로만 인덱싱되고 잘못 해석됩니다.
 
 SEO 크롤링 최적화와 관련된 또 다른 중요한 측면은 색인이 생성되어야 하는 페이지가 robots.txt의 크롤링에서 제외되거나 로봇 메타 태그에 **noindex** 지시문이 포함되어서는 안 된다는 것입니다. 여러분의 사이트 또는 웹페이지에 대해서 테스트해보고 싶다면 <nuxt-link to="/diagnosis">사이트 진단</nuxt-link>에서 확인해볼 수 있습니다.
+
+<simple-diagnosis title='SEO 크롤링 최적화 진단하기' description='검색엔진 최적화를 위한 크롤링 최적화를 진단해보세요.'></simple-diagnosis>
 
 인터넷 상에서 범죄를 위해서 사용되는 클롤링 로봇들이 있습니다. 이를 막기위해 로봇을 차단하기 위해 노력합니다. 로봇을 막기위한 구성에 중요한 Google, Naver 및 다양한 검색엔진이 포함 될 수도 있기 때문에 주의를 기울여서 잘 확인해야합니다.
 

@@ -12,6 +12,9 @@ const requestHandle = (res, resolve, reject) => {
 }
 
 const getErrorReason = (error) => {
+  if (!error.response) {
+    return '서버에서 알 수 없는 에러가 발생하였습니다.'
+  }
   switch (error.response.status) {
     case 400: return '잘못된 요청입니다.'
     case 401: return '인증에 실패하였습니다.'
@@ -27,7 +30,7 @@ function crawl(url, config = {}) {
     axios.get(url, config)
       .then(res => { requestHandle(res, resolve, reject) })
       .catch(err => { 
-        console.error({ statusCode: err.response.status, message: getErrorReason(err) })
+        console.error({ statusCode: err.response && err.response.status ? err.response.status : 500, message: getErrorReason(err) })
         resolve({ resultCode: -1, headers: {}, body: '' })
        })
   })

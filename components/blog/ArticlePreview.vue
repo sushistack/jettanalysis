@@ -8,7 +8,7 @@ article.post
         .css-1d7x0cs
           time.updated(:datetime='article.updatedAt')
           p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
-    .css-12m1dn8(:style='{background: article.backgroundColor}')
+    .css-12m1dn8(:style='{background: article.backgroundColorForPreview}')
       v-img.article-img(:src='article.img')
       nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
     footer.css-3872h1

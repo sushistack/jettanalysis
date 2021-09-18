@@ -21,7 +21,7 @@
           h2.css-18dt6si Posts navigation
           .css-1ctem6t
             .css-1lkog1
-              nuxt-link.css-419jou(to='/wiki/page/2') 이전
+              nuxt-link.css-419jou(to='/wiki/page/2') 다음
   page-footer
 </template>
 
@@ -37,7 +37,7 @@ export default {
   async asyncData({ $content, params }) {
     const total = await $content('articles', 'wiki').only(['slug']).fetch()
     const articles = await $content('articles', 'wiki')
-      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags', 'backgroundColor'])
+      .only(['title', 'body', 'excerpt', 'img', 'slug', 'author', 'updatedAt', 'tags', 'backgroundColorForPreview'])
       .sortBy('createdAt', 'desc')
       .limit(PER_PAGE)
       .fetch()

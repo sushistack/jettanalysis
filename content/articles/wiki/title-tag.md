@@ -2,7 +2,8 @@
 title: 제목 태그 (Title Tag)
 description: 검색엔진 최적화를 위한 가장 기본이 되는 제목에 대해서 소개합니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_title_tag.png'
 createdAt: '2021-09-02 00:00:00'
 updatedAt: '2021-09-02 00:00:00'
@@ -35,6 +36,8 @@ tags: ['제목', '제목 태그', '메타 제목', 'title', 'title tag', 'seo ti
 ### 제목에 대한 검색엔진 최적화 방법
 
 제목의 길이와 관련하여 Google은 검색 결과에 웹페이지의 제목을 표시하는 데 580픽셀만 사용한다는 점을 염두에 두어야 합니다. 이는 약 70자(공백 포함)의 길이에 해당합니다. 제목이 Google 검색결과에서 잘릴 수 있으므로 이 길이를 초과해서는 안 됩니다. 최적의 제목은 55~65자입니다. <nuxt-link to="/diagnosis">사이트 진단</nuxt-link>에서 자신의 사이트 페이지의 제목이 검색 결과에 어떻게 노출되는지 확인할 수 있습니다.
+
+<simple-diagnosis title='제목 태그 SEO 진단하기' description='검색엔진 최적화를 위한 제목 태그를 진단해보세요.'></simple-diagnosis>
 
 컨텐츠 측면에서 제목 태그에는 웹사이트의 SEO에 가장 중요한 키워드가 포함 되어야 합니다. 제목을 키워드로 가득 채우는 대신 의미 있는 문장으로 만들어야합니다. 그렇지 않으면 <nuxt-link to="/blog/keyword-stuffing">키워드 스터핑</nuxt-link> 때문에 검색엔진에서 부정적인 평가를 받을 수 있습니다. 또한 Google은 제목의 첫 단어를 매우 중요하게 생각하므로 가장 중요한 키워드는 항상 맨 앞에 와야 합니다. 단어의 반복과 철자 오류는 피해야 합니다. 또한 제목이 여러 용어로 구성된 경우 하이픈으로 구분하지 않고 세로줄 `|`로 구분해야 합니다. 이렇게 하면 검색 결과 페이지에서 제목을 더 눈에 띄게 표시할 수 있습니다.
 

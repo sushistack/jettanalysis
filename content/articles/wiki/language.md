@@ -2,7 +2,8 @@
 title: 웹 페이지에 언어 정의하기 (Declaring Language in Web Page)
 description: 검색엔진 최적화를 위해 웹 페이지에 언어를 정의해야하는 이유에대해서 소개합니다.
 color: '#000'
-backgroundColor: '#b8e9ff'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
 img: '/images/wiki_lang.png'
 createdAt: '2021-09-09 00:00:00'
 updatedAt: '2021-09-09 00:00:00'
@@ -39,6 +40,8 @@ HTML 페이지에 **언어**를 선언해야하는 많은 이유가 있습니다
 만약 본문(body) 태그에 lang 속성을 따로 지정하면 본문은 다른 언어로 인식되고, 웹 페이지 내의 텍스트 일부가 다른 언어로 작성된 경우 해당 외국어 부분을 포함하는 요소에 lang 속성을 추가해야 합니다.
 
 lang 속성을 통해 웹 페이지의 언어를 선언하는 데 문제가 있는 경우, 검색엔진의 검색 콘솔을 사용하여 Google 웹 사이트의 지리적 위치를 수동으로 설정할 수도 있습니다.
+
+<simple-diagnosis title='페이지 언어 SEO 진단하기' description='검색엔진 최적화를 위한 페이지 언어을 진단해보세요.'></simple-diagnosis>
 
 ## 다국어 웹 사이트 구조화
 
