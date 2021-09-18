@@ -4,7 +4,7 @@ description: 검색엔진에 친화적인 URL 구성하는 방법에 대해서 �
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_canonical.png'
+img: '/images/wiki_seo_friendly_url.png'
 createdAt: '2021-09-14 00:00:00'
 updatedAt: '2021-09-14 00:00:00'
 author:
@@ -26,6 +26,8 @@ URL 디자인은 <nuxt-link to="/blog/user-experience">사용자 경험</nuxt-li
 ## URL의 구성요소
 
 기본적으로 URL은 다음 구성 요소로 구성됩니다.
+
+![url 구조](/images/url-structure.png)
 
 ### 네트워크 프로토콜
 
