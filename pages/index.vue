@@ -75,7 +75,7 @@ export default {
           description: '이제 검색엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.'
         },
         false
-      ),
+      ).concat({ hid: 'naver-site-verification', name: 'naver-site-verification', content: '0e358a0869dfa65f24120c168925d9b1d706c353' }),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },
