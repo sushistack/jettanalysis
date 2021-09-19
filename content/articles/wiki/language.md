@@ -57,7 +57,7 @@ lang 속성을 통해 웹 페이지의 언어를 선언하는 데 문제가 있�
 |-|-|-|
 | gTLD를 포함하는 하위 도메인 (de.example.com) | 장점:<br/>간편한 설정<br/>Search Console 지역 타겟팅 사용 가능<br/>다양한 서버 위치 허용<br/>간편한 사이트 분리 | 단점:<br/>사용자가 URL만으로 지역 타겟팅을 인식하지 못할 수 있음(예: 'de'가 언어인지 국가인지 확실하지 않음)|
 | gTLD를 포함하는 하위 디렉터리 (example.com/de/) | 장점:<br/>간편한 설정<br/>Search Console 지역 타겟팅 사용 가능<br/>저렴한 유지 관리비(호스트가 동일함) | 단점:<br/>사용자가 URL만으로 지역 타겟팅을 인식하지 못할 수도 있음<br/>단일 서버 위치<br/>사이트의 분리가 어려움 |
-| URL 매개변수 (site.com?loc=de) | 권장하지 않음	 | 단점:<br/>URL 기반 세분화가 어려움<br/>사용자가 URL만으로 지역 타겟팅을 인식하지 못할 수도 있음<br/>Search Console에서의 지역 타겟팅 불가능 |
+| URL 매개변수 (site.com?loc=de) | 권장하지 않음 | 단점:<br/>URL 기반 세분화가 어려움<br/>사용자가 URL만으로 지역 타겟팅을 인식하지 못할 수도 있음<br/>Search Console에서의 지역 타겟팅 불가능 |
 
 ## 요약: HTML 언어와 관련 FAQ
 
@@ -75,4 +75,4 @@ lang 속성을 통해 웹 페이지의 언어를 선언하는 데 문제가 있�
 
 ## 참고 문서
 
-- [Multi-Regional and Multilingual Sites | Google Search Central](https://developers.google.com/search/docs/advanced/crawling/managing-multi-regional-sites)
+- https://developers.google.com/search/docs/advanced/crawling/managing-multi-regional-sites

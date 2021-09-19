@@ -76,4 +76,4 @@ Google은 주로 사이트의 텍스트를 분석하지만 이미지와 동영�
 
 ## 참고 문서
 
-- [7 reasons why content marketing is still king](https://knowledgeenthusiast.com/2020/03/12/7-reasons-why-content-marketing-is-still-king-in-2020/)
+- https://knowledgeenthusiast.com/2020/03/12/7-reasons-why-content-marketing-is-still-king-in-2020/

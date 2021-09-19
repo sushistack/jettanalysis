@@ -101,4 +101,4 @@ Google에서 컴퓨터라는 키워드로 검색 했을 때의 한 사이트의 
 
 ## 참고 문서
 
-[Meta Description [2021 SEO] - Moz](https://moz.com/learn/seo/meta-description)
+- https://moz.com/learn/seo/meta-description

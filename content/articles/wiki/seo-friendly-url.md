@@ -106,4 +106,4 @@ URL을 읽기 쉽게 유지하려면 전체 URL이 140자를 넘지 않아야 �
 
 ## 참고 문서
 
-- [URL Structure [2021 SEO] - Moz](https://moz.com/learn/seo/url)
+- https://moz.com/learn/seo/url

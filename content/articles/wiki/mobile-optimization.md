@@ -140,9 +140,9 @@ Google이 제공하는 두 번째 도구는 [PageSpeed ​​Insights](https://d
 
 ## 참고 문서
 
-- [Mobile Optimization to Improve the User Experience - Think with Google](https://www.thinkwithgoogle.com/marketing-resources/experience-design/speed-is-key-optimize-your-mobile-experience/)
-- [Choose a mobile configuration  |  Search Central  |  Google Developers](https://developers.google.com/search/mobile-sites/mobile-seo/)
-- [Common mistakes  |  Search Central  |  Google Developers](https://developers.google.com/search/mobile-sites/mobile-seo/common-mistakes)
-- [Responsive Web Design  |  Search Central  |  Google Developers](https://developers.google.com/search/mobile-sites/mobile-seo/responsive-design)
-- [Dynamic serving  |  Search Central  |  Google Developers](https://developers.google.com/search/mobile-sites/mobile-seo/dynamic-serving)
-- [Separate URLs  |  Search Central  |  Google Developers](https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls)
+- https://www.thinkwithgoogle.com/marketing-resources/experience-design/speed-is-key-optimize-your-mobile-experience/
+- https://developers.google.com/search/mobile-sites/mobile-seo/
+- https://developers.google.com/search/mobile-sites/mobile-seo/common-mistakes
+- https://developers.google.com/search/mobile-sites/mobile-seo/responsive-design
+- https://developers.google.com/search/mobile-sites/mobile-seo/dynamic-serving
+- https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls

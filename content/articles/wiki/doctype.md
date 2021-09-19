@@ -114,4 +114,4 @@ doctype 요소에는 웹 페이지를 올바르게 표시하는 데 도움이 �
 
 ## 참고 문서
 
-- [W3C QA - Recommended list of Doctype declarations you can use in your Web document](https://www.w3.org/QA/2002/04/valid-dtd-list.html)
+- https://www.w3.org/QA/2002/04/valid-dtd-list.html

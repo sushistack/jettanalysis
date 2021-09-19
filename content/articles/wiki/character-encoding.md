@@ -80,6 +80,6 @@ XML의 경우 파일 헤더에 인코딩을 지정해야 합니다. XML은 선�
 
 또한 모든 HTML 문서에는 사용된 문자 집합을 나타내는 요소가 포함되어야 합니다.
 
-## 참고문서
+## 참고 문서
 
-- [Everything You Need to Know About Character Encoding | Scott Granneman](https://www.granneman.com/webdev/coding/characterencoding)
+- https://www.granneman.com/webdev/coding/characterencoding

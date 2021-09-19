@@ -76,4 +76,4 @@ Android에서의 파비콘 지정은 다소 복잡합니다. Android의 파비�
 
 ## 참고 문서
 
-- [Define Website Favicon for Search Results | Google Search Central](https://developers.google.com/search/docs/advanced/appearance/favicon-in-search?hl=en)
+- https://developers.google.com/search/docs/advanced/appearance/favicon-in-search?hl=en

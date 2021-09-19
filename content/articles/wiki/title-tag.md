@@ -75,4 +75,4 @@ tags: ['제목', '제목 태그', '메타 제목', 'title', 'title tag', 'seo ti
 
 ## 참고 문서
 
-- [Google 검색결과에 적절한 제목과 스니펫 만들기  |  검색 센터  |  Google Developers](https://support.google.com/webmasters/answer/35624)
+- https://support.google.com/webmasters/answer/35624
