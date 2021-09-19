@@ -12,7 +12,8 @@
       :body='body'
     )
     .report-element-info
-      v-icon(small) mdi-information-outline
+      router-link.wiki-link(v-if='body.wiki' :to='body.wiki' target='_blank')
+        v-icon(small) mdi-information-outline
 </template>
 
 <script>
@@ -65,6 +66,9 @@ export default {
     },
     emptyCount () {
       return this.maxImportance - this.body.importance
+    },
+    wiki () {
+      return ''
     }
   }
 }
@@ -75,6 +79,10 @@ export default {
 .diagnosis-body {
   padding: 0;
   zoom: 1;
+}
+
+.wiki-link {
+  text-decoration: none;
 }
 
 .importance {

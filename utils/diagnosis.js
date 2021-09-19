@@ -93,7 +93,8 @@ class Diagnosis {
       value: domain.self,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/domain-for-seo'
     }
 
     this.add('meta', issues, body)
@@ -119,7 +120,8 @@ class Diagnosis {
       value: url.self,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/seo-friendly-url'
     }
 
     this.add('meta', issues, body)
@@ -151,7 +153,8 @@ class Diagnosis {
       value: doctype.exist ? getDoctypeText(doctype.self) : null,
       descType: 'TEXT',
       details: issues,
-      importance: 1
+      importance: 1,
+      wiki: '/wiki/doctype'
     }
     
     this.add('meta', issues, body)
@@ -171,7 +174,8 @@ class Diagnosis {
       value: lang.exist ? `HTML에 정의된 언어: ${lang.self}` : null,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/language'
     }
 
     this.add('meta', issues, body)
@@ -212,7 +216,8 @@ class Diagnosis {
       value: title.exist ? title.self : null,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/title-tag'
     }
 
     this.add('meta', issues, body)
@@ -282,7 +287,8 @@ class Diagnosis {
       value: desc.exist ? desc.self : null,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/meta-description'
     }
 
     this.add('meta', issues, body)
@@ -309,7 +315,8 @@ class Diagnosis {
       value: charset.exist ? charset.self : null,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/character-encoding'
     }
 
     this.add('meta', issues, body)
@@ -336,7 +343,8 @@ class Diagnosis {
       value: canonicalLink.exist ? canonicalLink.self : null,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/canonical-url-tag'
     }
     
     this.add('meta', issues, body)
@@ -359,7 +367,8 @@ class Diagnosis {
       value: favicons.existAtLeastOne ? `${getOriginFrom(url.self)}${getPathnameFrom(favicons.self[0])} ${additional}` : null,
       descType: 'TEXT',
       details: issues,
-      importance: 1
+      importance: 1,
+      wiki: '/wiki/favicon'
     }
 
     this.add('meta', issues, body)
@@ -390,7 +399,8 @@ class Diagnosis {
       value: hreflang.existAtLeastOne ? `(${hreflang.self[0].lang}) ${hreflang.self[0].href} ${additional}` : null,
       descType: 'TEXT',
       details: issues,
-      importance: 1
+      importance: 1,
+      wiki: '/wiki/hreflang'
     }
     
     this.add('meta', issues, body)
@@ -420,7 +430,8 @@ class Diagnosis {
       value: robot.self,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/search-engine-crawlers'
     }
 
     this.add('meta', issues, body)
@@ -492,7 +503,8 @@ class Diagnosis {
       value: null,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/content'
     }
 
     this.add('quality', issues, body)
@@ -526,7 +538,8 @@ class Diagnosis {
       value: null,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/frame-and-framesets'
     }
 
     this.add('quality', issues, body)
@@ -546,7 +559,8 @@ class Diagnosis {
       value: null,
       descType: 'TEXT',
       details: issues,
-      importance: 3
+      importance: 3,
+      wiki: '/wiki/image-seo'
     }
 
     this.add('quality', issues, body)
@@ -577,7 +591,8 @@ class Diagnosis {
       value: mobile.viewport.exist ? mobile.viewport.content : null,
       descType: 'TEXT',
       details: issues,
-      importance: 2
+      importance: 2,
+      wiki: '/wiki/mobile-optimization'
     }
 
     this.add('quality', issues, body)
@@ -617,7 +632,8 @@ class Diagnosis {
       value: head1.exist ? `${head1.self[0].isAnchor ? head1.self[0].anchor : '[앵커 텍스트 없음]'} ${additional}` : null,
       descType: 'TEXT',
       details: issues,
-      importance: 5
+      importance: 5,
+      wiki: '/wiki/h1-h6-headings'
     }
 
     this.add('structure', issues, body)
@@ -649,7 +665,8 @@ class Diagnosis {
       value: null,
       descType: 'TEXT',
       details: issues,
-      importance: 4
+      importance: 4,
+      wiki: '/wiki/h1-h6-headings'
     }
 
     this.add('structure', issues, body)
@@ -722,7 +739,8 @@ class Diagnosis {
       value: `${isLinks ? `${truncate(link.self[0].href)} ${additional}` : `${link.name}가 없습니다.`}`,
       descType: 'TEXT',
       details: issues,
-      importance: type === 'IN' ? 5 : 2
+      importance: type === 'IN' ? 5 : 2,
+      wiki: type === 'IN' ? '/wiki/internal-link' : '/wiki/external-link'
     }
 
     this.add('link', issues, body)

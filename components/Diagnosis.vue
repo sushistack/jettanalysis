@@ -45,11 +45,6 @@ export default {
       type: Object,
       requied: true
     }
-  },
-  watch: {
-    diagnosis: function (n, o) {
-      console.log('diagnosis', n)
-    }
   }
 }
 </script>

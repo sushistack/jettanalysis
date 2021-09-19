@@ -113,7 +113,6 @@ export default {
     }
   }),
   mounted () {
-    console.log(this.inputOption)
     if (this.inputOption && this.inputOption.defaultUrl) {
       this.url = this.inputOption.defaultUrl
     }
