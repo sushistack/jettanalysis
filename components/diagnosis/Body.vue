@@ -2,18 +2,30 @@
 .diagnosis-body(v-if='body')
   .report-element(:class='validType')
     .report-element-title
-      v-icon.top-icon(:color='topIconColor') {{ topIcon }}
+      svg(v-if='body.validCode === "PASSED"' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#34bc6e' viewBox='0 0 24 24')
+        path(d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.25 8.891l-1.421-1.409-6.105 6.218-3.078-2.937-1.396 1.436 4.5 4.319 7.5-7.627z')
+      svg(v-else-if='body.validCode === "WARNING"' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#ffab00' viewBox='0 0 24 24')
+        path(d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 6h2v8h-2v-8zm1 12.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z')
+      svg(v-else-if='body.validCode === "FAILED"' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#f63842' viewBox='0 0 24 24')
+        path(d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z')
+      svg(v-else xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#aaa' viewBox='0 0 24 24')
+        path(d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z')
       strong {{ body.title }}
       .importance(v-if='filledCount > 0')
-        v-icon(small color='#00afff' v-for='(n, index) in filledCount' :key='index + "l"') mdi-checkbox-blank-circle
-        v-icon(small color='#00afff' v-for='(n, index) in emptyCount' :key='index + "r"') mdi-checkbox-blank-circle-outline
+        template(v-for='(n, index) in filledCount')
+          svg(xmlns='http://www.w3.org/2000/svg' fill='#00afff' width='16' height='16' viewBox='0 0 24 24')
+            circle(cx='12' cy='12' r='12')
+        template(v-for='(n, index) in emptyCount')
+          svg(xmlns='http://www.w3.org/2000/svg' fill='#00afff' width='16' height='16' viewBox='0 0 24 24')
+            path(d='M12 1c6.065 0 11 4.935 11 11s-4.935 11-11 11-11-4.935-11-11 4.935-11 11-11zm0-1c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z')
     description(
       :validType='validType'
       :body='body'
     )
     .report-element-info
       router-link.wiki-link(v-if='body.wiki' :to='body.wiki' target='_blank')
-        v-icon(small) mdi-information-outline
+        svg(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#aaa' viewBox='0 0 24 24')
+          path(d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z')
 </template>
 
 <script>
@@ -33,25 +45,6 @@ export default {
   computed: {
     isCustom () {
       return this.body.isCustom
-    },
-    topIcon () {
-      switch (this.body.validCode) {
-        case 'PASSED': return 'mdi-check-circle-outline'
-        case 'WARNING': return 'mdi-alert-circle-outline'
-        case 'FAILED': return 'mdi-close-circle-outline'
-        default: return 'mdi-checkbox-blank-circle-outline'
-      }
-    },
-    topIconColor () {
-      switch (this.body.validCode) {
-        case 'PASSED': return '#34bc6e'
-        case 'WARNING': return '#ffab00'
-        case 'FAILED': return '#f63842'
-        default: return '#ccc'
-      }
-      if (this.isValid) return 
-      if (this.isNotValid) return 
-      return 
     },
     validType () {
       return {
@@ -87,6 +80,9 @@ export default {
 
 .importance {
   margin-left: 32px;
+  svg {
+    margin: 1px;
+  }
 }
 
 .report-element {
@@ -106,6 +102,9 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     width: 30%;
+    > svg {
+      margin-right: 7px;
+    }
     strong {
       font-size: 16px;
       line-height: normal;

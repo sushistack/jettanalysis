@@ -34,7 +34,6 @@
                 :error-messages='errors'
                 label='비밀번호'
                 outlined
-                :append-icon='showPassword ? "mdi-eye" : "mdi-eye-off"'
                 :type='showPassword ? "text" : "password"' 
                 @click:append='showPassword = !showPassword'
               )

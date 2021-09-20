@@ -16,7 +16,9 @@ tags: ['hreflang', '다국어', 'multilingual', 'multiple language']
 
 <!--more-->
 
-## 애플리케이션 시나리오
+<simple-diagnosis title='Hreflang SEO 진단하기' description='검색엔진 최적화를 위한 hreflang을 진단해보세요.'></simple-diagnosis>
+
+## hreflang는 언제 사용하나요?
 
 Google은 다음 시나리오에서 hreflang을 사용할 것을 권장합니다.
 
