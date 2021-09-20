@@ -54,9 +54,6 @@ export default {
     }
   },
   data: () => ({ snackbar: false }),
-  mounted () {
-    loadKakaoSdk()
-  },
   methods: {
     shareTwitter () {
       window.open(this.twiterSharingUrl, 'twitter-share', 'width=800,height=500')
@@ -64,21 +61,25 @@ export default {
     shareFacebook () {
       window.open(this.facebookSharingUrl, 'facebook-share', 'width=800,height=500')
     },
-    shareKakaoStory () {
-      window.Kakao.Story.share({
-        url: this.shareUrl,
-        text: `${this.post.title}\n\n${this.post.description}`
+    shareKakaoStory() {
+      loadKakaoSdk(() => {
+          window.Kakao.Story.share({
+          url: this.shareUrl,
+          text: `${this.post.title}\n\n${this.post.description}`
+        })
       })
     },
-    shareKakaoTalk () {
-      window.Kakao.Link.sendCustom({
-        templateId: 60106,
-        templateArgs: {
-          thumbnail: this.post.img,
-          title: this.post.title,
-          description: this.post.description,
-          path: this.post.id
-        }
+    shareKakaoTalk() {
+      loadKakaoSdk(() => {
+          window.Kakao.Link.sendCustom({
+          templateId: 60106,
+          templateArgs: {
+            thumbnail: this.post.img,
+            title: this.post.title,
+            description: this.post.description,
+            path: this.post.id
+          }
+        })
       })
     },
     copyToClipboard () {
