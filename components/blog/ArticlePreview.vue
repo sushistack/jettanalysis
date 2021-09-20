@@ -9,7 +9,13 @@ article.post
           time.updated(:datetime='article.updatedAt')
           p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
     .css-12m1dn8(:style='{background: article.backgroundColorForPreview}')
-      v-img.article-img(:src='article.img')
+      v-img.article-img(
+        lazy-src='/images/placeholder.png'
+        :src='article.img'
+      )
+        template(v-slot:placeholder)
+          v-row.fill-height.ma-0(align='center' justify='center')
+            v-progress-circular(indeterminate color='grey lighten-5')
       nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
     footer.css-3872h1
       router-link.css-13xd08w(:to='link') 이어서 읽기

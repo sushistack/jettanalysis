@@ -12,7 +12,13 @@
               time.updated(datetime='article.updatedAt')
               p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
           figure.css-e00ba0
-            v-img.article-img(:src='article.img' :alt='article.title')
+            v-img.article-img(
+              lazy-src='/images/placeholder.png'
+              :src='article.img' :alt='article.title'
+            )
+              template(v-slot:placeholder)
+                v-row.fill-height.ma-0(align='center' justify='center')
+                  v-progress-circular(indeterminate color='grey lighten-5')
       .css-2lmhoi
         .css-1ricvn
           table-of-content(:toc='article.toc')

@@ -24,7 +24,14 @@
                       ) 상담하기
               .main-image-container
                 .figure-image
-                  img.main-image(src='https://jettanalysis.com/images/main01.png' alt='검색엔진 최적화 - JETT Analysis')
+                  v-img.main-image(
+                    lazy-src='/images/placeholder.png'
+                    src='https://jettanalysis.com/images/main01.png'
+                    alt='검색엔진 최적화 - JETT Analysis'
+                  )
+                    template(v-slot:placeholder)
+                      v-row.fill-height.ma-0(align='center' justify='center')
+                        v-progress-circular(indeterminate color='grey lighten-5')
       .css-ld04yu
         .css-1py7eya
           blockquote.css-1ptfann

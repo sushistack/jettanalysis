@@ -7,7 +7,7 @@
         h3.css-1tlyyhw {{ title }}
         .css-8yi3qm
           p {{ desc }}
-        img.feature-image(:src='imageUrl')
+        v-img.feature-image(:src='imageUrl')
 </template>
 
 <script>
