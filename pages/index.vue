@@ -24,7 +24,7 @@
                       ) 상담하기
               .main-image-container
                 .figure-image
-                  v-img.main-image(src='https://jettanalysis.com/images/main01.png')
+                  img.main-image(src='https://jettanalysis.com/images/main01.png' alt='검색엔진 최적화 - JETT Analysis')
       .css-ld04yu
         .css-1py7eya
           blockquote.css-1ptfann

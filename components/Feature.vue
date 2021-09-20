@@ -7,7 +7,7 @@
         h3.css-1tlyyhw {{ title }}
         .css-8yi3qm
           p {{ desc }}
-        v-img.feature-image(:src='imageUrl')
+        img.feature-image(:src='imageUrl')
 </template>
 
 <script>
@@ -33,6 +33,10 @@ a {
   overflow: hidden;
   padding-bottom: 57.6px;
   padding-top: 43.2px;
+}
+
+.feature-image {
+  width: 100%;
 }
 
 .css-xyedk8::after {
