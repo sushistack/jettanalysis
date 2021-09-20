@@ -28,7 +28,7 @@ SEO 목적을 위해 정식 링크는 컨텐츠의 원본 소스이면서 검색
 
 ## 정식 링크의 올바른 사용
 
-```bash
+```text
 1. http://www.example.com/product.html (일반 페이지)
 2. http://www.example.com/product_print.html (동일한 컨텐츠의 프린트용 페이지)
 ```
