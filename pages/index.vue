@@ -23,9 +23,8 @@
                         @click='counsel'
                       ) 상담하기
               .main-image-container
-                figure.figure-image
-                  picture
-                    img.main-image(src='https://jettanalysis.com/images/main01.png')
+                .figure-image
+                  v-img.main-image(src='https://jettanalysis.com/images/main01.png')
       .css-ld04yu
         .css-1py7eya
           blockquote.css-1ptfann
@@ -190,8 +189,8 @@ export default {
   margin: 0;
   bottom: 107px;
   overflow: hidden;
-  img {
-    width: 100%;
+  .main-image {
+    width: 100vw;
     margin-bottom: 0px;
     height: auto;
   }
@@ -255,7 +254,8 @@ export default {
   .figure-image {
     right: 0;
     bottom: 135px;
-    img {
+    .main-image {
+      width: 100%;
       max-width: 270px;
     }
   }
@@ -290,7 +290,7 @@ export default {
     right: -25px;
     bottom: -7px;
     transform: translateY(-10rem);
-    img {
+    .main-image {
       max-width: 365px;
       margin-bottom: 0;
     }
@@ -335,7 +335,7 @@ export default {
   }
   .figure-image {
     transform: translateY(-10rem);
-    img {
+    .main-image {
       max-width: 520px;
       margin-top: 0px;
     
