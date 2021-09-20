@@ -7,20 +7,7 @@
         h3.css-1tlyyhw {{ title }}
         .css-8yi3qm
           p {{ desc }}
-        figure.css-1n3a0vm
-          picture
-            source(
-              srcset='https://jettanalysis.com/images/site-diagnosis.png 640w, https://jettanalysis.com/images/site-diagnosis.png 300w, https://jettanalysis.com/images/site-diagnosis.png 1280w, √ 768w, https://jettanalysis.com/images/site-diagnosis.png 1536w, https://jettanalysis.com/images/site-diagnosis.png 480w, https://jettanalysis.com/images/site-diagnosis.png 960w, https://jettanalysis.com/images/site-diagnosis.png 1440w, https://jettanalysis.com/images/site-diagnosis.png 1600w'
-              sizes='(max-width: 640px) 100vw, 640px'
-              type='image/webp'
-            )
-            img.css-1a2v9hb(
-              src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner.png'
-              srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-640x335.png 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-300x157.png 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1280x670.png 1280w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-768x402.png 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1536x804.png 1536w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-480x251.png 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-960x502.png 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner-1440x753.png 1440w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner.png 1600w'
-              sizes='(max-width: 640px) 100vw, 640px'
-              alt='seo-in-2021-post-banner'
-              loading='lazy'
-            )
+        v-img.feature-image(:src='imageUrl')
 </template>
 
 <script>

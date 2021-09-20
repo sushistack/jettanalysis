@@ -37,7 +37,7 @@
         type='SITE DIAGNOSIS'
         title='진단: 당신의 사이트를 무료로 진단해보세요!'
         desc='검색 엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
-        imageUrl='https://jettanalysis.com/images/site-diagnosis.png'
+        imageUrl='/images/site-diagnosis.png'
       )
     section
       separater
@@ -47,7 +47,7 @@
         type='BLOG: SEO TIPS'
         title='2021년 검색엔진 최적화 완벽 가이드'
         desc='효과적이고 확실한 SEO 전략 및 팁을 확인해보세요.'
-        imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/12/seo-in-2021-post-banner.png'
+        imageUrl='/images/site-diagnosis.png'
       )
   page-footer
 

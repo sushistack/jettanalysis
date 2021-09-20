@@ -26,7 +26,7 @@
           type='SITE DIAGNOSIS'
           title='진단: 당신의 사이트를 무료로 진단해보세요!'
           desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
-          imageUrl='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/01/on-page-seo-hero.svg'
+          imageUrl='/images/site-diagnosis.png'
           @onFeatureClick='focusDiagnosisInput'
         )
   v-snackbar.crawl-error(
