@@ -47,7 +47,7 @@
                 template(v-if='inputOption.isProcessing')
                   .loader Loading...
                 template(v-else) {{ buttonText }}
-        .share-box-wrapper(v-show='type === "diagnosis"')
+        .share-box-wrapper(v-if='type === "diagnosis"')
           .share-box
             .share-title 공유하기
             share-box(

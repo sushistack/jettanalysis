@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { loadKakaoSdk } from '@/util'
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
@@ -53,6 +54,9 @@ export default {
     }
   },
   data: () => ({ snackbar: false }),
+  mounted () {
+    loadKakaoSdk()
+  },
   methods: {
     shareTwitter () {
       window.open(this.twiterSharingUrl, 'twitter-share', 'width=800,height=500')
@@ -61,13 +65,13 @@ export default {
       window.open(this.facebookSharingUrl, 'facebook-share', 'width=800,height=500')
     },
     shareKakaoStory () {
-      this.$kakao.Story.share({
+      window.Kakao.Story.share({
         url: this.shareUrl,
         text: `${this.post.title}\n\n${this.post.description}`
       })
     },
     shareKakaoTalk () {
-      this.$kakao.Link.sendCustom({
+      window.Kakao.Link.sendCustom({
         templateId: 60106,
         templateArgs: {
           thumbnail: this.post.img,

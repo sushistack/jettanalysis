@@ -63,8 +63,7 @@ export default {
   plugins: [
     { src: '~/plugins/axios.js' },
     { src: '~/plugins/number-abbreviator.js' },
-    { src: '~/plugins/vee-validate.js', ssr: false },
-    { src: '~/plugins/kakao-sdk.js', ssr: false }
+    { src: '~/plugins/vee-validate.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -41,6 +41,8 @@ ul.share
 </template>
 
 <script>
+import { loadKakaoSdk } from '@/util'
+
 export default {
   name: "ShareBox",
   props: {
@@ -62,15 +64,18 @@ export default {
     }
   },
   data: () => ({ snackbar: false }),
+  mounted () {
+    loadKakaoSdk()
+  },
   methods: {
     shareKakaoStory() {
-      this.$kakao.Story.share({
+      window.Kakao.Story.share({
         url: this.shareUrl,
         text: `${this.post.title}\n\n${this.post.description}`
       });
     },
     shareKakaoTalk() {
-      this.$kakao.Link.sendCustom({
+      window.Kakao.Link.sendCustom({
         templateId: 60106,
         templateArgs: {
           thumbnail: this.post.img,
