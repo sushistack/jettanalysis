@@ -4,7 +4,7 @@ description: 검색엔진 최적화를 위한 외부 링크 구성하는 방법�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_lang.png'
+img: '/images/wiki_external_link.png'
 createdAt: '2021-09-18 00:00:00'
 updatedAt: '2021-09-18 00:00:00'
 author:

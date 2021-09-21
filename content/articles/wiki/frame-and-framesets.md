@@ -4,7 +4,7 @@ description: 검색엔진 최적화를 방해하는 프레임과 프레임셋에
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_lang.png'
+img: '/images/wiki_frameset.png'
 createdAt: '2021-09-17 00:00:00'
 updatedAt: '2021-09-17 00:00:00'
 author:
