@@ -4,7 +4,7 @@ description: 검색엔진 최적화를 위한 이미지를 최적화하는 방�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_lang.png'
+img: '/images/wiki_img.png'
 createdAt: '2021-09-17 00:00:00'
 updatedAt: '2021-09-17 00:00:00'
 author:

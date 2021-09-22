@@ -5,66 +5,33 @@
     .css-70qvj9
       .css-1c7u7ph
         p {{ desc }}
-    .css-2thhi1
-      .css-79elbk
-        .aweber-form-body(v-if='buttonOnly')
-          button.caller-btn.without-input.e1fw58rm0(
-            type='button'
-            role='button'
-            @click='$emit("onButtonClick")'
-          ) {{ buttonText }}
-        .caller(v-else)
-          form(@submit.prevent='onSubmit')
-            .aweber-form-body
-              ul.css-1vd0gw5
-                li.aweber-form-field.form-group.css-1pkbgp8
-                  #aweber-field-email.aweber-input-container.aweber-input-container-email
-                    input#form-item-email(
-                      :class='{ "css-1lj1a3e": !activeInput, "css-q5hbwx": activeInput }'
-                      :name='inputOption.name' 
-                      :type='inputOption.type' 
-                      :placeholder='inputOption.placeholder'
-                      required
-                      @focus='activeTooltip = true'
-                      @blur='activeTooltip = false'
-                      @input='inputUrl'
-                      :value='url'
-                      ref='diagnosisInput'
-                    )
-                .tooltip.fade.bs-tooltip-top.show.css-17qfe8v(
-                  v-show='activeTooltip'
-                  role='tooltip'
-                  x-placement='top'
-                )
-                  .arrow.css-ht3ahn
-                  .tooltip-inner.css-rj3kn9 {{ tooltipText }}
-            .aweber-form-footer.left
-              button.caller-btn.with-input.e1fw58rm0(
-                :disabled='inputOption.isProcessing'
-                type='submit'
-                role='button'
-              )
-                template(v-if='inputOption.isProcessing')
-                  .loader Loading...
-                template(v-else) {{ buttonText }}
-        .share-box-wrapper(v-if='type === "diagnosis"')
-          .share-box
-            .share-title 공유하기
-            share-box(
-              :post='post'
-              :shareTwitter='shareTwitter'
-              :shareFacebook='shareFacebook'
-              :shareUrl='shareUrl'
-            )
+    .input-action-container
+      diagnosis-input(
+        :buttonOnly='buttonOnly'
+        :buttonText='buttonText'
+        :defaultUrl='defaultUrl'
+        :loading='inputOption && inputOption.isProcessing'
+        @onSubmit='onSubmit'
+      )
+      .share-box-wrapper(v-if='type === "diagnosis"')
+        .share-box
+          .share-title 공유하기
+          share-box(
+            :post='post'
+            :shareTwitter='shareTwitter'
+            :shareFacebook='shareFacebook'
+            :shareUrl='shareUrl'
+          )
 </template>
 
 <script>
 import ShareBox from '@/components/ShareBox'
+import DiagnosisInput from './DiagnosisInput'
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: "TopBanner",
-  components: { ShareBox },
+  components: { ShareBox, DiagnosisInput },
   props: {
     title: {
       type: String,
@@ -102,38 +69,17 @@ export default {
     }
   },
   data: () => ({
-    activeTooltip: false,
-    activeInput: false,
-    url: "",
+    url: '',
     post: {
-      id: "diagnosis",
-      title: "JETT 사이트 진단하기",
-      description: "내 사이트가 SEO 최적화 조건에 맞는지 진단해보세요!",
+      id: 'diagnosis',
+      title: '사이트 SEO 진단하기 | JETT Analysis',
+      description: "여러분의 사이트가 SEO 최적화 조건에 맞는지 진단해보세요!",
       img: "https://jettanalysis.com/images/jett-analysis.jpg"
     }
   }),
-  mounted () {
-    if (this.inputOption && this.inputOption.defaultUrl) {
-      this.url = this.inputOption.defaultUrl
-    }
-  },
   methods: {
-    inputUrl(e) {
-      if (!this.activeInput) {
-        this.activeInput = !this.activeInput;
-      }
-      this.url = e.target.value;
-    },
-    onSubmit(e) {
-      e.preventDefault()
-      const regex = /^(http|https):\/\/[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])*(\.[a-zA-Z]{2,}){1,2}([:\/?][^ㄱ-ㅎㅏ-ㅣ가-힣\s]*)?$|^(market):\/\//
-      if (!regex.test(this.url)) {
-        this.$emit('onError', '유효하지 않은 URL입니다!')
-        return
-      }
-
-      this.activeInput = true
-      this.$emit("onButtonClick", this.url)
+    onSubmit (res) {
+      this.$emit("onButtonClick", res)
     }
   },
   computed: {
@@ -145,6 +91,10 @@ export default {
     },
     shareFacebook() {
       return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
+    },
+    defaultUrl () {
+      if (!this.inputOption || !this.inputOption.defaultUrl) return ''
+      return this.inputOption.defaultUrl
     }
   },
   watch: {
@@ -229,7 +179,7 @@ export default {
   margin-bottom: 0 !important;
 }
 
-.css-2thhi1 {
+.input-action-container {
   width: 100%;
   margin: 35px 0 0;
   max-width: 460px;
@@ -445,47 +395,6 @@ export default {
   border-color: #00afff;
 }
 
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-}
-.loader {
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 4px solid rgba(255, 255, 255, 0.2);
-  border-right: 4px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
-  border-left: 4px solid #ffffff;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 .css-17qfe8v {
   position: absolute;
   left: 0px;
@@ -603,7 +512,7 @@ export default {
   .css-ium0zo {
     margin-right: 30px;
   }
-  .css-2thhi1 {
+  .input-action-container {
     margin: 45px 0 0;
   }
   .caller-btn.with-input {

@@ -85,7 +85,6 @@ export default {
           }
         })
       })
-      
     },
     copyToClipboard() {
       this.$copyText(this.shareUrl).then(

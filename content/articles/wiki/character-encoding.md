@@ -4,7 +4,7 @@ description: 검색엔진이 페이지를 잘 이해할 수 있도록 문자 인
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_canonical.png'
+img: '/images/wiki_character_encoding.png'
 createdAt: '2021-09-15 00:00:00'
 updatedAt: '2021-09-15 00:00:00'
 author:

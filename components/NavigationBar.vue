@@ -3,7 +3,7 @@
   v-toolbar.toolbar(color='elevation-0' :height='headerHeight')
     v-toolbar-title
       router-link.logo-title(to='/')
-        logo(:size='headerHeight' marginTop='15')
+        logo(:size='headerHeight' marginTop='15' :jettOnly='true')
     v-spacer
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
@@ -15,7 +15,7 @@
   v-overlay(:value='overlay' color='#00afff' opacity='1')
     .overlay-toolbar
       router-link.logo-title(to='/')
-        logo(:size='headerHeight' fill='#fff' marginTop='4')
+        logo(:size='headerHeight' fill='#fff' marginTop='4' :jettOnly='true')
       v-spacer
       v-btn.menu-btn(icon width='48' height='48' @click='overlay = false')
         svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#fff' viewBox='0 0 24 24')
@@ -45,9 +45,9 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 60
         case 'sm': return 60
-        case 'md': return 80
-        case 'lg': return 80
-        case 'xl': return 80
+        case 'md': return 60
+        case 'lg': return 60
+        case 'xl': return 60
       }
     },
     isSmallerThanMd () {
@@ -65,8 +65,7 @@ export default {
   width: 100%;
   padding-right: 20px;
   padding-left: 20px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 1rem auto;
 }
 
 .drawer-menu {

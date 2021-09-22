@@ -28,7 +28,7 @@ footer.css-895q96
                   li.menu-item
                     router-link(to='/') 홈
                   li.menu-item
-                    router-link(to='/about') 소개
+                    router-link(to='/service') 서비스
                   li.menu-item
                     a(@click.stop='counsel') 연락하기
         .css-9hzi2i

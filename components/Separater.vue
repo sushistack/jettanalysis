@@ -1,5 +1,5 @@
 <template lang="pug">
-.css-gi099c
+.css-gi099c(:class='{reverse: isReverse}')
   figure.css-13j9vq9
     svg(xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='115px' height='18px' viewBox='0 0 115 18' version='1.1')
       g#Page-1(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
@@ -7,12 +7,34 @@
           path#Path(d='M0,0 C11.5,0 11.5,10 23,10 C34.5,10 34.5,0 46,0 C57.5,0 57.5,10 69,10 C80.5,10 80.5,0 92,0 C103.5,0 103.5,10 115,10')
 </template>
 
+<script>
+export default {
+  name: 'Separater',
+  props: {
+    deg: {
+      type: Number,
+      required: false,
+      default: () => 0
+    }
+  },
+  computed: {
+    isReverse () {
+      return this.deg === 180
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .css-gi099c {
   overflow: hidden;
   position: relative;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  background: linear-gradient(0deg, #eef0f7 50%, #FFFFFF 50%);
+}
+.css-gi099c.reverse {
+  background: linear-gradient(180deg, #eef0f7 50%, #FFFFFF 50%);
 }
 .css-13j9vq9 {
   display: -webkit-box;

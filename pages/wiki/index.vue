@@ -7,7 +7,7 @@
         title='다양한 SEO 요소들을 확인해보세요!'
         desc='다양한 SEO 요소를 알아야 SEO 최적화를 할 수 있습니다!'
         :buttonOnly='true'
-        buttonText='상담하기'
+        buttonText='SEO 전략 서비스 알아보기'
         @onButtonClick='counsel'
       )
     v-main

@@ -4,7 +4,7 @@ description: 검색엔진 최적화를 위한 모바일 최적화 방밥을 소�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_lang.png'
+img: '/images/wiki_mobile.png'
 createdAt: '2021-09-17 00:00:00'
 updatedAt: '2021-09-17 00:00:00'
 author:

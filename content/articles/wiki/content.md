@@ -4,7 +4,7 @@ description: 검색엔진에 친화적인 본문을 작성하는 방법에 대�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_canonical.png'
+img: '/images/wiki_content.png'
 createdAt: '2021-09-17 00:00:00'
 updatedAt: '2021-09-17 00:00:00'
 author:

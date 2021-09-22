@@ -70,7 +70,7 @@ export default {
       meta: $seoMeta(
         { 
           title: `${title} | ${process.env.SITE_NAME}`,
-          url: `${FRONTEND_BASE_URL}/about`,
+          url: `${FRONTEND_BASE_URL}/service`,
           description: 'JETT Analysis의 소개 페이지입니다.'
         },
         false
