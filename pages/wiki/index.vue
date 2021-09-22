@@ -8,7 +8,7 @@
         desc='다양한 SEO 요소를 알아야 SEO 최적화를 할 수 있습니다!'
         :buttonOnly='true'
         buttonText='SEO 전략 서비스 알아보기'
-        @onButtonClick='counsel'
+        @onButtonClick='showService'
       )
     v-main
       .css-15j7bd7(v-if='articles')
@@ -64,8 +64,8 @@ export default {
     }
   },
   methods: {
-    counsel () {
-      this.$router.push('/counsel')
+    showService () {
+      this.$router.push('/service')
     }
   }
 }

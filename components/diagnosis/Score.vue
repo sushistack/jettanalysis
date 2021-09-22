@@ -17,7 +17,7 @@
             color='#00afff'
           ) {{ percentage }}
         .register-modal
-          v-btn.white--text(color='#00afff' x-large rounded router to='/counsel') 상담하기
+          v-btn.white--text(color='#00afff' x-large rounded router to='/service') SEO 서비스 보기
       .summary-graph-split
         v-tabs(v-model='tab' color='#00afff')
           v-tab 전체

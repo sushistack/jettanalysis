@@ -8,7 +8,7 @@
         desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
         :buttonOnly='true'
         buttonText='SEO 전략 서비스 알아보기'
-        @onButtonClick='counsel'
+        @onButtonClick='showService'
       )
     v-main
       .css-15j7bd7(v-if='articles')
@@ -72,8 +72,8 @@ export default {
     }
   },
   methods: {
-    counsel () {
-      this.$router.push('/counsel')
+    showService () {
+      this.$router.push('/service')
     }
   },
   computed: {
