@@ -1,68 +1,19 @@
 <template lang="pug">
 .jett-container
   navigation-bar
-  v-main.css-0
+  .wrap
     section
-      .css-z0gvzq
-        .css-1isgq23
-          .css-1k9xznr
-            .css-1jwyo51
-              h1.css-14cif07 검색 순위 상승과 더 많은 트래픽을 원하시나요?
-              .css-fuu65d
-                p 제대로 찾아오셨습니다. JETT Analysis는 다양한 SEO 전략과 팁들 그리고 링크빌딩 전략을 제공합니다.
-            .css-ovzwb1
-              figure.css-19silmo
-                picture
-                  source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-480x480.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-300x300.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-150x150.webp 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-768x768.webp 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-640x640.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-960x960.webp 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048.webp 1280w' sizes='(max-width: 480px) 100vw, 480px' type='image/webp')
-                  img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048.jpg' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-480x480.jpg 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-300x300.jpg 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-150x150.jpg 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-768x768.jpg 768w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-640x640.jpg 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048-960x960.jpg 960w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0048.jpg 1280w' sizes='(max-width: 480px) 100vw, 480px' alt='Brian-0048' loading='eager' width='1280' height='1280')
-    section
-      .css-140242p
-        .css-1isgq23
-          .css-1411txx
-            h3.css-qhuqqz 높은 검색 순위를 원하세요?
-            .css-y4zzde
-              p
-                | 다양한 회사의 마케터 등의 수 많은 사용자들이 저희에게 상담을 요청하고 있습니다.
-            .css-1mswzqz
-              .css-79elbk
-                form(action='https://www.aweber.com/scripts/addlead.pl' method='post')
-                  .aweber-form-body
-                    button.caller-btn.e1fw58rm0(
-                      type='button'
-                      role='button'
-                      @click='counsel'
-                    ) 상담하기
-    section
-      .css-1bqdi62
-        .css-1y4vu0u
-          h2.css-xvb5ry JETT Analysis 소개
-          .css-1k9xznr
-            .css-36dv62
-              .css-rs4bqn
-                figure.css-11ywslu
-                  picture
-                    source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.webp 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.webp 700w' sizes='(max-width: 300px) 100vw, 300px' type='image/webp')
-                    img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.jpg 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.jpg 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.jpg 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.jpg 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg 700w' sizes='(max-width: 300px) 100vw, 300px' alt='Brian-0052' loading='lazy')
-                figure.css-1hyx3fb
-                  img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/triangles.svg' alt='triangles' loading='lazy')
-            .css-ateso6
-              .css-xh93ug
-                figure.css-qq57cc
-                  picture
-                    source(srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.webp 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.webp 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.webp 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.webp 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.webp 700w' sizes='(max-width: 300px) 100vw, 300px' type='image/webp')
-                    img.css-1a2v9hb(src='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg' srcset='https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-300x300.jpg 300w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-150x150.jpg 150w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-480x480.jpg 480w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052-640x640.jpg 640w, https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/Brian-0052.jpg 700w' sizes='(max-width: 300px) 100vw, 300px' alt='Brian-0052' loading='lazy')
-                div
-                  p JETT Analysis는 국제적으로 인정받는 SEO 전문가에 의해 설립되었습니다.
-                  p JETT Analysis는 첫 3개의 온라인 사업에서 실패한 후, 마침내 한 사이트를 설립했습니다. 그는 그 과정에서 배운 교훈을 가르치기 위해 JETT Analysis를 만들었습니다.
-                  p JETT Analysis가 런칭된 이후 마케터들이 온라인 비즈니스를 성장시키기 위해 사용할 수 있는 엄청나게 실용적인 전략을 발표함으로써 빠르게 명성을 떨쳤습니다. JETT Analysis는 현재 온라인 상에서 가장 인기 있는 마케팅 블로그 중 하나입니다.
+      product-radio-box
   page-footer
 </template>
 
 <script>
+import ProductRadioBox from '@/components/service/ProductRadioBox'
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
-  name: 'About',
+  name: 'Service',
+  components: { ProductRadioBox },
   head ({$seoMeta}) {
     const title = 'JETT Analysis 소개'
     return {
