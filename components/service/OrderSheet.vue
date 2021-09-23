@@ -252,6 +252,7 @@ export default {
 @media (min-width: 992px) {
   .sheet-inner-container {
     max-width: 960px;
+    padding: 5rem 9rem;
   }
 }
 
