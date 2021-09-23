@@ -10,7 +10,11 @@
             template(v-for='field in selectedSheet')
               .field
                 p.field-name {{ field.name }}
-                validation-provider(v-slot='{ errors }' :name='field.name' :rules='field.rules')
+                product-class(
+                  v-if='field.type === "PRODUCT_CLASS_SELECT_BOX"'
+                  v-model='field.value'
+                )
+                validation-provider(v-else v-slot='{ errors }' :name='field.name' :rules='field.rules')
                   v-text-field(
                     v-if='field.type === "TEXT_FIELD"'
                     v-model='field.value' :error-messages='errors' :label='field.label' single-line
@@ -48,11 +52,12 @@
 </template>
 
 <script>
+import ProductClass from './ProductClass'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
 export default {
   name: 'OrderSheet',
-  components: { ValidationObserver, ValidationProvider },
+  components: { ProductClass, ValidationObserver, ValidationProvider },
   props: {
     sheetType: {
       type: String,
@@ -80,7 +85,7 @@ export default {
         cautions: ['검색엔진에 노출되고자 하는 검색어 키워드를 입력해주세요.', '띄어쓰기가 포함된 경우, 서로 다른 키워드로 인식됩니다. (ex. "사이트 진단"과 "사이트진단"은 서로 다른 키워드)']
       },
       {
-        id: 'productClass', type: 'PRODUCT_CLASS_SELECT_BOX', name: '상품 선택', label: null, rules: null, value: null
+        id: 'productClass', type: 'PRODUCT_CLASS_SELECT_BOX', name: '클래스 선택', label: null, rules: null, value: 'DELUXE'
       }
     ],
     settingSEOSheet: [

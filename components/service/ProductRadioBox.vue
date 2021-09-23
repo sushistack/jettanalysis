@@ -18,6 +18,7 @@
 
 <script>
 import ProductRadio from './ProductRadio'
+
 export default {
   name: 'ProductRadioBox',
   components: { ProductRadio },
