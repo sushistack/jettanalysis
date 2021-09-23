@@ -7,7 +7,7 @@
         .inner-container
           .main-banner
             .inner-section-logo
-              logo(size='260' marginTop='15' :jettOnly='true')
+              logo(:size='mainLogoSize' marginTop='15' :jettOnly='true')
             .inner-section-heading
               p.site-title 마케팅의 모든 것,
                 br
@@ -83,8 +83,13 @@ export default {
     focusDiagnosis () {
       this.$refs.diagnosisInput.focus()
     }
+  },
+  computed: {
+    mainLogoSize () {
+      return this.$vuetify.breakpoint.width > 539 ? 260 : 230
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -108,6 +113,9 @@ export default {
   }
   > .inner-section-logo {
     margin-bottom: 0;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
   }
   > .inner-section-heading {
     max-width: 320px;

@@ -51,7 +51,7 @@ export default {
       { hid: 'application-name', name: 'application-name', content: 'JETT Analysis' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=1' },
       { rel: 'apple-touch-icon', href: FALLBACK.IMAGE }
     ]
   },
