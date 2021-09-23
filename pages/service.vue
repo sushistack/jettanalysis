@@ -3,17 +3,23 @@
   navigation-bar
   .wrap
     section
-      product-radio-box
+      product-radio-box(@onSelected='showOrderSheet')
+    separater(v-show='selectedProductType' :deg='180' :padding='3' ref='sectionSeparater')
+    section(v-if='selectedProductType')
+      order-sheet(
+        :sheetType='selectedProductType'
+      )
   page-footer
 </template>
 
 <script>
 import ProductRadioBox from '@/components/service/ProductRadioBox'
+import OrderSheet from '@/components/service/OrderSheet'
 const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
 
 export default {
   name: 'Service',
-  components: { ProductRadioBox },
+  components: { ProductRadioBox, OrderSheet },
   head ({$seoMeta}) {
     const title = 'JETT Analysis 소개'
     return {
@@ -29,9 +35,22 @@ export default {
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },
+  data: () => ({
+    selectedProductSeq: null
+  }),
   methods: {
-    counsel () {
-      this.$router.push('/counsel')
+    showOrderSheet (seq) {
+      this.selectedProductSeq = seq
+      this.$nextTick(() => { this.$scrollTo(this.$refs.sectionSeparater.$el, 500) })
+    }
+  },
+  computed: {
+    selectedProductType () {
+      switch (this.selectedProductSeq) {
+        case 0: return 'SETTING_SEO'
+        case 1: return 'BACKLINK'
+        default: return null
+      }
     }
   }
 }

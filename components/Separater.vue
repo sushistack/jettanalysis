@@ -1,5 +1,5 @@
 <template lang="pug">
-.css-gi099c(:class='{reverse: isReverse}')
+.css-gi099c(:class='{reverse: isReverse}' :style='{padding: pad}')
   figure.css-13j9vq9
     svg(xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='115px' height='18px' viewBox='0 0 115 18' version='1.1')
       g#Page-1(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
@@ -15,11 +15,19 @@ export default {
       type: Number,
       required: false,
       default: () => 0
-    }
+    },
+    padding: {
+      type: Number,
+      required: false,
+      default: () => 7
+    },
   },
   computed: {
     isReverse () {
       return this.deg === 180
+    },
+    pad () {
+      return `${this.padding}rem 0`
     }
   }
 }
@@ -29,8 +37,6 @@ export default {
 .css-gi099c {
   overflow: hidden;
   position: relative;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
   background: linear-gradient(0deg, #eef0f7 50%, #FFFFFF 50%);
 }
 .css-gi099c.reverse {

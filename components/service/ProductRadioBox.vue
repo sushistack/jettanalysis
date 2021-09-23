@@ -39,11 +39,10 @@ export default {
       }
     ]
   }),
-  mounted () {
-  },
   methods: {
     select (seq) {
       this.products.forEach(p => p.checked = p.seq === seq)
+      this.$emit('onSelected', seq)
     },
     open (seq) {
       this.$refs.productRadios

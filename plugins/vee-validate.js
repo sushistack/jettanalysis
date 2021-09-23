@@ -20,13 +20,26 @@ extend('min', {
 
 extend('email', {
   ...email,
-  message: 'Email must be valid'
+  message: '유효한 이메일 주소가 아닙니다.'
 })
 
 extend('length', {
   ...length,
   message: '{_field_}는 최소 ${length} 이상 선택해야합니다.'
 })
+
+extend('url', {
+  validate(value) {
+    const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+      '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+    return pattern.test(value)
+  },
+  message: '유효한 URL이 아닙니다.'
+});
 
 extend('password', {
   params: ['target'],
