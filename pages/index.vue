@@ -116,6 +116,7 @@ export default {
     margin-top: 5px;
     display: flex;
     justify-content: center;
+    color: #00afff;
   }
   > .inner-section-heading {
     max-width: 320px;
