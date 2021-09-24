@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/service", {data:[{productId:NaN}],fetch:{},mutations:void 0});
