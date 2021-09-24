@@ -63,7 +63,8 @@ export default {
   plugins: [
     { src: '~/plugins/axios.js' },
     { src: '~/plugins/number-abbreviator.js' },
-    { src: '~/plugins/vee-validate.js', ssr: false }
+    { src: '~/plugins/vee-validate.js', ssr: false },
+    { src: '~/plugins/persisted-state.client.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -128,7 +129,8 @@ export default {
       appId: process.envFIREBASE_APPID
     },
     services: {
-      firestore: true
+      firestore: true,
+      auth: true
     }
   },
 
