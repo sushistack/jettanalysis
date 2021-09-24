@@ -4,12 +4,13 @@ v-app
 </template>
 
 <script>
+import { loadChannelIOScript, bootChannelIO } from '@/util'
+
 export default {
   name: 'defaultLayout',
-  head() {
-    // return {
-    //   link: [ { rel: 'canonical', href: `${this.$site.baseUrl}${this.$route.fullPath}` } ]
-    // }
+  mounted () {
+    loadChannelIOScript()
+    bootChannelIO({ pluginKey: process.env.CHANNEL_IO_PLUGINKEY })
   }
 }
 </script>
