@@ -75,12 +75,6 @@ export default {
         case 1: return 'BACKLINK'
         default: return null
       }
-    },
-    orderLink () {
-      switch (this.selectedProductSeq) {
-        case 0: case 1: return `/order?pid=${this.selectedProductSeq}`
-        default: return '/service'
-      }
     }
   }
 }
