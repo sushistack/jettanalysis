@@ -3,9 +3,10 @@ article.post
   .css-u5p2ag
     header.css-79elbk
       div
-        router-link(:to='link')
+        h2.css-1izrdyl.no-link(v-if='noTitleLink') {{ article.title }}
+        router-link(v-else :to='link')
           h2.css-1izrdyl {{ article.title }}
-        .css-1d7x0cs
+        .css-1d7x0cs(v-if='article.author')
           time.updated(:datetime='article.updatedAt')
           p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
     .css-12m1dn8(:style='{background: article.backgroundColorForPreview}')
@@ -18,7 +19,7 @@ article.post
             v-progress-circular(indeterminate color='grey lighten-5')
       nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
     footer.css-3872h1
-      router-link.css-13xd08w(:to='link') 이어서 읽기
+      router-link.css-13xd08w(:to='link') {{ buttonText }}
 </template>
 
 <script>
@@ -27,11 +28,22 @@ export default {
   props: {
     type: {
       type: String,
-      required: true
+      required: false,
+      default: () => null
     },
     article: {
       type: Object,
       required: true
+    },
+    noTitleLink: {
+      type: Boolean,
+      required: false,
+      default: () => false
+    },
+    buttonText: {
+      type: String,
+      required: false,
+      default: () => '이어서 읽기'
     }
   },
   methods: {
@@ -43,7 +55,7 @@ export default {
   computed: {
     link () {
       if (!this.article) return ''
-      return `/${this.type}/${this.article.slug}`
+      return `${this.type ? '/' + this.type : ''}/${this.article.slug}`
     },
     excerpt () {
       if (!this.article) return ''
@@ -91,8 +103,16 @@ a {
   transition: color 0.5s;
 }
 
+.no-link.css-1izrdyl {
+  font-size: 26px;
+  cursor: default;
+}
+
 .css-1izrdyl:hover,.css-1izrdyl:focus {
-  color: #bb4a03;
+  color: #0077ff;
+}
+.no-link.css-1izrdyl:hover,.no-link.css-1izrdyl:focus {
+  color: #000;
 }
 
 .css-1a2v9hb {

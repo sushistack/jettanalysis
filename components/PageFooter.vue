@@ -61,6 +61,7 @@ footer.css-895q96
 
 <script>
 import Logo from './Logo'
+
 export default {
   name: 'PageFooter',
   components: { Logo },
@@ -226,16 +227,13 @@ a, a:hover {
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-bottom: 30px;
-}
-
-.css-osz9vn svg g {
-  fill: #00d07e;
+  color: #00afff;
 }
 
 .css-1l6xqrc {
   color: #fff;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 16px;
   max-width: 300px;
 }
 
@@ -331,6 +329,9 @@ a, a:hover {
   }
   .css-fqr2l1 {
     font-size:0.875rem;
+  }
+  .css-1l6xqrc {
+    font-size: 1.25rem;
   }
 }
 

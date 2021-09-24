@@ -3,7 +3,7 @@ svg#logo(
   xmlns='http://www.w3.org/2000/svg' 
   :width='logoSize' 
   :height='logoSize'
-  :fill='logoFill' 
+  fill='currentColor'
   viewBox='0 0 944.15 727.5'
   :style='{"margin-top": logoMarginTop}'
 )
@@ -35,10 +35,6 @@ export default {
     logoMarginTop () {
       if (!this.marginTop) return '0px'
       return `${this.marginTop}px`
-    },
-    logoFill () {
-      if (!this.fill) return '#00afff'
-      return this.fill
     }
   }
 }

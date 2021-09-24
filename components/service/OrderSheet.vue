@@ -151,7 +151,7 @@ export default {
 
 <style lang="scss" scoped>
 .order-sheet-container {
-  background:#fff;
+  background-image: linear-gradient(180deg, #fff 10%, #eef0f7);
   padding: 30px 0 70px;
 }
 
@@ -165,7 +165,9 @@ export default {
 
 .sheet-inner-container {
   width: 100%;
-  border: 1px solid #ccc;
+  background: #fff;
+  border: solid #ccc;
+  border-width: 1px 0 1px;
   padding: 5rem 3rem;
   margin-right: auto;
   margin-left: auto;
@@ -231,6 +233,7 @@ export default {
 @media (min-width: 540px) {
   .sheet-inner-container {
     max-width: 540px;
+    border-width: 1px;
   }
 }
 

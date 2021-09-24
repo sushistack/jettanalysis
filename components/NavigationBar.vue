@@ -2,24 +2,16 @@
 #header-container
   v-toolbar.toolbar(color='elevation-0' :height='headerHeight')
     v-toolbar-title
-      router-link.logo-title(to='/')
+      router-link.logo-title(to='/' :class='{overlayed: overlay}')
         logo(:size='headerHeight' marginTop='15' :jettOnly='true')
     v-spacer
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
           router-link.menu-link(:to='m.to') {{ m.name }}
-      v-btn(v-show='isSmallerThanMd' icon @click.stop='overlay = !overlay')
-        svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#888' viewBox='0 0 24 24')
-          path(d='M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z')
+      button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='overlay = !overlay')
+        span.burger-menu-icon
   v-overlay(:value='overlay' color='#00afff' opacity='1')
-    .overlay-toolbar
-      router-link.logo-title(to='/')
-        logo(:size='headerHeight' fill='#fff' marginTop='4' :jettOnly='true')
-      v-spacer
-      v-btn.menu-btn(icon width='48' height='48' @click='overlay = false')
-        svg(xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='#fff' viewBox='0 0 24 24')
-          path(d='M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z')
     .css-1ltxe64
       .css-blynua
         .css-10y79h4
@@ -73,10 +65,22 @@ export default {
   color: #000;
 }
 
+.toolbar {
+  z-index: 6;
+}
+.toolbar.theme--light.v-toolbar.v-sheet {
+  background: transparent;
+}
+
 .logo-title {
   text-decoration: none;
-  color: #000;
+  color: #00afff;
 }
+
+.logo-title.overlayed {
+  color: #fff;
+}
+
 .menu {
   .menu-list {
     display: flex;
@@ -97,6 +101,72 @@ export default {
 }
 .menu-btn {
   margin-top: 5px;
+}
+
+.burger-button {
+  cursor: pointer;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transition: transform 500ms cubic-bezier(0.4,0,0.2,1);
+  .burger-menu-icon {
+    width: 35px;
+    height: 5px;
+    border-radius: 2px;
+    background: #000;
+    margin: 17.5px 0;
+    position: relative;
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .burger-menu-icon::before {
+    top: -10px;
+    width: 25px;
+  }
+
+  .burger-menu-icon::after {
+    top: 10px;
+    width: 20px;
+  }
+
+  .burger-menu-icon::before, .burger-menu-icon::after {
+    border-radius: 2px;
+    height: 5px;
+    background: #000;
+    content: " ";
+    position: absolute;
+    left: 0;
+    -webkit-transition: -webkit-transform 250ms cubic-bezier(.68,-.55,.265,1.55);
+    -webkit-transition: transform 250ms cubic-bezier(.68,-.55,.265,1.55);
+    transition: transform 250ms cubic-bezier(.68,-.55,.265,1.55);
+  }
+}
+
+.burger-button.active {
+  > .burger-menu-icon {
+    background: none;
+  }
+  > .burger-menu-icon:hover {
+    transform: scale(1.2);
+  }
+  > .burger-menu-icon::before, > .burger-menu-icon::after  {
+    top: 0px;
+    width: 40px;
+    background: #fff;
+  }
+  > .burger-menu-icon::before {
+    transform: rotate(-45deg);
+  }
+  > .burger-menu-icon::after {
+    transform: rotate(45deg);
+  }
 }
 
 .overlay-toolbar {

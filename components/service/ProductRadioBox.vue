@@ -22,7 +22,15 @@ import ProductRadio from './ProductRadio'
 export default {
   name: 'ProductRadioBox',
   components: { ProductRadio },
+  props: {
+    preCheckedSeq: {
+      type: Number,
+      required: false,
+      default: () => -1
+    }
+  },
   data: () => ({
+    selected: -1,
     products: [
       { 
         seq: 0,
@@ -40,9 +48,19 @@ export default {
       }
     ]
   }),
+  mounted () {
+    if (this.preCheckedSeq > -1) {
+      this.select(this.preCheckedSeq)
+    }
+  },
   methods: {
     select (seq) {
+      if (this.selected === seq) {
+        return
+      }
+      this.selected = seq
       this.products.forEach(p => p.checked = p.seq === seq)
+      
       this.$emit('onSelected', seq)
     },
     open (seq) {
