@@ -53,7 +53,7 @@ export default {
       },
       BACKLINK: {
         title: '고품질 기사형 백링크는 어떤 서비스인가요?',
-        slug: '/blog/what-is-backlink',
+        slug: 'blog/what-is-backlink',
         excerpt: {
           body: {
             type: 'root',
