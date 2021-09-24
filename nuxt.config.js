@@ -120,12 +120,12 @@ export default {
 
   firebase: {
     config: {
-      apiKey: 'AIzaSyDQSZWb2ip7_dx-IXHzLYptF0oLGkqJWDg',
-      authDomain: 'jett-analysis-comments.firebaseapp.com',
-      projectId: 'jett-analysis-comments',
-      storageBucket: 'jett-analysis-comments.appspot.com',
-      messagingSenderId: '525401133908',
-      appId: '1:525401133908:web:eb8b1237ec3d3d49d42ec1'
+      apiKey: process.env.FIREBASE_APIKEY,
+      authDomain: process.env.FIREBASE_AUTHDOMAIN,
+      projectId: process.env.FIREBASE_PROJECTID,
+      storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+      appId: process.envFIREBASE_APPID
     },
     services: {
       firestore: true

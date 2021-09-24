@@ -52,7 +52,7 @@ export default {
     },
     buttonText: {
       type: String,
-      required: true,
+      required: false,
       default: () => '진단'
     },
     defaultUrl: {
