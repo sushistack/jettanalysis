@@ -8,19 +8,19 @@
           span.stat-value {{ score.failed }}
           span.stat-name 치명
           .dignosis-progress
-            v-progress-linear(v-model='failed' color='#f63842' height='12' rounded)
+            v-progress-linear(:value='failed' color='#f63842' height='12' rounded)
               strong {{ failed }}%
         .stat-element.diagnosis-warning
           span.stat-value {{ score.warning }}
           span.stat-name 경고
           .dignosis-progress
-            v-progress-linear(v-model='warning' color='#ffab00' height='12' rounded)
+            v-progress-linear(:value='warning' color='#ffab00' height='12' rounded)
               strong {{ warning }}%
         .stat-element.diagnosis-passed
           span.stat-value {{ score.passed }}
           span.stat-name 통과
           .dignosis-progress
-            v-progress-linear(v-model='passed' color='#34bc6e' height='12' rounded)
+            v-progress-linear(:value='passed' color='#34bc6e' height='12' rounded)
               strong {{ passed }}%
 </template>
 
