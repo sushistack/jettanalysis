@@ -91,7 +91,7 @@
 </template>
 
 <script>
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   name: 'PrivacyNotice',
@@ -101,7 +101,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/privacy-notice`,
           description: 'JETT Analysis의 개인정보 이용 알림입니다.'
         },

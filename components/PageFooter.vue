@@ -67,7 +67,7 @@ export default {
   components: { Logo },
   methods: {
     counsel () {
-      window.open(process.env.COUNSEL_LINK, '_blank').focus()
+      window.open(process.env.NUXT_APP_COUNSEL_LINK, '_blank').focus()
     }
   }
 }

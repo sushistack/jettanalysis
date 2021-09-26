@@ -38,22 +38,20 @@ jobs:
       - name: Generate
         run: npm run generate
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          FRONTEND_PORT: ''
-          COUNSEL_LINK: ${{ secrets.COUNSEL_LINK }}
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          SITE_NAME: ${{ secrets.SITE_NAME }}
-          SITE_SEO_FORM: ${{ secrets.SITE_SEO_FORM }}
-          SITE_LINK_BUILDING_FORM: ${{ secrets.SITE_LINK_BUILDING_FORM }}
-          FIREBASE_APIKEY: ${{ secrets.FIREBASE_APIKEY }}
-          FIREBASE_AUTHDOMAIN: ${{ secrets.FIREBASE_AUTHDOMAIN }}
-          FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
-          FIREBASE_STORAGEBUCKET: ${{ secrets.FIREBASE_STORAGEBUCKET }}
-          FIREBASE_MESSAGINGSENDERID: ${{ secrets.FIREBASE_MESSAGINGSENDERID }}
-          FIREBASE_APPID: ${{ secrets.FIREBASE_APPID }}
-          CHANNEL_IO_PLUGINKEY: ${{ secrets.CHANNEL_IO_PLUGINKEY }}
-          CHANNEL_IO_ACCESS_SECRET: ${{ secrets.CHANNEL_IO_ACCESS_SECRET }}
-          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NUXT_APP_BASE_URL: ${{ secrets.NUXT_APP_BASE_URL }}
+          NUXT_APP_FRONTEND_PORT: ''
+          NUXT_APP_COUNSEL_LINK: ${{ secrets.NUXT_APP_COUNSEL_LINK }}
+          NUXT_APP_GOOGLE_ANALYTICS_ID: ${{ secrets.NUXT_APP_GOOGLE_ANALYTICS_ID }}
+          NUXT_APP_SITE_NAME: ${{ secrets.NUXT_APP_SITE_NAME }}
+          NUXT_APP_FIREBASE_APIKEY: ${{ secrets.NUXT_APP_FIREBASE_APIKEY }}
+          NUXT_APP_FIREBASE_AUTHDOMAIN: ${{ secrets.NUXT_APP_FIREBASE_AUTHDOMAIN }}
+          NUXT_APP_FIREBASE_PROJECTID: ${{ secrets.NUXT_APP_FIREBASE_PROJECTID }}
+          NUXT_APP_FIREBASE_STORAGEBUCKET: ${{ secrets.NUXT_APP_FIREBASE_STORAGEBUCKET }}
+          NUXT_APP_FIREBASE_MESSAGINGSENDERID: ${{ secrets.NUXT_APP_FIREBASE_MESSAGINGSENDERID }}
+          NUXT_APP_FIREBASE_APPID: ${{ secrets.NUXT_APP_FIREBASE_APPID }}
+          NUXT_APP_CHANNEL_IO_PLUGINKEY: ${{ secrets.NUXT_APP_CHANNEL_IO_PLUGINKEY }}
+          NUXT_APP_CHANNEL_IO_ACCESS_SECRET: ${{ secrets.NUXT_APP_CHANNEL_IO_ACCESS_SECRET }}
+          NUXT_APP_NAVER_CLIENT_ID: ${{ secrets.NUXT_APP_NAVER_CLIENT_ID }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

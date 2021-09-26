@@ -28,7 +28,7 @@
 <script>
 import TopBanner from '@/components/TopBanner'
 import ArticlePreview from '@/components/blog/ArticlePreview'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 const PER_PAGE = 5
 
 export default {
@@ -54,7 +54,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/blog`,
           description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
         },

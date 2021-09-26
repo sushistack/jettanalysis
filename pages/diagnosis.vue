@@ -40,7 +40,7 @@
 import { createDiagnosis } from "@/utils/diagnosis-creator"
 import Diagnosis from "@/components/Diagnosis"
 import DiagnosisSnackbar from '@/components/DiagnosisSnackbar'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   components: { Diagnosis, DiagnosisSnackbar },
@@ -50,7 +50,7 @@ export default {
       title: title,
       meta: $seoMeta(
         {
-          title: `${title} | ${process.env.SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/diagnosis`,
           description: '사이트의 검색엔진 최적화 진단을 해보세요!'
         },

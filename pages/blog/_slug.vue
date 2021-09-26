@@ -39,7 +39,7 @@ import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
 import { smartUrl } from '@/util'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   name: 'Slug',
@@ -57,7 +57,7 @@ export default {
       meta: [{ hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') }]
         .concat($seoMeta(
         {
-          title: `${this.article.title} | ${process.env.SITE_NAME}`,
+          title: `${this.article.title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/blog/${this.article.id}`,
           description: this.article.description,
           image: smartUrl(this.article.img)

@@ -52,7 +52,7 @@
 import { getSocialImage, loadKakaoSdk } from '@/util'
 import { mapGetters, mapActions } from 'vuex'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   components: {
@@ -127,7 +127,7 @@ export default {
     signinWithNaver () {
       const params = {
         response_type: 'code',
-        client_id: process.env.NAVER_CLIENT_ID,
+        client_id: process.env.NUXT_APP_NAVER_CLIENT_ID,
         redirect_url: `${FRONTEND_BASE_URL}/oauth/callback/naver`,
         state: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
       }

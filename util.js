@@ -1,4 +1,4 @@
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 const KAKAO_SDK_SCRIPT_ID = 'kakao-sdk-script'
 
 const smartUrl = url => {

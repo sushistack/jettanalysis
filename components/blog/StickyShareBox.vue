@@ -44,7 +44,7 @@
 
 <script>
 import { loadKakaoSdk } from '@/util'
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   props: {

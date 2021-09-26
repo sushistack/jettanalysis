@@ -31,7 +31,7 @@ import ProductRadioBox from '@/components/service/ProductRadioBox'
 import ProductDetail from '@/components/service/ProductDetail'
 import OrderSheet from '@/components/service/OrderSheet'
 
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   name: 'Service',
@@ -42,7 +42,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/service`,
           description: 'JETT Analysis의 소개 페이지입니다.'
         },

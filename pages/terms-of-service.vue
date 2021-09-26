@@ -43,7 +43,7 @@
 </template>
 
 <script>
-const FRONTEND_BASE_URL = `${process.env.BASE_URL}${process.env.FRONTEND_PORT}`
+const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
 
 export default {
   name: 'TermsOfService',
@@ -53,7 +53,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
           url: `${FRONTEND_BASE_URL}/terms-of-service`,
           description: 'JETT Analysis의 서비스 이용 약관입니다.'
         },

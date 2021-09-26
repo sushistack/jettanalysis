@@ -44,7 +44,7 @@ const OAUTH = {
     USER_INFO_API: 'https://openapi.naver.com/v1/nid/me',
     REQ_BODY_FOR_ACCESS_TOKEN: {
       grant_type: 'authorization_code',
-      client_id: process.env.NAVER_CLIENT_ID,
+      client_id: process.env.NUXT_APP_NAVER_CLIENT_ID,
       client_secret: process.env.NAVER_CLIENT_SECRET,
       code: null,
       redirect_uri: '',
