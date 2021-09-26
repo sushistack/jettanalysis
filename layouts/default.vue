@@ -10,7 +10,7 @@ export default {
   name: 'defaultLayout',
   mounted () {
     loadChannelIOScript()
-    bootChannelIO({ pluginKey: process.env.NUXT_APP_CHANNEL_IO_PLUGINKEY })
+    bootChannelIO()
   }
 }
 </script>

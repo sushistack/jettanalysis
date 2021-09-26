@@ -1,5 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
+
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
