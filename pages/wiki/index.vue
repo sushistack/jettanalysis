@@ -28,7 +28,9 @@
 <script>
 import TopBanner from '@/components/TopBanner'
 import ArticlePreview from '@/components/blog/ArticlePreview'
-const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
+const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
+const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
+const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 const PER_PAGE = 5
 
 export default {

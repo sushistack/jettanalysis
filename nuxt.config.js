@@ -1,6 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
-const FRONTEND_BASE_URL = `${process.env.NUXT_APP_BASE_URL}${process.env.NUXT_APP_FRONTEND_PORT}`
+const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
+const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
+const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 
 const FALLBACK = {
   TITLE: '검색엔진 최적화 전략 가이드',
@@ -169,7 +171,7 @@ export default {
 
   publicRuntimeConfig: {
     googleAnalytics: {
-      id: process.env.NUXT_APP_GOOGLE_ANALYTICS_ID
+      id: process.env.NUXT_APP_GOOGLE_ANALYTICS_ID || 'UA-206750180-1'
     }
   },
 
