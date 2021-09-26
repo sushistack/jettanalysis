@@ -1,11 +1,10 @@
 <template lang="pug">
-.jett-loading-container
-  v-container(style='width:100%;height:100vh')
-    v-row.fill-height(align-content='center' justify='center')
-      v-col.logo-container.text-subtitle-1.text-center(cols='12')
-        logo
-      v-col(cols='6')
-        v-progress-linear(color='#00afff' indeterminate rounded height='6')
+v-container(style='width:100%;height:100vh')
+  v-row.fill-height(align-content='center' justify='center')
+    v-col.logo-container.text-subtitle-1.text-center(cols='12')
+      logo
+    v-col(cols='6')
+      v-progress-linear(color='#00afff' indeterminate rounded height='6')
 </template>
 
 <script>
@@ -19,10 +18,14 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'AuthCallback',
   components: { Logo },
-  async asyncData ({route, params}) {
-    return {
-      provider: params.provider,
-      code: route.query.code
+  props: {
+    provider: {
+      type: String,
+      required: true
+    },
+    code: {
+      type: String,
+      required: true
     }
   },
   data: () => ({ token: '' }),
