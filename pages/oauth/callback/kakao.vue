@@ -9,12 +9,9 @@ import OauthCallback from '@/components/oauth/OauthCallback'
 export default {
   name: 'CallbackKakao',
   components: { OauthCallback },
-  async asyncData({route}) {
-    return {
-      code: route.query.code
-    }
-  },
+  data: () => ({ code: null }),
   created () {
+    this.code = this.$route.query.code
     if (!this.code) {
       this.$router.push('/signin')
     }
