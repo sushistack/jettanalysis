@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/oauth/callback/naver", {data:[{}],fetch:{},mutations:[]});
