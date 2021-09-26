@@ -129,7 +129,7 @@ export default {
     signinWithNaver () {
       const params = {
         response_type: 'code',
-        client_id: process.env.NUXT_APP_NAVER_CLIENT_ID,
+        client_id: process.env.NUXT_APP_NAVER_CLIENT_ID || 'kp6cYCSm7hIR0p1fVYtb',
         redirect_url: `${FRONTEND_BASE_URL}/oauth/callback/naver`,
         state: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
       }
