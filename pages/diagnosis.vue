@@ -52,7 +52,7 @@ export default {
       title: title,
       meta: $seoMeta(
         {
-          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}/diagnosis`,
           description: '사이트의 검색엔진 최적화 진단을 해보세요!'
         },

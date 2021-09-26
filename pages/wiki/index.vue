@@ -56,7 +56,7 @@ export default {
       title: title,
       meta: $seoMeta(
         {
-          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}/wiki`,
           description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
         },

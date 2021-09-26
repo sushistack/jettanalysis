@@ -65,7 +65,7 @@ export default {
       meta: [{ hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') }]
         .concat($seoMeta(
         {
-          title: `${this.article.title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${this.article.title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
           description: this.article.description,
           image: smartUrl(this.article.img)

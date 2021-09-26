@@ -66,7 +66,8 @@ const loadChannelIOScript = function () {
 }
 
 const bootChannelIO = function () {
-  window.ChannelIO('boot', { pluginKey: process.env.NUXT_APP_CHANNEL_IO_PLUGINKEY });
+  const pluginKey = process.env.NUXT_APP_CHANNEL_IO_PLUGINKEY || '19a592c5-059b-4d47-a115-3e7840a3ec50'
+  window.ChannelIO('boot', { pluginKey: pluginKey });
 }
 
 const shutdownChannelIO = function () {

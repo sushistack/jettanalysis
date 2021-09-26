@@ -55,7 +55,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}/terms-of-service`,
           description: 'JETT Analysis의 서비스 이용 약관입니다.'
         },

@@ -44,7 +44,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}/service`,
           description: 'JETT Analysis의 소개 페이지입니다.'
         },

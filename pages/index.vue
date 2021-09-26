@@ -61,7 +61,7 @@ export default {
       title: title,
       meta: $seoMeta(
         { 
-          title: `${title} | ${process.env.NUXT_APP_SITE_NAME}`,
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}`,
           description: '이제 검색엔진 최적화는 저희에게 맡기세요! Jett Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.'
         },
