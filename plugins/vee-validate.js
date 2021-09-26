@@ -28,6 +28,14 @@ extend('length', {
   message: '{_field_}는 최소 ${length} 이상 선택해야합니다.'
 })
 
+extend('password', {
+  params: ['target'],
+  validate(value, { target }) {
+    return value === target;
+  },
+  message: '패스워드가 일치하지 않습니다.'
+})
+
 extend('url', {
   validate(value) {
     const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
@@ -40,14 +48,6 @@ extend('url', {
   },
   message: '유효한 URL이 아닙니다.'
 });
-
-extend('password', {
-  params: ['target'],
-  validate(value, { target }) {
-    return value.toLowerCase() === target.toLowerCase()
-  },
-  message: '캡챠가 일치하지 않습니다.'
-})
 
 extend('size', {
   ...size,

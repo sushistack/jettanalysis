@@ -31,9 +31,8 @@
             validation-provider(v-slot='{ errors }' name='비밀번호' rules='required|min:4|max:20')
               v-text-field.mb-3(
                 v-model='password'
-                :error-messages='errors'
-                label='비밀번호'
-                outlined
+                autocomplete='new-password'
+                :error-messages='errors' label='비밀번호' outlined
                 :type='showPassword ? "text" : "password"' 
                 @click:append='showPassword = !showPassword'
               )
@@ -287,7 +286,6 @@ export default {
 }
 
 .comment-form {
-  border-top: 1px solid #ebebeb;
   margin: 25px 0;
   padding-top: 1rem;
 }

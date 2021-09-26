@@ -9,20 +9,47 @@
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
           router-link.menu-link(:to='m.to') {{ m.name }}
+        li
+          router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
+          v-menu(left offset-y)
+            template(v-slot:activator='{ on, attrs }')
+              .profile-btn(
+                v-show='isSignedIn'
+                v-bind='attrs' v-on='on'
+                :style='{background: colorBaseOnDisplayName}'
+              )
+                span.white--text.text-h5 {{ displayName }}
+            v-list
+              v-list-item.user-menu(v-for='(m, index) in userMenu' :key='index' @click='selectUserMenu(m)')
+                v-list-item-title {{ m }}
       button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='overlay = !overlay')
         span.burger-menu-icon
-  v-overlay(:value='overlay' color='#00afff' opacity='1')
+  v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
     .css-1ltxe64
       .css-blynua
         .css-10y79h4
           ul.css-9f21ci
             li(v-for='m in menu')
               router-link.menu-link(:to='m.to') {{ m.name }}
+            li
+              router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
+              v-menu(right offset-x)
+                template(v-slot:activator='{ on, attrs }')
+                  .profile-btn(
+                    v-show='isSignedIn'
+                    v-bind='attrs' v-on='on'
+                    :style='{background: colorBaseOnDisplayName}'
+                  )
+                    span.white--text.text-h5 {{ displayName }}
+                v-list
+                  v-list-item.user-menu(v-for='(m, index) in userMenu' :key='index' @click='selectUserMenu(m)')
+                    v-list-item-title {{ m }}
 </template>
 
 <script>
 import Logo from './Logo'
 import MENU from '@/components/data/menu'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'NavigationBar',
@@ -30,9 +57,27 @@ export default {
   data: () => ({ 
     menu: MENU,
     isMenuOpened: false,
-    overlay: false
+    overlay: false,
+    userMenu: ['프로필', '보고서', '로그아웃']
   }),
+  methods: {
+    ...mapActions({ removeUser: 'user/removeUser' }),
+    selectUserMenu (type) {
+      switch (type) {
+        case '프로필': return this.$router.push('/profile')
+        case '보고서': return this.$router.push('/report')
+        case '결제내역': return this.$router.push('/payment-history')
+        case '로그아웃': return this.signout()
+      }
+    },
+    signout () {
+      this.removeUser()
+      this.overlay = false
+      this.$router.push('/')
+    }
+  },
   computed: {
+    ...mapGetters({ user: 'user/user' }),
     headerHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 60
@@ -46,6 +91,26 @@ export default {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': case 'sm': return true
         case 'md': case 'lg': case 'xl': return false
+      }
+    },
+    isSignedIn () {
+      return !!this.user
+    },
+    displayName () {
+      if (!this.user || !this.user.displayName) return ''
+      return this.user.displayName.toUpperCase().charAt(0)
+    },
+    colorBaseOnDisplayName () {
+      if (!this.user || !this.user.displayName) return '#a00077'
+      switch (this.user.displayName.toUpperCase().charCodeAt(0) % 8) {
+        case 0: return '#855c47'
+        case 1: return '#7a8547'
+        case 2: return '#475085'
+        case 3: return '#7d4785'
+        case 4: return '#477085'
+        case 5: return '#474b85'
+        case 6: return '#7d8547'
+        case 7: return '#478549'
       }
     }
   }
@@ -85,6 +150,7 @@ export default {
   .menu-list {
     display: flex;
     list-style: none;
+    line-height: 45px;
     .menu-link {
       font-size: 1rem;
       text-decoration: none;
@@ -92,6 +158,7 @@ export default {
       padding: 0 10px;
       margin: 0 15px;
       color: #000;
+      cursor: pointer;
     }
     .menu-link.nuxt-link-exact-active {
       font-weight: 600;
@@ -99,6 +166,7 @@ export default {
     }
   }
 }
+
 .menu-btn {
   margin-top: 5px;
 }
@@ -167,6 +235,33 @@ export default {
   > .burger-menu-icon::after {
     transform: rotate(45deg);
   }
+}
+
+.profile-btn {
+  width: 45px;
+  height: 45px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 10px;
+  cursor: pointer;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.overlayed .profile-btn {
+  margin: 0 auto;
+}
+
+.user-menu {
+  cursor: pointer;
+}
+.user-menu:hover { 
+  background: #eee;
 }
 
 .overlay-toolbar {

@@ -37,6 +37,23 @@ jobs:
 
       - name: Generate
         run: npm run generate
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          FRONTEND_PORT: ''
+          COUNSEL_LINK: ${{ secrets.COUNSEL_LINK }}
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+          SITE_NAME: ${{ secrets.SITE_NAME }}
+          SITE_SEO_FORM: ${{ secrets.SITE_SEO_FORM }}
+          SITE_LINK_BUILDING_FORM: ${{ secrets.SITE_LINK_BUILDING_FORM }}
+          FIREBASE_APIKEY: ${{ secrets.FIREBASE_APIKEY }}
+          FIREBASE_AUTHDOMAIN: ${{ secrets.FIREBASE_AUTHDOMAIN }}
+          FIREBASE_PROJECTID: ${{ secrets.FIREBASE_PROJECTID }}
+          FIREBASE_STORAGEBUCKET: ${{ secrets.FIREBASE_STORAGEBUCKET }}
+          FIREBASE_MESSAGINGSENDERID: ${{ secrets.FIREBASE_MESSAGINGSENDERID }}
+          FIREBASE_APPID: ${{ secrets.FIREBASE_APPID }}
+          CHANNEL_IO_PLUGINKEY: ${{ secrets.CHANNEL_IO_PLUGINKEY }}
+          CHANNEL_IO_ACCESS_SECRET: ${{ secrets.CHANNEL_IO_ACCESS_SECRET }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

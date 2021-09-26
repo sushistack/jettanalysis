@@ -2,10 +2,13 @@
 #error-page
   navigation-bar
   v-main
-    .error-page-content
-      img.error-page-hh-illustration(src='/error-monkey.png' alt='error')
-      p 죄송합니다. 이 페이지를 사용할 수 없습니다.
-      p(v-if='error') {{ `${error.message} (code: ${error.statusCode})` }}
+    v-container(style='width:100%;height:500px')
+      v-row.fill-height(align-content='center' justify='center')
+        v-col.logo-container.text-subtitle-1.text-center(cols='12')
+          img.error-page-hh-illustration(src='/error-monkey.png' alt='error')
+        v-col.error-text(cols='6')
+          p 죄송합니다. 이 페이지를 사용할 수 없습니다.
+          p(v-if='error') {{ `${error.message} (code: ${error.statusCode})` }}
   page-footer
 </template>
 
@@ -20,27 +23,8 @@ export default {
 }
 </script>
 
-
-<style lang="scss">
-#error-page {
+<style lang="scss" scoped>
+.error-text {
   text-align: center;
-  height: 100%;
-  white-space: nowrap;
-  word-break: normal;
-  .error-page-content {
-    margin: 10rem 0;
-    display: inline-block;
-    .error-page-hh-illustration {
-      margin-bottom: 10px;
-    }
-    p {
-      width: 500px;
-      margin: auto;
-      color: #333;
-      font-size: 16px;
-      white-space: normal;
-      text-shadow: 0 0 0 transparent, 0 1px 1px #fff;
-    }
-  }
 }
 </style>

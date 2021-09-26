@@ -130,7 +130,8 @@ export default {
     },
     services: {
       firestore: true,
-      auth: true
+      auth: true,
+      functions: true
     }
   },
 
@@ -142,6 +143,24 @@ export default {
     settings: {
       // Firestore Settings - currently only works in SPA mode
     }
+  },
+
+  auth: {
+    persistence: 'local', // default
+    initialize: {
+      onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+      onAuthStateChangedAction: 'onAuthStateChangedAction',
+      subscribeManually: false
+    },
+    ssr: false, // default
+    emulatorPort: 3000,
+    emulatorHost: 'http://localhost',
+  },
+
+  functions: {
+    location: 'us-central1',
+    emulatorPort: 5001,
+    emulatorHost: 'http://localhost',
   },
 
   googleAnalytics: {
