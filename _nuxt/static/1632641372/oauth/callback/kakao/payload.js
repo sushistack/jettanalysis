@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/oauth/callback/kakao", {data:[{}],fetch:{},mutations:[]});
