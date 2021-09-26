@@ -23,13 +23,14 @@ export default {
   created () {
     this.provider = 'kakao'
     this.code = this.$route.query.code
+  },
+  mounted () {
     console.log('code', this.code)
     if (!this.code) {
       alert('로그인에 실패했습니다.')
       this.$router.push('/signin')
     }
-  },
-  mounted () {
+    
     loadKakaoSdk()
     const _this = this
     const oauth = firebase.functions().httpsCallable('oauth')

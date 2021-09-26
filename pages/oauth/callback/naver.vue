@@ -22,13 +22,13 @@ export default {
   created () {
     this.provider = 'naver'
     this.code = this.$route.query.code
-    console.log('code', this.code)
-    if (!this.code) {
-      alert('로그인에 실패했습니다.')
-      this.$router.push('/signin')
-    }
   },
   mounted () {
+    console.log('code', this.code)
+    if (!this.code) {
+      this.$router.push('/signin')
+    }
+
     const _this = this
     const oauth = firebase.functions().httpsCallable('oauth')
 
