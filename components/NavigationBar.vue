@@ -19,9 +19,7 @@
                 :style='{background: colorBaseOnDisplayName}'
               )
                 span.white--text.text-h5 {{ displayName }}
-            v-list
-              v-list-item.user-menu(v-for='(m, index) in userMenu' :key='index' @click='selectUserMenu(m)')
-                v-list-item-title {{ m }}
+            user-menu(@onSignout='signout')
       button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='overlay = !overlay')
         span.burger-menu-icon
   v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
@@ -41,24 +39,22 @@
                     :style='{background: colorBaseOnDisplayName}'
                   )
                     span.white--text.text-h5 {{ displayName }}
-                v-list
-                  v-list-item.user-menu(v-for='(m, index) in userMenu' :key='index' @click='selectUserMenu(m)')
-                    v-list-item-title {{ m }}
+                user-menu(@onSignout='signout')
 </template>
 
 <script>
 import Logo from './Logo'
 import MENU from '@/components/data/menu'
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import UserMenu from '@/components/UserMenu'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'NavigationBar',
-  components: { Logo },
+  components: { Logo, UserMenu },
   data: () => ({ 
     menu: MENU,
     isMenuOpened: false,
-    overlay: false,
-    userMenu: ['프로필', '보고서', '로그아웃']
+    overlay: false
   }),
   methods: {
     ...mapActions({ removeUser: 'user/removeUser' }),
@@ -73,7 +69,9 @@ export default {
     signout () {
       this.removeUser()
       this.overlay = false
-      this.$router.push('/')
+      if (this.$route.path !== '/') {
+        this.$router.push('/')
+      }
     }
   },
   computed: {
