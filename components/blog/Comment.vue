@@ -3,7 +3,7 @@
   .comments-inner-container
     #comments
       p.comments-title
-        span {{ commentCount }}
+        span {{ isCommentLoading ? 0 : commentCount }}
         |  댓글
       share-box(
         :post='post'
@@ -16,30 +16,21 @@
         v-skeleton-loader(v-bind='attrs' :loading='isCommentLoading' type='list-item-avatar-two-line, paragraph')
           .comment-wrapper
             .comments-author
-              .comments-author-photo(:style='{backgroundColor: userColor(comment.created_at)}') {{ comment.username | filterFirstChar }}
+              .comments-author-photo(:style='{backgroundColor: userColor(comment.username)}') {{ comment.username | filterFirstChar }}
               .comments-author-data
                 .comments-author-name {{ comment.username }}
                 .comments-author-metadata
                   time(:datetime='comment.create_at') {{ comment.created_at | toDateTime }}
-            p.comments-content {{ comment.content }}
+            p.comments-content {{ comment.content | unescape }}
     .comment-form
       validation-observer(ref='form' v-slot='{ handleSubmit, reset }')
         form(@submit.prevent='handleSubmit(submit)' @reset.prevent='reset')
           v-col
-            validation-provider(v-slot='{ errors }' name='이름' rules='required|min:1|max:30')
-              v-text-field.mb-3(v-model='username' :error-messages='errors' label='이름' outlined)
-            validation-provider(v-slot='{ errors }' name='비밀번호' rules='required|min:4|max:20')
-              v-text-field.mb-3(
-                v-model='password'
-                autocomplete='new-password'
-                :error-messages='errors' label='비밀번호' outlined
-                :type='showPassword ? "text" : "password"' 
-                @click:append='showPassword = !showPassword'
-              )
             validation-provider(v-slot='{ errors }' name='내용' rules='required|min:1|max:1500')
-              v-textarea(v-model='content' label='내용' :error-messages='errors' outlined)
+              v-textarea(v-model='content' :label='isSignedIn ? "내용" : "로그인 후 이용해주세요"' :error-messages='errors' outlined :disabled='!isSignedIn')
           v-col
-            v-btn.white--text(:loading='loading' color='#00afff' type='submit' large) 등록
+            v-btn.white--text(v-show='isSignedIn' :loading='loading' color='#00afff' type='submit' large) 등록
+            v-btn.white--text(v-show='!isSignedIn' :loading='loading' color='#00afff' type='button' large @click='goToSignin') 로그인
   v-snackbar(
     v-model='snackbar'
     timeout='1500'
@@ -56,6 +47,7 @@
 <script>
 import { ValidationObserver, ValidationProvider } from "vee-validate"
 import ShareBox from "@/components/ShareBox"
+import { mapGetters } from 'vuex'
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
@@ -69,10 +61,8 @@ export default {
   data: () => ({
     comments: [{}, {}],
     isCommentLoading: true,
-    username: "",
-    password: "",
-    showPassword: false,
-    content: "",
+    username: '',
+    content: '',
     loading: false,
     attrs: {
       class: "mb-6",
@@ -82,42 +72,47 @@ export default {
     snackbar: false
   }),
   mounted() {
-    const collect = this.$fire.firestore.collection(this.post.id).get();
+    const collect = this.$fire.firestore.collection(`COM_${this.post.type}_${this.post.id}`).get()
 
     collect.then(snapshot => {
-      this.comments = snapshot.docs.map(doc => doc.data());
-      this.isCommentLoading = false;
+      this.comments = snapshot.docs.map(doc => doc.data())
+      this.isCommentLoading = false
     });
   },
   methods: {
+    goToSignin () {
+      this.$router.push('/signin')
+    },
     submit() {
+      if (!this.isSignedIn) {
+        alert('로그인 후 이용가능합니다.')
+        return
+      }
       const comment = {
-        username: this.username,
-        password: this.password,
-        content: this.content,
+        username: this.user.displayName,
+        content: this.encodedContent,
         created_at: new Date().getTime()
-      };
-      this.loading = true;
-      this.$fire.firestore
-        .collection(this.post.id)
+      }
+      this.loading = true
+      this.$fire.firestore.collection(`COM_${this.post.type}_${this.post.id}`)
         .add(comment)
         .then(() => {
-          this.loading = false;
-          this.comments.push(comment);
-          this.resetCommentForm();
+          this.loading = false
+          this.comments.push(comment)
+          this.resetCommentForm()
         })
         .catch(error => {
-          this.loading = false;
+          this.loading = false
           alert("댓글 등록에 실패했습니다.");
         });
     },
     resetCommentForm () {
-      this.username = ''
-      this.password = ''
       this.content = ''
+      this.$nextTick(() => { this.$refs.form && this.$refs.form.reset() })
     },
-    userColor (time) {
-      switch (Number(time) % 8) {
+    userColor (value) {
+      if (!value) return '#a00077'
+      switch (value.toUpperCase().charCodeAt(0) % 8) {
         case 0: return '#855c47'
         case 1: return '#7a8547'
         case 2: return '#475085'
@@ -154,6 +149,10 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({ user: 'user/user' }),
+    isSignedIn () {
+      return !!this.user
+    },
     commentCount () {
       if (!this.comments) return 0
       return this.comments.length
@@ -166,6 +165,10 @@ export default {
     },
     shareFacebook () {
       return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
+    },
+    encodedContent () {
+      if (!this.content) return ''
+      return escape(this.content)
     }
   },
   filters: {
@@ -178,6 +181,10 @@ export default {
       const d = new Date(Number(value))
       const format = (n) => `${n}`.length === 1 ? `0${n}` : n
       return `${d.getFullYear()}.${format(d.getMonth() + 1)}.${format(d.getDate())} ${format(d.getHours())}:${format(d.getMinutes())}`
+    },
+    unescape (value) {
+      if (!value) return ''
+      return unescape(value)
     }
   }
 }

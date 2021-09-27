@@ -89,7 +89,8 @@ export default {
         id: this.article.slug,
         title: this.article.title,
         description: this.article.description,
-        img: this.article.img
+        img: this.article.img,
+        type: 'blog'
       }
     }
   }

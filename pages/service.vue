@@ -6,8 +6,6 @@
       product-radio-box(@onSelected='onProductSelected')
     separater(v-show='selectedProductType' ref='sectionSeparater' :deg='180' :padding='3')
     section(v-if='selectedProductType')
-      product-detail(:type='selectedProductType')
-    section(v-if='selectedProductType')
       .order-sheet-container
         .order-sheet-opener(@click.stop='toggleOrderSheet')
           | 주문서 작성
@@ -23,6 +21,8 @@
             v-show='showOrderSheet'
             :sheetType='selectedProductType'
           )
+    section(v-if='selectedProductType')
+      product-detail(:type='selectedProductType')
   page-footer
 </template>
 

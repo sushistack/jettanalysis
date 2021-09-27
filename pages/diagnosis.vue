@@ -22,13 +22,7 @@
       )
         diagnosis(:diagnosis='diagnosis')
       section(v-else)
-        feature(
-          type='SITE DIAGNOSIS'
-          title='진단: 당신의 사이트를 무료로 진단해보세요!'
-          desc='검색엔진 최적화를 위한 온 페이지 사이트 진단을 해보고 사이트의 문제점을 파악해보세요.'
-          imageUrl='/images/site-diagnosis.png'
-          @onFeatureClick='focusDiagnosis'
-        )
+        img.site-diagnosis-thumb(src='/images/diag_thumb_600x1800.png' alt='사이트 진단')
   diagnosis-snackbar(
     ref='diagnosisSnackbar'
     :text='snackbarText'
@@ -123,6 +117,10 @@ export default {
   font-size: 1.125rem;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
+}
+.site-diagnosis-thumb {
+  width: calc(100% - 4rem);
+  margin: 5rem 2rem;
 }
 </style>
 

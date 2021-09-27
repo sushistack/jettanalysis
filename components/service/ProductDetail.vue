@@ -47,8 +47,8 @@ export default {
             ]
           }
         },
-        img: '/images/placeholder.png',
-        backgroundColorForPreview: '#ccd3e8',
+        img: '/images/site_diag_thumb.png',
+        backgroundColorForPreview: '#b8e9ff',
         buttonText: '사이트 자가 진단 하러가기'
       },
       BACKLINK: {
@@ -76,8 +76,8 @@ export default {
             ]
           }
         },
-        img: '/images/placeholder.png',
-        backgroundColorForPreview: '#ccd3e8',
+        img: '/images/backlink_thumb.png',
+        backgroundColorForPreview: '#b8e9ff',
         buttonText: '백링크 자세히 알아보기'
       },
     }
