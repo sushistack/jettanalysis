@@ -163,7 +163,7 @@ export default {
   border-color: #00afff;
   border-radius: 30px;
 }
-.signin-container {
+.signin-container div.signin-container {
   margin: 5rem 0;
   display: flex;
 }
