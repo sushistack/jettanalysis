@@ -79,7 +79,7 @@ export default {
             thumbnail: smartUrl(this.post.img),
             title: this.post.title,
             description: this.post.description,
-            path: this.post.id
+            path: `${this.post.type}/${this.post.id}`
           }
         })
       })
