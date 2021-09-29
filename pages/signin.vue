@@ -159,7 +159,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.signin-card {
+.signin-container {
+  min-height: 700px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.signin-container div.signin-card {
   border-color: #00afff;
   border-radius: 30px;
 }
@@ -177,8 +183,8 @@ export default {
   justify-content:center;
   align-items: center;
   color:#888;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 21px;
+  margin-bottom: 21px;
 }
 .or:after, .or:before {
   content: "";
