@@ -8,13 +8,8 @@
     section(v-if='selectedProductType')
       .order-sheet-container
         .order-sheet-opener(@click.stop='toggleOrderSheet')
-          | 주문서 작성
-          svg(xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' fill='currentColor' width='24' height='24' viewBox='0 0 24 24')
-            g
-              rect(fill='none' height='24' width='24')
-              g
-                path(d='M19,5v14H5V5H19 M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3L19,3z')
-              path(d='M14,17H7v-2h7V17z M17,13H7v-2h10V13z M17,9H7V7h10V9z')
+          .css-3872h1
+            .css-13xd08w 주문서 작성하기
         v-expand-transition
           order-sheet(
             ref='orderSheet'
@@ -87,24 +82,63 @@ export default {
 .order-sheet-container {
   display: flex;
   flex-direction: column;
-  .order-sheet-opener {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    color: #00afff;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 35px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    svg {
-      margin-top: 6px;
-    }
+}
+
+.order-sheet-opener {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .css-3872h1 {
+    width: 300px;
   }
-  .order-sheet-opener:hover, .order-sheet-opener:active {
-    background: rgba(0, 0, 0, 0.1);
-  }
+}
+
+.css-3872h1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.css-13xd08w {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-style: normal;
+  white-space: normal;
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  cursor: pointer;
+  text-transform: none;
+  font-weight: 600;
+  min-height: 3.7875rem;
+  color: #fff;
+  background-color: #00afff;
+  border-color: #00afff;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.css-13xd08w:link,.css-13xd08w:visited,.css-13xd08w:hover,.css-13xd08w:active {
+  color: #fff;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.css-13xd08w:hover {
+  background: #0077ff;
+  border-color: #0077ff;
 }
 </style>
