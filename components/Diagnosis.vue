@@ -52,9 +52,12 @@ export default {
 <style lang="scss" scoped>
 .diagnosis-container {
   padding: 0 1.5rem;
+  max-width: 1050px;
+  margin: auto;
   .diagnosis-score-container, .diagnosis-meta-container, .diagnosis-quality-container,
   .diagnosis-structure-container, .diagnosis-link-container {
     margin: 3rem 0;
   }
 }
+
 </style>
