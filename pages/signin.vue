@@ -190,7 +190,7 @@ export default {
   content: "";
   display: block;
   background: #888;
-  width: 44%;
+  width: 39%;
   height:1px;
 }
 
