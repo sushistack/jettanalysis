@@ -5,6 +5,7 @@
       v-col.logo-container.text-subtitle-1.text-center(cols='12')
         logo
       v-col(cols='6')
+        p.loading-text 잠시만 기다려주세요. 조금 시간이 걸릴 수 있습니다.
         v-progress-linear(color='#00afff' indeterminate rounded height='6')
 </template>
 
@@ -30,7 +31,7 @@ export default {
       alert('로그인에 실패했습니다.')
       this.$router.push('/signin')
     }
-    
+
     loadKakaoSdk()
     const _this = this
     const oauth = firebase.functions().httpsCallable('oauth')
@@ -72,5 +73,8 @@ export default {
 <style lang="scss" scoped>
 .logo-container {
   color: #00afff;
+}
+.loading-text {
+  text-align: center;
 }
 </style>
