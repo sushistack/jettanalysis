@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { loadKakaoSdk } from '@/util'
+import { loadKakaoSdk, smartUrl } from '@/util'
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
@@ -76,7 +76,7 @@ export default {
           window.Kakao.Link.sendCustom({
           templateId: 60106,
           templateArgs: {
-            thumbnail: this.post.img,
+            thumbnail: smartUrl(this.post.img),
             title: this.post.title,
             description: this.post.description,
             path: this.post.id
@@ -94,7 +94,7 @@ export default {
   },
   computed: {
     shareUrl () {
-      return `${FRONTEND_BASE_URL}/${this.post.id}`
+      return `${FRONTEND_BASE_URL}/${this.post.type}/${this.post.id}`
     },
     twiterSharingUrl () {
       return `https://twitter.com/share?text=${this.post.title}&url=${this.shareUrl}&via=jettanalysis`

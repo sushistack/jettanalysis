@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { loadKakaoSdk, smartUrl } from '@/util'
 import { ValidationObserver, ValidationProvider } from "vee-validate"
 import ShareBox from "@/components/ShareBox"
 import { mapGetters } from 'vuex'
@@ -123,21 +124,25 @@ export default {
         case 7: return '#478549'
       }
     },
-    shareKakaoStory () {
-      window.Kakao.Story.share({
-        url: this.shareUrl,
-        text: `${this.post.title}\n\n${this.post.description}`
+    shareKakaoStory() {
+      loadKakaoSdk(() => {
+          window.Kakao.Story.share({
+          url: this.shareUrl,
+          text: `${this.post.title}\n\n${this.post.description}`
+        })
       })
     },
-    shareKakaoTalk () {
-      window.Kakao.Link.sendCustom({
-        templateId: 60106,
-        templateArgs: {
-          thumbnail: this.post.img,
-          title: this.post.title,
-          description: this.post.description,
-          path: this.post.id
-        }
+    shareKakaoTalk() {
+      loadKakaoSdk(() => {
+          window.Kakao.Link.sendCustom({
+          templateId: 60106,
+          templateArgs: {
+            thumbnail: smartUrl(this.post.img),
+            title: this.post.title,
+            description: this.post.description,
+            path: this.post.id
+          }
+        })
       })
     },
     copyToClipboard () {
@@ -158,7 +163,7 @@ export default {
       return this.comments.length
     },
     shareUrl () {
-      return `${FRONTEND_BASE_URL}/${this.post.id}`
+      return `${FRONTEND_BASE_URL}/${this.post.type}/${this.post.id}`
     },
     shareTwitter () {
       return `https://twitter.com/share?text=${this.post.title}&url=${this.shareUrl}&via=jettanalysis`
