@@ -99,6 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/table.scss';
+
 #content {
   img {
     display: block;
@@ -112,7 +113,6 @@ export default {
     margin: 4rem 0 1rem 0;
   }
 }
-
 
 .css-66hu0x {
   overflow: hidden;
