@@ -76,15 +76,15 @@ export default {
     }
   },
   computed: {
-   topFontColor () {
+    topFontColor () {
       if (!this.article || !this.article.color) return '#ffffff'
       return this.article.color
-   },
-   topBackgroundColor () {
-     if (!this.article || !this.article.backgroundColor) return '#00afff'
-     return this.article.backgroundColor
-   },
-   post () {
+    },
+    topBackgroundColor () {
+      if (!this.article || !this.article.backgroundColor) return '#00afff'
+      return this.article.backgroundColor
+    },
+    post () {
       return {
         id: this.article.slug,
         title: this.article.title,

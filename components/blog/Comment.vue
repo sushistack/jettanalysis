@@ -124,27 +124,6 @@ export default {
         case 7: return '#478549'
       }
     },
-    shareKakaoStory() {
-      loadKakaoSdk(() => {
-          window.Kakao.Story.share({
-          url: this.shareUrl,
-          text: `${this.post.title}\n\n${this.post.description}`
-        })
-      })
-    },
-    shareKakaoTalk() {
-      loadKakaoSdk(() => {
-          window.Kakao.Link.sendCustom({
-          templateId: 60106,
-          templateArgs: {
-            thumbnail: smartUrl(this.post.img),
-            title: this.post.title,
-            description: this.post.description,
-            path: `${this.post.type}/${this.post.id}`
-          }
-        })
-      })
-    },
     copyToClipboard () {
       this.$copyText(this.shareUrl)
         .then(

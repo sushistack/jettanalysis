@@ -41,7 +41,7 @@ ul.share
 </template>
 
 <script>
-import { loadKakaoSdk } from '@/util'
+import { loadKakaoSdk, smartUrl } from '@/util'
 
 export default {
   name: "ShareBox",
@@ -78,10 +78,10 @@ export default {
           window.Kakao.Link.sendCustom({
           templateId: 60106,
           templateArgs: {
-            thumbnail: this.post.img,
+            thumbnail: smartUrl(this.post.img),
             title: this.post.title,
             description: this.post.description,
-            path: this.post.id
+            path: `${this.post.type}/${this.post.id}`
           }
         })
       })
