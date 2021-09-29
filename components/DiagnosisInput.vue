@@ -31,9 +31,8 @@
         type='submit'
         role='button'
       )
-        template(v-if='loading')
-          .loader Loading...
-        template(v-else) {{ buttonText }}
+        .loader(v-show='loading') Loading...
+        .span(v-show='!loading') {{ buttonText }}
 </template>
 
 <script>
@@ -55,7 +54,7 @@ export default {
       required: false,
       default: () => '진단'
     },
-    defaultUrl: {
+    directUrl: {
       type: String,
       required: false,
       default: () => ''
@@ -72,15 +71,15 @@ export default {
     tooltipText: '사이트 진단을 위해 유효한 URL을 입력해주세요',
     url: ''
   }),
-  mounted () {
-    this.url = this.defaultUrl
+  created () {
+    this.url = this.directUrl
   },
   methods: {
     inputUrl(e) {
       if (!this.activeInput) {
-        this.activeInput = !this.activeInput;
+        this.activeInput = !this.activeInput
       }
-      this.url = e.target.value;
+      this.url = e.target.value
     },
     onSubmit (e) {
       e.preventDefault()

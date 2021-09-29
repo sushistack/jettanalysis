@@ -9,6 +9,7 @@
         :buttonOnly='false'
         type='diagnosis'
         :inputOption='inputOption'
+        :directUrl='directUrl'
         :focusInput='isFocusDiagnosis'
         tooltipText='사이트 진단을 위해 유효한 URL을 입력해주세요'
         buttonText='진단'
@@ -55,13 +56,17 @@ export default {
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },
+  async asyncData ({route}) {
+    return {
+      directUrl: route.query.url ? route.query.url : ''
+    }
+  },
   data: () => ({
     inputOption: {
       name: "dignosis",
       type: "text",
       placeholder: "https://jettanalysis.com",
-      isProcessing: false,
-      defaultUrl: ''
+      isProcessing: false
     },
     diagnosis: null,
     isFocusDiagnosis: false,

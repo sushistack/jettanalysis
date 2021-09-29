@@ -9,7 +9,7 @@
       diagnosis-input(
         :buttonOnly='buttonOnly'
         :buttonText='buttonText'
-        :defaultUrl='defaultUrl'
+        :directUrl='directUrl'
         :loading='inputOption && inputOption.isProcessing'
         @onSubmit='onSubmit'
       )
@@ -67,7 +67,12 @@ export default {
     type: {
       type: String,
       required: false,
-      default: () => "NO"
+      default: () => 'NO'
+    },
+    directUrl: {
+      type: String,
+      required: false,
+      default: () => ''
     }
   },
   data: () => ({
@@ -93,10 +98,6 @@ export default {
     },
     shareFacebook() {
       return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
-    },
-    defaultUrl () {
-      if (!this.inputOption || !this.inputOption.defaultUrl) return ''
-      return this.inputOption.defaultUrl
     }
   },
   watch: {
