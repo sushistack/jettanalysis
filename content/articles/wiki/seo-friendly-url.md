@@ -21,7 +21,7 @@ tags: ['URL', 'URL 최적화', 'URL 검색엔진 최적화', 'URL 최적화', 'U
 - http://192.168.0.1
 ```
 
-URL 디자인은 <nuxt-link to="/blog/user-experience">사용자 경험</nuxt-link>을 개선하는 것 외에도 검색 엔진 최적화(SEO)와도 관련이 있습니다. 이러한 이유로 이번 포스팅에서는 먼저 URL의 구성 요소를 설명한 다음 URL의 SEO와 관련하여 고려해야 할 몇 가지 사항을 소개해드리도록 하겠습니다.
+URL 디자인은 <nuxt-link to="/blog/how-to-improve-seo-with-user-experience">사용자 경험</nuxt-link>을 개선하는 것 외에도 검색 엔진 최적화(SEO)와도 관련이 있습니다. 이러한 이유로 이번 포스팅에서는 먼저 URL의 구성 요소를 설명한 다음 URL의 SEO와 관련하여 고려해야 할 몇 가지 사항을 소개해드리도록 하겠습니다.
 
 ## URL의 구성요소
 

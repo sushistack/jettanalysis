@@ -8,7 +8,7 @@ img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing
 createdAt: '2021-08-02 00:00:00'
 updatedAt: '2021-08-03 00:00:00'
 author:
-  name: 엔지니어 K
+  name: 엔지니어
 tags: ['제목', '제목 태그', '포스팅 제목', '제목 SEO', '블로그 제목', '글 제목']
 ---
 
