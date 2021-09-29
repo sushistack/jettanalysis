@@ -20,7 +20,7 @@
               )
                 span.white--text.text-h5 {{ displayName }}
             user-menu(@onSignout='signout')
-      button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='overlay = !overlay')
+      button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='toggleMenu')
         span.burger-menu-icon
   v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
     .css-1ltxe64
@@ -56,6 +56,9 @@ export default {
     isMenuOpened: false,
     overlay: false
   }),
+  mounted () {
+    document.body.className = ''
+  },
   methods: {
     ...mapActions({ removeUser: 'user/removeUser' }),
     selectUserMenu (type) {
@@ -71,6 +74,14 @@ export default {
       this.overlay = false
       if (this.$route.path !== '/') {
         this.$router.push('/')
+      }
+    },
+    toggleMenu () {
+      this.overlay = !this.overlay
+      if (this.overlay) {
+        document.body.classList.add('nav-actived')
+      } else {
+        document.body.classList.remove('nav-actived')
       }
     }
   },

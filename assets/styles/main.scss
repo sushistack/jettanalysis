@@ -13,3 +13,10 @@ article img {
   border: 1px solid #ebebeb;
   max-width: 100%;
 }
+
+@media (max-width: 959.8px) {
+  body.nav-actived {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+}
