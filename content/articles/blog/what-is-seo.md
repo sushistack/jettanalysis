@@ -1,10 +1,10 @@
 ---
 title: '[SEO 기본] SEO는 무엇이고, 왜 중요할까요?'
 description: SEO란 무엇인지 알아보고, SEO에 대한 중요성과 왜 SEO를 적용해야하는지 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-backgroundColorForPreview: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
+img: '/images/what-is-seo.png'
 createdAt: '2021-09-28 00:00:00'
 updatedAt: '2021-09-28 00:00:00'
 author:

@@ -1,10 +1,10 @@
 ---
 title: '백링크란 무엇일까요? 더 많은 백링크를 얻는 방법은?'
 description: 검색엔진 최적화의 오프페이지 요소 중 가장 중요한 백링크가 무엇인지 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-backgroundColorForPreview: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
+img: '/images/what-is-backlink.png'
 createdAt: '2021-09-23 00:00:00'
 updatedAt: '2021-09-23 00:00:00'
 author:

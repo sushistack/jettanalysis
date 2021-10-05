@@ -1,10 +1,10 @@
 ---
 title: '사용자 경험을 통해 SEO 개선하는 3가지 방법'
 description: 사용자 경험(User Experience)을 통해 검색엔진 최적화를 개선 하는 방법에 대해서 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-backgroundColorForPreview: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
+img: '/images/how-to-improve-seo-with-user-experience.png'
 createdAt: '2021-09-28 00:00:00'
 updatedAt: '2021-09-28 00:00:00'
 author:

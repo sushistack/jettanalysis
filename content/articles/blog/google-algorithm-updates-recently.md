@@ -1,10 +1,10 @@
 ---
 title: '최근 10년간의 Google 알고리즘 업데이트'
 description: 최근 10년간의 구글에서 업데이트한 알고리즘을 소개합니다.
-color: '#ffffff'
-backgroundColor: rgb(64, 122, 223)
-backgroundColorForPreview: rgb(64, 122, 223)
-img: 'https://mk0apibacklinkov1r5n.kinstacdn.com/app/uploads/2020/02/introducing-the-content-marketing-hub-post-banner.png'
+color: '#000'
+backgroundColor: '#80d6fc'
+backgroundColorForPreview: '#b8e9ff'
+img: '/images/google-algorithm-updates-recently.png'
 createdAt: '2021-09-23 00:00:00'
 updatedAt: '2021-09-23 00:00:00'
 author:
