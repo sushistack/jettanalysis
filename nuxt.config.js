@@ -100,6 +100,10 @@ export default {
   sitemap: {
     hostname: FRONTEND_BASE_URL,
     gzip: true,
+    exclude: [
+      '/oauth/**',
+      '/admin/**'
+    ],
     routes: createSitemapRoutes
   },
 

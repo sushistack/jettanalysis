@@ -18,6 +18,11 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'CallbackNaver',
   components: { Logo },
+  head () {
+    return {
+      meta: [{ hid: 'robots', name: 'robots', content: 'noindex, nofollow' }]
+    }
+  },
   data: () => ({ code: null }),
   created () {
     this.provider = 'naver'
