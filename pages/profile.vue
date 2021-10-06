@@ -1,12 +1,38 @@
 <template lang="pug">
 .jett-container
   navigation-bar
-  v-main
-    | 프로필
-    ul
-      li 이름: {{ user ? user.displayName : 'UNKOWN' }}
-      li 이메일: {{ user ? user.email : 'UNKOWN' }}
-      li 폰번호: {{ user ? user.phoneNumber : '' }}
+  v-container.container(style='min-height:650px')
+    .profile-container
+      .profile-inner-container
+        .user-details
+          h2.title 내 프로필
+          table
+            colgroup
+              col(style='width:100px')
+            tbody
+              tr
+                th(scope='row')
+                  label 이름
+                td {{ user ? user.displayName : 'UNKOWN' }}
+              tr
+                th(scope='row')
+                  label 이메일
+                td {{ user ? user.email : 'UNKOWN' }}
+              tr
+                th(scope='row')
+                  label 휴대전화
+                td {{ user ? user.phoneNumber : '' }}
+        .details
+          .seo-report
+            h2.title SEO 보고서
+            .description 내가 구매한 서비스의 리포트를 확인하세요.
+            button.detail-btn(type='button' @click.stop='go("/report")') 바로가기
+          hr.separater
+          .payment-history
+            h2.title 결제 내역
+            .description 내가 결제한 내역을 확인하세요.
+            button.detail-btn(type='button' @click.stop='go("/payment-history")') 바로가기
+
   page-footer
 </template>
 
@@ -40,6 +66,11 @@ export default {
   created () {
     if (!this.user) this.$router.push('/')
   },
+  methods: {
+    go (path) {
+      this.$router.push(path)
+    }
+  },
   computed: {
     ...mapGetters({ user: 'user/user' }),
     providerType () {
@@ -49,3 +80,80 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.profile-container {
+  width: 100%;
+  margin: 2rem 0 5rem;
+  display: flex;
+  justify-content: center;
+  .profile-inner-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.user-details {
+  table {
+    background: #e9f8ff;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    max-width: 500px;
+    margin: 2rem 0;
+  }
+  
+  tr {
+    line-height: 40px;
+  }
+  th {
+    text-align: left;
+  }
+}
+
+.details {
+  margin-top: 1.5rem;
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.description {
+  font-size: 12px;
+  color: #777;
+}
+.separater {
+  margin: 3rem 0;
+}
+.detail-btn {
+  width: 100%;
+  background: #00afff;
+  color: #fff;
+  padding: 8px 0;
+  border: 1px solid transparent;
+  border-radius: 21px;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    justify-content: space-evenly;
+    .profile-inner-container {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+  .user-details .title {
+    margin-top: 0;
+  }
+  .details {
+    margin-top: 0;
+    min-width: 300px;
+  }
+}
+</style>

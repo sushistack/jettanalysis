@@ -16,10 +16,17 @@
               .profile-btn(
                 v-show='isSignedIn'
                 v-bind='attrs' v-on='on'
-                :style='{background: colorBaseOnDisplayName}'
               )
-                span.white--text.text-h5 {{ displayName }}
+                span {{ displayName }}
             user-menu(@onSignout='signout')
+      v-menu(left offset-x)
+        template(v-slot:activator='{ on, attrs }')
+          .profile-btn.overlayed(
+            v-show='isSignedIn && overlay'
+            v-bind='attrs' v-on='on'
+          )
+            span {{ shotDisplayName }}
+        user-menu(@onSignout='signout')
       button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='toggleMenu')
         span.burger-menu-icon
   v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
@@ -29,17 +36,8 @@
           ul.css-9f21ci
             li(v-for='m in menu')
               router-link.menu-link(:to='m.to') {{ m.name }}
-            li
-              router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
-              v-menu(right offset-x)
-                template(v-slot:activator='{ on, attrs }')
-                  .profile-btn(
-                    v-show='isSignedIn'
-                    v-bind='attrs' v-on='on'
-                    :style='{background: colorBaseOnDisplayName}'
-                  )
-                    span.white--text.text-h5 {{ displayName }}
-                user-menu(@onSignout='signout')
+            li(v-show='!isSignedIn')
+              router-link.menu-link(to='/signin') 로그인
 </template>
 
 <script>
@@ -107,20 +105,10 @@ export default {
     },
     displayName () {
       if (!this.user || !this.user.displayName) return ''
-      return this.user.displayName.toUpperCase().charAt(0)
+      return this.user.displayName
     },
-    colorBaseOnDisplayName () {
-      if (!this.user || !this.user.displayName) return '#a00077'
-      switch (this.user.displayName.toUpperCase().charCodeAt(0) % 8) {
-        case 0: return '#855c47'
-        case 1: return '#7a8547'
-        case 2: return '#475085'
-        case 3: return '#7d4785'
-        case 4: return '#477085'
-        case 5: return '#474b85'
-        case 6: return '#7d8547'
-        case 7: return '#478549'
-      }
+    shotDisplayName () {
+      return this.displayName.toUpperCase().charAt(0)
     }
   }
 }
@@ -156,6 +144,26 @@ export default {
 }
 
 .menu {
+  display: flex;
+  .profile-btn {
+    line-height: 45px;
+    font-size: 1rem;
+    text-decoration: none;
+    align-items: center;
+    padding: 0 25px;
+    margin: 0 15px;
+    color: #000;
+    cursor: pointer;
+  }
+  .profile-btn.overlayed {
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 38px;
+  }
   .menu-list {
     display: flex;
     list-style: none;
@@ -197,7 +205,7 @@ export default {
     height: 5px;
     border-radius: 2px;
     background: #000;
-    margin: 17.5px 0;
+    margin: 17px 0;
     position: relative;
     z-index: 6;
     pointer-events: none;
@@ -247,19 +255,20 @@ export default {
 }
 
 .profile-btn {
-  width: 45px;
-  height: 45px;
   border: 1px solid transparent;
-  border-radius: 50%;
+  border-radius: 10px;
   text-align: center;
-  line-height: 50px;
-  margin: 0 10px;
   cursor: pointer;
   user-select: none; /* supported by Chrome and Opera */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
+  background: #eee;
+}
+
+.profile-btn:hover {
+  background: #ddd;
 }
 
 .overlayed .profile-btn {

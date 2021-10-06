@@ -61,7 +61,7 @@ export default {
     display: flex;
     justify-content: space-between;
     h2 { 
-      margin-top: 0;
+      margin: 0;
     }
   }
   .more {
