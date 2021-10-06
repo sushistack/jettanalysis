@@ -98,17 +98,17 @@ const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 export default {
   name: 'PrivacyNotice',
   head ({$seoMeta}) {
-    const title = '개인정보 이용 알림 '
+    const title = '개인정보 이용 알림'
     return {
       title: title,
       meta: $seoMeta(
         { 
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/privacy-notice`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: 'JETT Analysis의 개인정보 이용 알림입니다.'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   }

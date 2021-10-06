@@ -56,13 +56,13 @@ export default {
       meta: $seoMeta(
         { 
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/terms-of-service`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: 'JETT Analysis의 서비스 이용 약관입니다.'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
-      }
+    }
   },
 }
 </script>

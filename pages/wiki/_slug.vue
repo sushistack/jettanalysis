@@ -62,16 +62,18 @@ export default {
   head ({$seoMeta}) {
     return {
       title: this.article.title,
-      meta: [{ hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') }]
-        .concat($seoMeta(
+      meta: $seoMeta(
         {
           title: `${this.article.title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/wiki/${this.article.id}`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: this.article.description,
           image: smartUrl(this.article.img)
         },
         false
-      )),
+      ).concat([ 
+        { hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${this.article.title} | JETT Analysis` }
+      ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },

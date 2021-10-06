@@ -34,17 +34,17 @@ export default {
   name: 'Service',
   components: { ProductRadioBox, ProductDetail, OrderSheet },
   head ({$seoMeta}) {
-    const title = 'JETT Analysis 소개'
+    const title = '서비스'
     return {
       title: title,
       meta: $seoMeta(
         { 
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/service`,
-          description: 'JETT Analysis의 소개 페이지입니다.'
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
+          description: 'JETT Analysis의 서비스 페이지입니다.'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },

@@ -60,6 +60,21 @@ export default {
     ValidationProvider
   },
   name: 'SignIn',
+  head ({$seoMeta}) {
+    const title = '로그인'
+    return {
+      title: title,
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
+          description: 'JETT Analysis에 가입하여 수 많은 SEO 전략을 얻어가세요!'
+        },
+        false
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
+  },
   data: () => ({
     tab: null,
     username: '',

@@ -61,6 +61,24 @@ import HowToCheckResultModal from '@/components/report/HowToCheckResultModal'
 export default {
   name: 'Report',
   components: { HowToCheckReportModal, HowToCheckResultModal },
+  head ({$seoMeta}) {
+    const title = 'SEO 리포트'
+    return {
+      title: title,
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
+          description: '검색엔진 최적화 서비스에 대한 SEO 리포트 페이지 입니다.'
+        },
+        false
+      ).concat([ 
+        { hid: 'robots', name: 'robots', content: 'noindex, nofollow' },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } 
+      ]),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
+  },
   data: () => ({
     loading: true,
     headers: [

@@ -57,11 +57,11 @@ export default {
       meta: $seoMeta(
         {
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/wiki`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: '다양한 SEO 요소들에 대해 소개하는 검색엔진 최적화 위키입니다.'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },

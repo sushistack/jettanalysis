@@ -59,7 +59,7 @@ export default {
     return { articles, prev, next, isMore }
   },
   head ({$seoMeta}) {
-    const title = '검색엔진 최적화 블로그'
+    const title = `검색엔진 최적화 블로그${this.next === 0 ? '' : `: ${this.next + 1}` + ' 페이지'}`
     return {
       title: title,
       meta: $seoMeta(
@@ -69,7 +69,7 @@ export default {
           description: 'JETT Analysis의 다양한 노하우를 소개하는 검색엔진 최적화 블로그입니다.'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },

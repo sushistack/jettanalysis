@@ -48,11 +48,11 @@ export default {
       meta: $seoMeta(
         {
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
-          url: `${FRONTEND_BASE_URL}/diagnosis`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
           description: '사이트의 검색엔진 최적화 진단을 해보세요!'
         },
         false
-      ),
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
       link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
     }
   },

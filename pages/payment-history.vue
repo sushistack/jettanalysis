@@ -43,6 +43,21 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'PaymentHistory',
+  head ({$seoMeta}) {
+    const title = '결제 내역'
+    return {
+      title: title,
+      meta: $seoMeta(
+        { 
+          title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
+          url: `${FRONTEND_BASE_URL}${this.$route.path}`,
+          description: '결제 내역 페이지입니다.'
+        },
+        false
+      ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+    }
+  },
   data: () => ({
     loading: true,
     headers: [
