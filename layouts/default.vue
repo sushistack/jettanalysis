@@ -11,7 +11,7 @@ export default {
   data: () => ({ isChannelScriptLoaded: false }),
   mounted () {
     if (!this.isChannelScriptLoaded) {
-      setTimeout(() => { loadChannelIOScript(() => { this.isChannelScriptLoaded = true }) }, 1500)
+      setTimeout(() => { loadChannelIOScript(() => { this.isChannelScriptLoaded = true }) }, 2500)
     }
   }
 }
