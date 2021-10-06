@@ -4,13 +4,18 @@ v-app
 </template>
 
 <script>
-import { loadChannelIOScript, bootChannelIO } from '@/util'
+import { loadChannelIOScript } from '@/util'
 
 export default {
   name: 'defaultLayout',
+  data: () => ({ isChannelScriptLoaded: false }),
   mounted () {
-    loadChannelIOScript()
-    bootChannelIO()
+    if (!this.isChannelScriptLoaded) {
+      setTimeout(() => { 
+      loadChannelIOScript(() => { this.isChannelScriptLoaded = true })
+    }, 4000)
+    }
+    
   }
 }
 </script>

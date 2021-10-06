@@ -29,7 +29,7 @@ const loadKakaoSdk = (callback) => {
   document.body.appendChild(script)
 }
 
-const loadChannelIOScript = function () {
+const loadChannelIOScript = function (callback) {
   var w = window;
   if (w.ChannelIO) {
     return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
@@ -52,6 +52,10 @@ const loadChannelIOScript = function () {
     s.async = true;
     s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
     s.charset = 'UTF-8';
+    s.addEventListener('load', function () {
+      callback();
+      bootChannelIO();
+    })
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
   }
