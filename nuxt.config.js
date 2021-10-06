@@ -102,7 +102,10 @@ export default {
     gzip: true,
     exclude: [
       '/oauth/**',
-      '/admin/**'
+      '/admin/**',
+      '/profile',
+      '/report',
+      '/payment-history'
     ],
     routes: createSitemapRoutes
   },
