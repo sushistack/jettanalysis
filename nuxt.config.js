@@ -8,7 +8,7 @@ const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 const FALLBACK = {
   TITLE: '검색엔진 최적화 전략 가이드',
   DESCRIPTION: '이제 검색엔진 최적화는 저희에게 맡기세요! JETT Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.',
-  IMAGE: `${FRONTEND_BASE_URL}/images/jett-analysis.jpg`,
+  IMAGE: `${FRONTEND_BASE_URL}/images/jettanalysis.png`,
   KEYWORDS: ['검색엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색엔진']
 }
 
@@ -136,7 +136,7 @@ export default {
       projectId: process.env.NUXT_APP_FIREBASE_PROJECTID,
       storageBucket: process.env.NUXT_APP_FIREBASE_STORAGEBUCKET,
       messagingSenderId: process.env.NUXT_APP_FIREBASE_MESSAGINGSENDERID,
-      appId: process.envFIREBASE_APPID
+      appId: process.env.FIREBASE_APPID
     },
     services: {
       firestore: true,
