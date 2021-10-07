@@ -12,7 +12,7 @@ footer.css-895q96
                   fill='#fff'
                 )
               .css-1l6xqrc
-                p 마케팅의 모든것, 제트와 함께하세요
+                p 마케팅의 모든 것, 제트와 함께하세요
             .css-1enann6
               h4.css-10iwlr9 Learn
               nav.css-1xx9hpn
