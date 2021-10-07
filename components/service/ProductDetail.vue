@@ -6,6 +6,7 @@
         :article='detail'
         :noTitleLink='true'
         :buttonText='detail.buttonText'
+        :useLink='true'
       )
 </template>
 

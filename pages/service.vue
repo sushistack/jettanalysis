@@ -6,6 +6,8 @@
       product-radio-box(@onSelected='onProductSelected')
     separater(v-show='selectedProductType' ref='sectionSeparater' :deg='180' :padding='3')
     section(v-if='selectedProductType')
+      product-detail(:type='selectedProductType')
+    section(v-if='selectedProductType')
       .order-sheet-container
         .order-sheet-opener(@click.stop='toggleOrderSheet')
           .css-3872h1
@@ -16,8 +18,6 @@
             v-show='showOrderSheet'
             :sheetType='selectedProductType'
           )
-    section(v-if='selectedProductType')
-      product-detail(:type='selectedProductType')
   page-footer
 </template>
 
@@ -88,8 +88,11 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 5rem;
   .css-3872h1 {
-    width: 300px;
+    width: 100%;
+    max-width: 540px;
+    padding: 0 20px;
   }
 }
 
@@ -141,4 +144,11 @@ export default {
   background: #0077ff;
   border-color: #0077ff;
 }
+
+@media (min-width: 768px) {
+  .order-sheet-opener .css-3872h1 {
+    max-width: 720px;
+  }
+}
+
 </style>

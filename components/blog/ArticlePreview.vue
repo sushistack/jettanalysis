@@ -18,7 +18,9 @@ article.post
           v-row.fill-height.ma-0(align='center' justify='center')
             v-progress-circular(indeterminate color='grey lighten-5')
       nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
-    footer.css-3872h1
+    footer.go-link(v-if='useLink')
+      router-link(:to='link') {{ buttonText }} ▷
+    footer.css-3872h1(v-else)
       router-link.css-13xd08w(:to='link') {{ buttonText }}
 </template>
 
@@ -357,6 +359,15 @@ a {
 .css-13xd08w:hover {
   background: #0077ff;
   border-color: #0077ff;
+}
+
+.go-link {
+  margin-top: 10px;
+  text-align: right;
+  a {
+    text-decoration: underline;
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 540px) {
