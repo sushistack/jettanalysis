@@ -21,7 +21,17 @@
               tr
                 th(scope='row')
                   label 휴대전화
-                td {{ user ? user.phoneNumber : '' }}
+                td
+                  span(v-if='user && user.phoneNumber') {{ user.phoneNumber }}
+                  input.phone-number-field(v-else 
+                    ref='phoneNumberField'
+                    :value='phoneNumber'
+                    @input='writePhoneNumber'
+                    placeholder='010-1234-5678'
+                  )
+                  v-switch.sms-switch(v-model='receiveSms' label='문자 수신 여부' color='#00afff' value='문자 수신 여부' hide-details)
+          .save-profile
+            v-btn(text color='red') 프로필 저장
         .details
           .seo-report
             h2.title SEO 보고서
@@ -32,7 +42,6 @@
             h2.title 결제 내역
             .description 내가 결제한 내역을 확인하세요.
             button.detail-btn(type='button' @click.stop='go("/payment-history")') 바로가기
-
   page-footer
 </template>
 
@@ -45,6 +54,7 @@ const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 export default {
   name: 'Profile',
   components: {},
+  data: () => ({ receiveSms: false, phoneNumber: '' }),
   head ({$seoMeta}) {
     const title = '유저 프로필'
     return {
@@ -69,6 +79,32 @@ export default {
   methods: {
     go (path) {
       this.$router.push(path)
+    },
+    writePhoneNumber (e) {
+      const number = e.target.value
+      let rawNumber = number.replace(/-/ig, '')
+
+      if (!/^\d+&/.test(rawNumber)) {
+        const numberOnly = rawNumber.match(/\d/g)
+        if (numberOnly) {
+          rawNumber = numberOnly.join('')
+        }
+      }
+
+      if (rawNumber.length > 11) {
+        rawNumber = rawNumber.substring(0, 11)
+      }
+
+      if (rawNumber.length <= 3) {
+          this.phoneNumber = rawNumber
+        } else if (rawNumber.length <= 7) {
+          const regex = new RegExp(`(\\d{3})(\\d{${rawNumber.length - 3}})`)
+          this.phoneNumber = rawNumber.replace(regex, '$1-$2')
+        } else {
+          const regex = new RegExp(`(\\d{3})(\\d{4})(\\d{${rawNumber.length - 7}})`)
+          this.phoneNumber = rawNumber.replace(regex, '$1-$2-$3')
+        }
+        this.$refs.phoneNumberField.value = this.phoneNumber
     }
   },
   computed: {
@@ -108,10 +144,11 @@ export default {
   }
   
   tr {
-    line-height: 40px;
+    line-height: 50px;
   }
   th {
     text-align: left;
+    vertical-align: top;
   }
 }
 
@@ -120,6 +157,9 @@ export default {
   h2 {
     margin-top: 0;
   }
+}
+.sms-switch {
+  margin-top: 0;
 }
 
 .description {
@@ -137,6 +177,20 @@ export default {
   border: 1px solid transparent;
   border-radius: 21px;
   margin-top: 2rem;
+}
+
+.save-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-number-field {
+  margin-top: 10px;
+  background: #fff;
+  border: 1px solid;
+  border-radius: 5px;
+  height: 35px;
+  padding-left: 10px;
 }
 
 @media (min-width: 768px) {
