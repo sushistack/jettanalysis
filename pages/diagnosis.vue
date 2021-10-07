@@ -32,7 +32,10 @@
       )
         diagnosis(:diagnosis='diagnosis')
       section(v-else)
-        img.site-diagnosis-thumb(src='/images/diag_thumb_600x1800.png' alt='사이트 진단')
+        horizontal-split-box(
+          descriptionType='DIAGNOSIS'
+          imageUrl='/images/diagnosis-dummy.png'
+        )
   diagnosis-snackbar(
     ref='diagnosisSnackbar'
     :text='snackbarText'
@@ -44,12 +47,13 @@
 import { createDiagnosis } from "@/utils/diagnosis-creator"
 import Diagnosis from "@/components/Diagnosis"
 import DiagnosisSnackbar from '@/components/DiagnosisSnackbar'
+import HorizontalSplitBox from '@/components/HorizontalSplitBox'
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
 
 export default {
-  components: { Diagnosis, DiagnosisSnackbar },
+  components: { Diagnosis, DiagnosisSnackbar, HorizontalSplitBox },
   head ({$seoMeta}) {
     const title = '사이트 검색엔진 최적화 진단'
     return {
