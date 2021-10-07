@@ -1,5 +1,5 @@
 ---
-title: 검색엔진에 친화적인 외부 링크(Internal Link)
+title: 검색엔진에 친화적인 외부 링크(External Link)
 description: 검색엔진 최적화를 위한 외부 링크 구성하는 방법에 대해서 소개합니다.
 color: '#000'
 backgroundColor: '#80d6fc'
