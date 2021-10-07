@@ -5,7 +5,7 @@
     .profile-container
       .profile-inner-container
         .user-details
-          h2.title 내 프로필
+          h2.profile-title 내 프로필
           table
             colgroup
               col(style='width:100px')
@@ -34,12 +34,12 @@
             v-btn(text color='red') 프로필 저장
         .details
           .seo-report
-            h2.title SEO 보고서
+            h2.profile-title SEO 보고서
             .description 내가 구매한 서비스의 리포트를 확인하세요.
             button.detail-btn(type='button' @click.stop='go("/report")') 바로가기
           hr.separater
           .payment-history
-            h2.title 결제 내역
+            h2.profile-title 결제 내역
             .description 내가 결제한 내역을 확인하세요.
             button.detail-btn(type='button' @click.stop='go("/payment-history")') 바로가기
   page-footer
@@ -163,7 +163,7 @@ export default {
 }
 
 .description {
-  font-size: 12px;
+  font-size: 14px;
   color: #777;
 }
 .separater {
@@ -193,6 +193,13 @@ export default {
   padding-left: 10px;
 }
 
+.container {
+    width: 100%;
+    padding: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 @media (min-width: 768px) {
   .profile-container {
     justify-content: space-evenly;
@@ -202,12 +209,24 @@ export default {
       justify-content: space-evenly;
     }
   }
-  .user-details .title {
+  .user-details .profile-title {
     margin-top: 0;
   }
   .details {
     margin-top: 0;
     min-width: 300px;
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1264px) {
+  .container {
+    max-width: 1185px;
   }
 }
 </style>
