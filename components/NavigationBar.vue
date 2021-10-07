@@ -8,7 +8,7 @@
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
-          router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
+          router-link.menu-link(:to='m.to') {{ m.name }}
         li
           router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
           v-menu(left offset-y)
@@ -183,10 +183,6 @@ export default {
     .menu-link.nuxt-link-active {
       font-weight: 600;
       color: #0077ff;
-    }
-    .menu-link.nuxt-link-active.not-home {
-      font-weight: normal;
-      color: #000;
     }
   }
 }
