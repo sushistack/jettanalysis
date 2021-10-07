@@ -44,6 +44,11 @@ export default {
       type: String,
       required: false,
       default: () => '이어서 읽기'
+    },
+    useLink: {
+      type: Boolean,
+      required: false,
+      default: () => false
     }
   },
   methods: {

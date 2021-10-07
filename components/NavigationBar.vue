@@ -8,7 +8,7 @@
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
-          router-link.menu-link(:to='m.to') {{ m.name }}
+          router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
         li
           router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
           v-menu(left offset-y)
@@ -109,6 +109,9 @@ export default {
     },
     shotDisplayName () {
       return this.displayName.toUpperCase().charAt(0)
+    },
+    isNotExactHome () {
+      return this.$route.path !== '/'
     }
   }
 }
@@ -177,9 +180,13 @@ export default {
       color: #000;
       cursor: pointer;
     }
-    .menu-link.nuxt-link-exact-active {
+    .menu-link.nuxt-link-active {
       font-weight: 600;
       color: #0077ff;
+    }
+    .menu-link.nuxt-link-active.not-home {
+      font-weight: normal;
+      color: #000;
     }
   }
 }

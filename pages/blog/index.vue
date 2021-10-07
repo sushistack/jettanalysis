@@ -4,8 +4,8 @@
   .wrap
     section
       top-banner(
-        title='다양한 SEO 전략을 얻으세요!'
-        desc='다양한 SEO 전략과 팁으로 솔루션 상담을 받을 수 있습니다!'
+        title='검색엔진 최적화 전략에 대해 알아보세요!'
+        desc='다양한 SEO 전략과 마케팅에 대한 최신 정보를 확인하고, 내 사이트를 한층 더 업그레이드하세요.'
         :buttonOnly='true'
         buttonText='SEO 전략 서비스 알아보기'
         @onButtonClick='showService'

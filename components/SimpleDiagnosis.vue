@@ -49,6 +49,7 @@ export default {
   padding: 1rem 2.5rem 2rem;
   margin-bottom: 20px;
   h3.diagnosis-title {
+    margin-top: 1rem;
     background: #eee;
     border: 1px solid transparent;
     border-radius: 10px;

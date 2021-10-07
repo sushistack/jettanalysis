@@ -4,8 +4,8 @@
   .wrap
     section
       top-banner(
-        title='당신의 사이트를 진단 해보세요!'
-        desc='사이트 진단을 통해 문제점을 확인하고 사이트 최적화를 할 수 있습니다!'
+        title='여러분의 사이트를 진단 해보세요!'
+        desc='사이트 진단으로 여러분의 웹사이트 문제점을 확인하고, SEO 최적화 설정에 대해서 알아보세요.'
         :buttonOnly='false'
         type='diagnosis'
         :inputOption='inputOption'
@@ -16,6 +16,15 @@
         @onButtonClick='diagnose'
         @onError='onError'
       )
+      .share-container
+        span.share-title 공유하기
+        .share-inner-container
+          share-box(
+            :shareUrl='shareUrl'
+            :shareTwitter='shareTwitter'
+            :shareFacebook='shareFacebook'
+            :post='post'
+          )
     v-main
       .diagnosis-wrapper(
         v-if='diagnosis'
@@ -49,7 +58,7 @@ export default {
         {
           title: `${title} | ${process.env.NUXT_APP_SITE_NAME || 'JETT Analysis'}`,
           url: `${FRONTEND_BASE_URL}${this.$route.path}`,
-          description: '사이트의 검색엔진 최적화 진단을 해보세요!'
+          description: '사이트 진단으로 여러분의 웹사이트 문제점을 확인하고, SEO 최적화 설정에 대해서 알아보세요.'
         },
         false
       ).concat([ { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${title} | JETT Analysis` } ]),
@@ -72,7 +81,13 @@ export default {
     isFocusDiagnosis: false,
     requestFailed: false,
     snackbar: false,
-    snackbarText: ' 페이지 크롤링에 실패하였습니다!'
+    snackbarText: ' 페이지 크롤링에 실패하였습니다!',
+    post: {
+      id: 'diagnosis',
+      title: '사이트 검색엔진 최적화 진단 | JETT Analysis',
+      description: '사이트 진단으로 여러분의 웹사이트 문제점을 확인하고, SEO 최적화 설정에 대해서 알아보세요.',
+      img: 'https://jettanalysis.com/images/jettanalysis.png'
+    }
   }),
   async mounted () {
     const url = this.$route.query.url
@@ -113,7 +128,18 @@ export default {
     focusDiagnosis () {
       this.isFocusDiagnosis = !this.isFocusDiagnosis
     }
-  }
+  },
+  computed: {
+    shareUrl() {
+      return `${FRONTEND_BASE_URL}/diagnosis`
+    },
+    shareTwitter() {
+      return `https://twitter.com/share?text=사이트 진단&url=${this.shareUrl}&via=jettanalysis`
+    },
+    shareFacebook() {
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.shareUrl}`
+    }
+  },
 };
 </script>
 
@@ -126,6 +152,25 @@ export default {
 .site-diagnosis-thumb {
   width: calc(100% - 4rem);
   margin: 5rem 2rem;
+}
+
+.share-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -90px;
+}
+
+.share-title {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.share-inner-container {
+  display: flex;
+  justify-content: center;
 }
 </style>
 

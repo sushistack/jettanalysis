@@ -8,11 +8,11 @@ footer.css-895q96
             .css-j0bl2w
               router-link.css-osz9vn(title='Jett analysis' to='/')
                 logo(
-                  size='100'
+                  size='120'
                   fill='#fff'
                 )
               .css-1l6xqrc
-                p 최적의 검색엔진 최적화 진단과 다양한 팁 그리고 링크 빌딩 전략
+                p 마케팅의 모든것, 제트와 함께하세요
             .css-1enann6
               h4.css-10iwlr9 Learn
               nav.css-1xx9hpn
@@ -227,7 +227,7 @@ a, a:hover {
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-bottom: 30px;
-  color: #00afff;
+  color: #fff;
 }
 
 .css-1l6xqrc {
@@ -402,7 +402,7 @@ a, a:hover {
     max-width: 25.00000%;
   }
   .css-osz9vn img,.css-osz9vn svg {
-    width: 150px;
+    width: 120px;
     height: auto;
   }
 }
