@@ -19,7 +19,7 @@ article.post
             v-progress-circular(indeterminate color='grey lighten-5')
       nuxt-content.article-excerpt(:document='article.excerpt' :style='{background: "#fff"}')
     footer.go-link(v-if='useLink')
-      router-link(:to='link') {{ buttonText }} ▷
+      router-link(:to='link') {{ `${buttonText} >` }}
     footer.css-3872h1(v-else)
       router-link.css-13xd08w(:to='link') {{ buttonText }}
 </template>
@@ -367,6 +367,7 @@ a {
   a {
     text-decoration: underline;
     font-size: 18px;
+    font-weight: 800;
   }
 }
 
