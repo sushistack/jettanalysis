@@ -7,7 +7,7 @@
       header.css-66hu0x(:style='{color: topFontColor, backgroundColor: topBackgroundColor}')
         .css-1pbu2z8
           .css-chky3p
-            h1.css-1r8cg95 {{ article.title }}
+            h1.article-title {{ article.title }}
             .css-5vc5y3
               time.updated(datetime='article.updatedAt')
               p {{ article.author.name }} · {{ formatDate(article.updatedAt) }} 업데이트
