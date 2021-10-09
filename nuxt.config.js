@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
 
+
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
@@ -84,7 +85,7 @@ export default {
     '@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/robots',
     '@nuxtjs/sitemap', 'nuxt-seo-meta', '@nuxt/content',
     '@nuxtjs/firebase', 'nuxt-clipboard', 'vue-scrollto/nuxt',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics', '@nuxtjs/feed'
   ],
 
   dotenv: { filename: `.env.${process.env.NODE_ENV}` },
@@ -182,6 +183,45 @@ export default {
       id: process.env.NUXT_APP_GOOGLE_ANALYTICS_ID || 'UA-206750180-1'
     }
   },
+  
+  feed: [
+    {
+      path: '/feed.xml',
+      async create (feed) {
+        let posts = null
+        const { $content } = require('@nuxt/content')
+        if (posts === null || posts.length === 0) {
+          posts = await $content('articles', 'blog').sortBy('createdAt', 'asc').fetch()
+        }
+      
+        posts.forEach(post => {
+          console.log('post', post)
+          feed.addItem({
+            title: post.title,
+            id: `${FRONTEND_BASE_URL}/blog/${post.slug}`,
+            link: `${FRONTEND_BASE_URL}/blog/${post.slug}`,
+            description: post.description
+          })
+        })
+
+        feed.options = {
+          title: `${FALLBACK.TITLE} | JETT Analysis`,
+          link: FRONTEND_BASE_URL,
+          description: FALLBACK.DESCRIPTION
+        }
+      
+        feed.addCategory('SEO')
+        feed.addContributor({
+          name: '엔지니어',
+          email: 'jettanalysis@naver.com',
+          link: FRONTEND_BASE_URL
+        })
+      },
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+      data: []
+    }
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
