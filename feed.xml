@@ -4,7 +4,7 @@
         <title>검색엔진 최적화 전략 가이드 | JETT Analysis</title>
         <link>https://jettanalysis.com</link>
         <description>이제 검색엔진 최적화는 저희에게 맡기세요! JETT Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.</description>
-        <lastBuildDate>Sat, 09 Oct 2021 05:50:20 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 09 Oct 2021 09:34:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <category>SEO</category>
@@ -61,6 +61,12 @@
             <link>https://jettanalysis.com/blog/nine-things-seo-friendly-blog-post</link>
             <guid>https://jettanalysis.com/blog/nine-things-seo-friendly-blog-post</guid>
             <description><![CDATA[검색엔진 최적화에 친화적인 블로그 글을 작성하는 9가지 방법에 대해서 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[사이트맵이란? SEO 친화적인 사이트맵 등록 방법]]></title>
+            <link>https://jettanalysis.com/blog/what-is-sitemap</link>
+            <guid>https://jettanalysis.com/blog/what-is-sitemap</guid>
+            <description><![CDATA[사이트맵이란 무엇인가요? 그리고 왜 중요한가요? 사이트맵에 대해 알아야 할 모든 것을 소개합니다.]]></description>
         </item>
     </channel>
 </rss>
