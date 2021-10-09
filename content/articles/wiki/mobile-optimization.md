@@ -62,7 +62,7 @@ Google에서 다른 URL을 더 쉽게 평가할 수 있도록 [rel="alternate" �
 <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.jettanalysis.com/">
 ```
 
-또한 중복 컨텐츠와 관련된 문제를 방지하기 위해 데스크톱 버전을 참조하는 페이지의 모바일 버전에 대한 <nuxt-link to="/wiki/canoical-url-tag">정식 링크</nuxt-link>를 추가해야 합니다.
+또한 중복 컨텐츠와 관련된 문제를 방지하기 위해 데스크톱 버전을 참조하는 페이지의 모바일 버전에 대한 <nuxt-link to="/wiki/canonical-url-tag">정식 링크</nuxt-link>를 추가해야 합니다.
 
 ```html
 <link rel="canonical" href="http://www.jettanalysis.com/">
