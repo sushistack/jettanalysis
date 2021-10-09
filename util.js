@@ -10,7 +10,7 @@ const smartUrl = url => {
   return `${FRONTEND_BASE_URL}${url}`
 }
 
-const xmlDatetimeFormat = dt => {
+const xmlDateFormat = dt => {
   if (!dt) return
   const d = new Date(dt)
   const f = (n) => `${n}`.length === 1 ? `0${n}` : n
@@ -102,8 +102,8 @@ const createStructuredData = (post, type) => {
          name: '엔지니어'
       },
       headline: post.title,
-      dateModified: xmlDatetimeFormat(post.updatedAt),
-      datePublished: xmlDatetimeFormat(post.createdAt),
+      dateModified: xmlDateFormat(post.updatedAt),
+      datePublished: xmlDateFormat(post.createdAt),
       mainEntityOfPage: {
          '@type': 'WebPage',
          '@id': `${FRONTEND_BASE_URL}/${type}/${post.slug}`

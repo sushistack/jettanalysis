@@ -13,8 +13,26 @@ const FALLBACK = {
   KEYWORDS: ['검색엔진 최적화', 'SEO', '검색순위', '검색 페이지', 'Search Engine Optimization', '검색엔진']
 }
 
+const xmlDateTimeFormat = dt => {
+  if (!dt) return
+  const d = new Date(dt)
+  const f = (n) => `${n}`.length === 1 ? `0${n}` : n
+  const ymd = `${d.getFullYear()}-${f(d.getMonth() + 1)}-${f(d.getDate())}`
+  const hms = `${f(d.getHours())}:${f(d.getMinutes())}:${f(d.getSeconds())}`
+  return `${ymd}T${hms}+09:00`
+}
+
 const createSitemapRoutes = async () => {
-  let routes = []
+  let routes = [
+    { url: '/', lastmod: '2021-10-01T00:00:00+09:00', priority: 1.00 },
+    { url: '/diagnosis', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.90 },
+    { url: '/service', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.90 },
+    { url: '/blog', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.80 },
+    { url: '/wiki', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.80 },
+    { url: '/signin', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.60 },
+    { url: '/terms-of-service', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.41 },
+    { url: '/privacy-notice', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.41 }
+  ]
   let posts = null
   let wikis = null
   const { $content } = require('@nuxt/content')
@@ -25,10 +43,10 @@ const createSitemapRoutes = async () => {
     wikis = await $content('articles', 'wiki').fetch()
   }
   for (const post of posts) {
-    routes.push(`blog/${post.slug}`)
+    routes.push({ url: `/blog/${post.slug}`, lastmod: xmlDateTimeFormat(post.updatedAt), priority: 0.64 })
   }
   for (const wiki of wikis) {
-    routes.push(`wiki/${wiki.slug}`)
+    routes.push({ url: `/wiki/${wiki.slug}`, lastmod: xmlDateTimeFormat(wiki.updatedAt), priority: 0.64 })
   }
   return routes
 }
@@ -102,6 +120,7 @@ export default {
     hostname: FRONTEND_BASE_URL,
     gzip: true,
     exclude: [
+      '/oauth',
       '/oauth/**',
       '/admin/**',
       '/profile',
