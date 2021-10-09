@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>검색엔진 최적화 전략 가이드 | JETT Analysis</title>
+        <link>https://jettanalysis.com</link>
+        <description>이제 검색엔진 최적화는 저희에게 맡기세요! JETT Analysis는 다양한 검색엔진 최적화 전략과 팁을 제공합니다.</description>
+        <lastBuildDate>Sat, 09 Oct 2021 03:57:08 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+        <category>SEO</category>
+        <item>
+            <title><![CDATA[블로그를 돋보이게 하는 제목 짓는 3가지 방법은?]]></title>
+            <link>https://jettanalysis.com/blog/how-to-write-nice-title</link>
+            <guid>https://jettanalysis.com/blog/how-to-write-nice-title</guid>
+            <description><![CDATA[블로그 글을 돋보이게 할 수 있는 제목을 짓는 3가지 방법에 대해서 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[키워드 SEO] 키워드 스터핑이 좋지 않은 이유?]]></title>
+            <link>https://jettanalysis.com/blog/keyword-stuffing</link>
+            <guid>https://jettanalysis.com/blog/keyword-stuffing</guid>
+            <description><![CDATA[검색엔진 최적화의 중요한 요소 중 하나인 키워드 스터핑에 대해서 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[최근 10년간의 Google 알고리즘 업데이트]]></title>
+            <link>https://jettanalysis.com/blog/google-algorithm-updates-recently</link>
+            <guid>https://jettanalysis.com/blog/google-algorithm-updates-recently</guid>
+            <description><![CDATA[최근 10년간의 구글에서 업데이트한 알고리즘을 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[백링크란 무엇일까요? 더 많은 백링크를 얻는 방법은?]]></title>
+            <link>https://jettanalysis.com/blog/what-is-backlink</link>
+            <guid>https://jettanalysis.com/blog/what-is-backlink</guid>
+            <description><![CDATA[검색엔진 최적화의 오프페이지 요소 중 가장 중요한 백링크가 무엇인지 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[사용자 경험을 통해 SEO 개선하는 3가지 방법]]></title>
+            <link>https://jettanalysis.com/blog/how-to-improve-seo-with-user-experience</link>
+            <guid>https://jettanalysis.com/blog/how-to-improve-seo-with-user-experience</guid>
+            <description><![CDATA[사용자 경험(User Experience)을 통해 검색엔진 최적화를 개선 하는 방법에 대해서 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[[SEO 기본] SEO는 무엇이고, 왜 중요할까요?]]></title>
+            <link>https://jettanalysis.com/blog/what-is-seo</link>
+            <guid>https://jettanalysis.com/blog/what-is-seo</guid>
+            <description><![CDATA[SEO란 무엇인지 알아보고, SEO에 대한 중요성과 왜 SEO를 적용해야하는지 소개합니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[구글이 좋아하는 웹사이트의 7가지 조건]]></title>
+            <link>https://jettanalysis.com/blog/seven-things-of-websites-google-loves</link>
+            <guid>https://jettanalysis.com/blog/seven-things-of-websites-google-loves</guid>
+            <description><![CDATA[구글이 검색결과에 표시하고 싶은 웹사이트의 조건은 어떤 것들이 있는지 소개해보도록 하겠습니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[블로그 포스팅 업로드 전 체크리스트 6가지]]></title>
+            <link>https://jettanalysis.com/blog/check-list-for-blog-posting</link>
+            <guid>https://jettanalysis.com/blog/check-list-for-blog-posting</guid>
+            <description><![CDATA[블로그 포스팅을 하기 전에 확인해야할 6가지 사항들을 소개해드립니다.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[SEO 친화적인 블로그 글을 작성하는 9가지 방법]]></title>
+            <link>https://jettanalysis.com/blog/nine-things-seo-friendly-blog-post</link>
+            <guid>https://jettanalysis.com/blog/nine-things-seo-friendly-blog-post</guid>
+            <description><![CDATA[검색엔진 최적화에 친화적인 블로그 글을 작성하는 9가지 방법에 대해서 소개합니다.]]></description>
+        </item>
+    </channel>
+</rss>
