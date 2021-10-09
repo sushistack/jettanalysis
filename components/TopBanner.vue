@@ -107,6 +107,10 @@ export default {
   font-size: 32px;
 }
 
+h1.css-1bk7ox4 {
+  margin-top: 0;
+}
+
 .css-70qvj9 {
   display: -webkit-box;
   display: -webkit-flex;
