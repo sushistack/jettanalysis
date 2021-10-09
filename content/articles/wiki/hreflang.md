@@ -59,7 +59,7 @@ Link: <http://www.example.com/>; rel="alternate"; hreflang="en"
 
 ### XML Sitemap의 스펙
 
-이 방법은 많은 양의 hreflang 링크 태그를 구현하는 것이 어려울 수 있기 때문에 다양한 언어 버전이 있는 매우 큰 웹사이트에 특히 적합합니다. 이 경우 사이트맵의 각 URL 요소에 `xhtml:link`를 추가해야 합니다.
+이 방법은 많은 양의 hreflang 링크 태그를 구현하는 것이 어려울 수 있기 때문에 다양한 언어 버전이 있는 매우 큰 웹사이트에 특히 적합합니다. 이 경우 <nuxt-link to="/blog/what-is-sitemap">사이트맵</nuxt-link>의 각 URL 요소에 `xhtml:link`를 추가해야 합니다.
 
 ```xml
 <xhtml:link rel="alternate" hreflang="en" href="http://www.jettanalysis.com/en/" />
