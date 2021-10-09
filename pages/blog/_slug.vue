@@ -38,7 +38,7 @@ import Author from '@/components/blog/Author'
 import TableOfContent from '@/components/blog/TableOfContent'
 import Comment from '@/components/blog/Comment'
 import StickyShareBox from '@/components/blog/StickyShareBox'
-import { smartUrl } from '@/util'
+import { smartUrl, createStructuredData } from '@/util'
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
@@ -68,7 +68,8 @@ export default {
         { hid: 'keyword', name: 'keyword', content: this.article.tags.join(',') },
         { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${this.article.title} | JETT Analysis` }
       ]),
-      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ],
+      script: [{ type: 'application/ld+json', json: createStructuredData(this.article, 'blog') }]
     }
   },
   methods: {

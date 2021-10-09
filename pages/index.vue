@@ -2,6 +2,11 @@
 .jett-container
   navigation-bar
   v-main
+    .structured-data
+      span(itemscope itemtype='http://schema.org/Organization')
+        link(itemprop='url' href='https://jettanlysis.com')
+        a(itemprop='sameAs' href='https://blog.naver.com/jettanalysis')
+        a(itemprop='sameAs' href='https://smartstore.naver.com/seolab')
     section
       .top-container
         .inner-container
@@ -47,6 +52,7 @@ import PageFooter from '@/components/PageFooter'
 import Separater from '@/components/Separater'
 import Feature from '@/components/Feature'
 import Logo from '@/components/Logo'
+import { SD_FOR_GOOGLE } from '@/util'
 
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
@@ -67,7 +73,8 @@ export default {
         },
         false
       ).concat({ hid: 'naver-site-verification', name: 'naver-site-verification', content: '0e358a0869dfa65f24120c168925d9b1d706c353' }),
-      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ]
+      link: [ {rel: 'canonical', href: `${FRONTEND_BASE_URL}${this.$route.path}`} ],
+      script: [{ type: 'application/ld+json', json: SD_FOR_GOOGLE }]
     }
   },
   data: () => ({ snackbar: false }),
