@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/oauth", {data:[{}],fetch:{},mutations:[]});
