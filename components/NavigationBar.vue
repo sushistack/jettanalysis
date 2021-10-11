@@ -8,25 +8,7 @@
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
-          router-link.menu-link(:to='m.to') {{ m.name }}
-        li
-          router-link.menu-link(v-show='!isSignedIn' to='/signin') 로그인
-          v-menu(left offset-y)
-            template(v-slot:activator='{ on, attrs }')
-              .profile-btn(
-                v-show='isSignedIn'
-                v-bind='attrs' v-on='on'
-              )
-                span {{ displayName }}
-            user-menu(@onSignout='signout')
-      v-menu(left offset-x)
-        template(v-slot:activator='{ on, attrs }')
-          .profile-btn.overlayed(
-            v-show='isSignedIn && overlay'
-            v-bind='attrs' v-on='on'
-          )
-            span {{ shotDisplayName }}
-        user-menu(@onSignout='signout')
+          router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
       button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='toggleMenu')
         span.burger-menu-icon
   v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
@@ -35,9 +17,7 @@
         .css-10y79h4
           ul.css-9f21ci
             li(v-for='m in menu')
-              router-link.menu-link(:to='m.to') {{ m.name }}
-            li(v-show='!isSignedIn')
-              router-link.menu-link(to='/signin') 로그인
+              router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
 </template>
 
 <script>
@@ -183,7 +163,24 @@ export default {
     .menu-link.nuxt-link-active {
       font-weight: 600;
       color: #0077ff;
+      cursor: default;
     }
+    .menu-link.nuxt-link-active.not-home {
+      font-weight: normal;
+      color: #000;
+      cursor: pointer;
+    }
+  }
+}
+
+.css-9f21ci {
+  .menu-link.nuxt-link-active {
+    color: #000;
+    cursor: default;
+  }
+  .menu-link.nuxt-link-active.not-home {
+    color: #fff;
+    cursor: pointer;
   }
 }
 

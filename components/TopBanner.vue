@@ -108,7 +108,7 @@ export default {
 }
 
 h1.css-1bk7ox4 {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .css-70qvj9 {

@@ -14,7 +14,7 @@
             .inner-section-logo
               logo(:size='mainLogoSize' marginTop='15' :jettOnly='true')
             .inner-section-heading
-              p.site-title 마케팅의 모든 것,
+              h1.site-title 마케팅의 모든 것,
                 br
                 font.identity-color 제트
                 |와 함께

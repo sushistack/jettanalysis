@@ -90,7 +90,7 @@ export default {
     isSignupMode: false
   }),
   created () {
-    if (this.user) this.$router.push('/')
+    this.$router.push('/')
   },
   methods: {
     ...mapActions({
