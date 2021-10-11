@@ -29,7 +29,6 @@ const createSitemapRoutes = async () => {
     { url: '/service', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.90 },
     { url: '/blog', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.80 },
     { url: '/wiki', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.80 },
-    { url: '/signin', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.60 },
     { url: '/terms-of-service', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.41 },
     { url: '/privacy-notice', lastmod: '2021-10-01T00:00:00+09:00', priority: 0.41 }
   ]
@@ -119,14 +118,7 @@ export default {
   sitemap: {
     hostname: FRONTEND_BASE_URL,
     gzip: true,
-    exclude: [
-      '/oauth',
-      '/oauth/**',
-      '/admin/**',
-      '/profile',
-      '/report',
-      '/payment-history'
-    ],
+    exclude: [],
     routes: createSitemapRoutes
   },
 
@@ -159,9 +151,7 @@ export default {
       appId: process.env.FIREBASE_APPID
     },
     services: {
-      firestore: true,
-      auth: true,
-      functions: true
+      firestore: true
     }
   },
 
@@ -173,24 +163,6 @@ export default {
     settings: {
       // Firestore Settings - currently only works in SPA mode
     }
-  },
-
-  auth: {
-    persistence: 'local', // default
-    initialize: {
-      onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
-      onAuthStateChangedAction: 'onAuthStateChangedAction',
-      subscribeManually: false
-    },
-    ssr: false, // default
-    emulatorPort: 3000,
-    emulatorHost: 'http://localhost',
-  },
-
-  functions: {
-    location: 'us-central1',
-    emulatorPort: 5001,
-    emulatorHost: 'http://localhost',
   },
 
   googleAnalytics: {

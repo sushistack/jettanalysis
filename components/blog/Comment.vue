@@ -26,11 +26,12 @@
       validation-observer(ref='form' v-slot='{ handleSubmit, reset }')
         form(@submit.prevent='handleSubmit(submit)' @reset.prevent='reset')
           v-col
+            validation-provider(v-slot='{ errors }' name='이름' rules='required|min:1|max:30')
+              v-text-field.mb-3(v-model='username' :error-messages='errors' label='이름' outlined)
             validation-provider(v-slot='{ errors }' name='내용' rules='required|min:1|max:1500')
-              v-textarea(v-model='content' :label='isSignedIn ? "내용" : "로그인 후 이용해주세요"' :error-messages='errors' outlined :disabled='!isSignedIn')
+              v-textarea(v-model='content' label='내용' :error-messages='errors' outlined)
           v-col
-            v-btn.white--text(v-show='isSignedIn' :loading='loading' color='#00afff' type='submit' large) 등록
-            v-btn.white--text(v-show='!isSignedIn' :loading='loading' color='#00afff' type='button' large @click='goToSignin') 로그인
+            v-btn.white--text(:loading='loading' color='#00afff' type='submit' large) 등록
   v-snackbar(
     v-model='snackbar'
     timeout='1500'
@@ -45,10 +46,8 @@
 </template>
 
 <script>
-import { loadKakaoSdk, smartUrl } from '@/util'
 import { ValidationObserver, ValidationProvider } from "vee-validate"
 import ShareBox from "@/components/ShareBox"
-import { mapGetters } from 'vuex'
 const NUXT_APP_BASE_URL = process.env.NUXT_APP_BASE_URL || 'https://jettanalysis.com'
 const NUXT_APP_FRONTEND_PORT = process.env.NUXT_APP_FRONTEND_PORT || ''
 const FRONTEND_BASE_URL = `${NUXT_APP_BASE_URL}${NUXT_APP_FRONTEND_PORT}`
@@ -81,16 +80,9 @@ export default {
     });
   },
   methods: {
-    goToSignin () {
-      this.$router.push('/signin')
-    },
     submit() {
-      if (!this.isSignedIn) {
-        alert('로그인 후 이용가능합니다.')
-        return
-      }
       const comment = {
-        username: this.user.displayName,
+        username: this.username,
         content: this.encodedContent,
         created_at: new Date().getTime()
       }
@@ -133,10 +125,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ user: 'user/user' }),
-    isSignedIn () {
-      return !!this.user
-    },
     commentCount () {
       if (!this.comments) return 0
       return this.comments.length

@@ -23,12 +23,10 @@
 <script>
 import Logo from './Logo'
 import MENU from '@/components/data/menu'
-import UserMenu from '@/components/UserMenu'
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'NavigationBar',
-  components: { Logo, UserMenu },
+  components: { Logo },
   data: () => ({ 
     menu: MENU,
     isMenuOpened: false,
@@ -38,22 +36,6 @@ export default {
     document.body.className = ''
   },
   methods: {
-    ...mapActions({ removeUser: 'user/removeUser' }),
-    selectUserMenu (type) {
-      switch (type) {
-        case '프로필': return this.$router.push('/profile')
-        case '보고서': return this.$router.push('/report')
-        case '결제내역': return this.$router.push('/payment-history')
-        case '로그아웃': return this.signout()
-      }
-    },
-    signout () {
-      this.removeUser()
-      this.overlay = false
-      if (this.$route.path !== '/') {
-        this.$router.push('/')
-      }
-    },
     toggleMenu () {
       this.overlay = !this.overlay
       if (this.overlay) {
@@ -64,7 +46,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ user: 'user/user' }),
     headerHeight () {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 60
@@ -79,16 +60,6 @@ export default {
         case 'xs': case 'sm': return true
         case 'md': case 'lg': case 'xl': return false
       }
-    },
-    isSignedIn () {
-      return !!this.user
-    },
-    displayName () {
-      if (!this.user || !this.user.displayName) return ''
-      return this.user.displayName
-    },
-    shotDisplayName () {
-      return this.displayName.toUpperCase().charAt(0)
     },
     isNotExactHome () {
       return this.$route.path !== '/'
