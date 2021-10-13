@@ -1,7 +1,7 @@
 import { crawl } from './crawler'
 import siteDoctor from './site-doctor'
 
-const corsFreeUrl = (url) => `https://cors.bridged.cc/${url}`
+const corsFreeUrl = (url) => `https://mute-wood-81e1.kjm81812.workers.dev/?url=${url}`
 
 const getOriginFrom = (url) => {
   const a = document.createElement('a')
