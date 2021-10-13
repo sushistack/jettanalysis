@@ -10,8 +10,8 @@ const getOriginFrom = (url) => {
 }
 
 export async function createDiagnosis(url) {
-  const res = await crawl(corsFreeUrl(url), config)
-  const robots = await crawl(corsFreeUrl(`${getOriginFrom(url)}/robots.txt`), config).body
+  const res = await crawl(corsFreeUrl(url))
+  const robots = await crawl(corsFreeUrl(`${getOriginFrom(url)}/robots.txt`)).body
 
   if (res.resultCode === -1) {
     return null
