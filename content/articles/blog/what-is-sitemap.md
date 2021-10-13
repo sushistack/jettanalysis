@@ -4,7 +4,7 @@ description: 사이트맵이란 무엇인가요? 그리고 왜 중요한가요? 
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/wiki_seo_friendly_url.png'
+img: '/images/sitemap.png'
 createdAt: '2021-10-08 00:00:00'
 updatedAt: '2021-10-08 00:00:00'
 author:

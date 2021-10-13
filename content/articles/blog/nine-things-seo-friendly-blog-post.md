@@ -4,7 +4,7 @@ description: 검색엔진 최적화에 친화적인 블로그 글을 작성하�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/what-is-backlink.png'
+img: '/images/seo-friendly-blog.png'
 createdAt: '2021-10-05 00:00:00'
 updatedAt: '2021-10-05 00:00:00'
 author:

@@ -4,7 +4,7 @@ description: 블로그 포스팅을 하기 전에 확인해야할 6가지 사항
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/what-is-backlink.png'
+img: '/images/blog-checklist.png'
 createdAt: '2021-10-05 00:00:00'
 updatedAt: '2021-10-05 00:00:00'
 author:

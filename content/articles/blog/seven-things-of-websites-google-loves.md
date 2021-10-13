@@ -4,7 +4,7 @@ description: 구글이 검색결과에 표시하고 싶은 웹사이트의 조�
 color: '#000'
 backgroundColor: '#80d6fc'
 backgroundColorForPreview: '#b8e9ff'
-img: '/images/what-is-seo.png'
+img: '/images/blog-google-loves.png'
 createdAt: '2021-10-02 00:00:00'
 updatedAt: '2021-10-02 00:00:00'
 author:
