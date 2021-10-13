@@ -10,7 +10,6 @@ const getOriginFrom = (url) => {
 }
 
 export async function createDiagnosis(url) {
-  const config = { headers: { 'x-requested-with': 'XMLHttpRequest' } }
   const res = await crawl(corsFreeUrl(url), config)
   const robots = await crawl(corsFreeUrl(`${getOriginFrom(url)}/robots.txt`), config).body
 
