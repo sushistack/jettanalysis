@@ -36,6 +36,11 @@
           descriptionType='DIAGNOSIS'
           imageUrl='/images/diagnosis-dummy.png'
         )
+        horizontal-split-box(
+          :isReverse='true'
+          descriptionType='WIKI'
+          imageUrl='/images/diagnosis-dummy.png'
+        )
   diagnosis-snackbar(
     ref='diagnosisSnackbar'
     :text='snackbarText'

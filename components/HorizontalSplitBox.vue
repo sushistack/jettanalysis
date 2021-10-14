@@ -4,7 +4,7 @@
     h2.detail-title {{ selectedDetail.title }}
     h3.detail-desc(v-html='selectedDetail.description')
     .detail-content
-      p(v-for='p in selectedDetail.paragraphs') {{ p }}
+      p(v-for='p in selectedDetail.paragraphs' v-html='p')
     .button-container
       button.detail-btn(type='button' @click.stop='go(selectedDetail.button.to)') {{ selectedDetail.button.text }}
   .box-image
@@ -55,15 +55,17 @@ export default {
   padding: 0 7px;
   width: 100%;
   margin: auto;
-  margin-top: 8rem;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
+
 .split-box-container.reverse {
   flex-direction: column;
 }
 
 .box-description, .box-image {
   width: 100%;
+  padding: 2rem;
 }
 
 .box-image > img {
@@ -111,6 +113,9 @@ export default {
   .split-box-container {
     flex-direction: row;
     max-width: 960px;
+  }
+  .split-box-container.reverse {
+    flex-direction: row-reverse;
   }
   .box-description, .box-image {
     width: 50%;
