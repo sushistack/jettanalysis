@@ -161,7 +161,7 @@ export default {
   }
   > .inner-container > div.inner-section-diagnosis {
     width: 100%;
-    max-width: 460px;
+    max-width: 600px;
   }
 }
 
