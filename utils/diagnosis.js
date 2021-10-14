@@ -248,7 +248,7 @@ class Diagnosis {
       title: meta.name,
       descType: 'TABLE',
       columns: [{ id: 'name', name: '이름', type: 'TEXT' }, { id: 'content', name: '내용', type: 'TEXT' }],
-      data: ta
+      data: tags
     }
 
     this.add('meta', null, body)
