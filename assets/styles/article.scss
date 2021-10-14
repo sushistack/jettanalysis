@@ -157,21 +157,33 @@ h6 .icon.icon-link {
   }
 }
 
+.connect {
+  margin: 0 auto;
+  padding: 4rem 10px 0 10px;
+  text-align: center;
+  .connect-link {
+    padding: 14px 20px;
+    background: #00afff;
+    border-radius: 7px;
+    color: #fff;
+  }
+}
+
 @media (min-width: 576px) {
-  .css-1pbu2z8, .css-1ricvn, .tags {
+  .css-1pbu2z8, .css-1ricvn, .tags, .connect {
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 
 @media (min-width: 540px) {
-  .css-1pbu2z8, .css-1ricvn, .tags {
+  .css-1pbu2z8, .css-1ricvn, .tags, .connect {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .css-1pbu2z8, .css-1ricvn, .tags {
+  .css-1pbu2z8, .css-1ricvn, .tags, .connect {
     max-width: 720px;
   }
   .css-chky3p {
@@ -189,7 +201,7 @@ h6 .icon.icon-link {
 }
 
 @media (min-width: 992px) {
-  .css-1pbu2z8, .css-1ricvn, .tags {
+  .css-1pbu2z8, .css-1ricvn, .tags, .connect {
     max-width: 730px;
   }
   .css-chky3p {

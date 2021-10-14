@@ -28,7 +28,7 @@ footer.css-895q96
                   li.menu-item
                     router-link(to='/') 홈
                   li.menu-item
-                    router-link(to='/service') 서비스
+                    a(@click.stop='goToLinkswap') 링크스왑
                   li.menu-item
                     a(@click.stop='counsel') 연락하기
         .css-9hzi2i
@@ -67,7 +67,10 @@ export default {
   components: { Logo },
   methods: {
     counsel () {
-      window.open(process.env.NUXT_APP_COUNSEL_LINK, '_blank').focus()
+      window.open('https://open.kakao.com/me/jett', '_blank').focus()
+    },
+    goToLinkswap () {
+      alert('준비중인 기능입니다.')
     }
   }
 }

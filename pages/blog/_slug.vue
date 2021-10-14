@@ -29,6 +29,8 @@
           li(v-for='tag in article.tags')
             span.icon.icon-link.small
             | {{ tag }}
+      .connect
+        a.connect-link(@click.stop='counsel') 무료로 상담 받으러 가기
     comment(:post='post')
   page-footer
 </template>
@@ -76,7 +78,10 @@ export default {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('ko', options)
-    }
+    },
+    counsel () {
+      window.open('https://open.kakao.com/me/jett', '_blank').focus()
+    },
   },
   computed: {
     topFontColor () {
