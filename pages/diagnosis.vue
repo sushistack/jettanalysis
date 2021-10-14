@@ -36,6 +36,7 @@
           descriptionType='DIAGNOSIS'
           imageUrl='/images/diagnosis-dummy.png'
         )
+        separater(:deg='0' :padding='1' :whiteBackground='true')
         horizontal-split-box(
           :isReverse='true'
           descriptionType='WIKI'

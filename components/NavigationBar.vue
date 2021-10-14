@@ -8,7 +8,8 @@
     nav.menu
       ul.menu-list(v-show='!isSmallerThanMd')
         li(v-for='m in menu')
-          router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
+          a.menu-link(v-if='m.name === "링크스왑"' @click.stop='go(m.to)' href='#none') {{ m.name }}
+          router-link.menu-link(v-else :to='m.to') {{ m.name }}
       button.burger-button(v-show='isSmallerThanMd' :class='{active: overlay}' @click.stop='toggleMenu')
         span.burger-menu-icon
   v-overlay.overlayed(v-show='isSmallerThanMd' :value='overlay' color='#00afff' opacity='1')
@@ -17,7 +18,8 @@
         .css-10y79h4
           ul.css-9f21ci
             li(v-for='m in menu')
-              router-link.menu-link(:to='m.to' :class='{"not-home": m.to === "/" && isNotExactHome}') {{ m.name }}
+              a.menu-link(v-if='m.name === "링크스왑"' @click.stop='go(m.to)' href='#none') {{ m.name }}
+              router-link.menu-link(v-else :to='m.to') {{ m.name }}
 </template>
 
 <script>
@@ -43,6 +45,9 @@ export default {
       } else {
         document.body.classList.remove('nav-actived')
       }
+    },
+    go (path) {
+      alert('준비중인 기능입니다.')
     }
   },
   computed: {
@@ -136,22 +141,13 @@ export default {
       color: #0077ff;
       cursor: default;
     }
-    .menu-link.nuxt-link-active.not-home {
-      font-weight: normal;
-      color: #000;
-      cursor: pointer;
-    }
   }
 }
 
 .css-9f21ci {
   .menu-link.nuxt-link-active {
-    color: #000;
+    color: #999;
     cursor: default;
-  }
-  .menu-link.nuxt-link-active.not-home {
-    color: #fff;
-    cursor: pointer;
   }
 }
 

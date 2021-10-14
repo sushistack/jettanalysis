@@ -241,6 +241,8 @@ class Diagnosis {
     })
     .filter(m => m !== null)
 
+    console.log(tags)
+
     const body = {
       validCode: 'CUSTOM',
       title: meta.name,
