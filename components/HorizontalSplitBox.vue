@@ -68,6 +68,11 @@ export default {
   padding: 2rem;
 }
 
+.box-image {
+  display: flex;
+  align-items: center;
+}
+
 .box-image > img {
   width: 100%;
 }
