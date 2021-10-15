@@ -146,7 +146,7 @@ export default {
 
 .css-9f21ci {
   .menu-link.nuxt-link-active {
-    color: #999;
+    color: #0077ff;
     cursor: default;
   }
 }
