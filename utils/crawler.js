@@ -29,7 +29,8 @@ function crawl(url, config = {}) {
   return new Promise((resolve, reject) => {
     axios.get(url, config)
       .then(res => { requestHandle(res, resolve, reject) })
-      .catch(err => { 
+      .catch(err => {
+        console.log('err', err)
         console.error({ statusCode: err.response && err.response.status ? err.response.status : 500, message: getErrorReason(err) })
         resolve({ resultCode: -1, headers: {}, body: '' })
        })
